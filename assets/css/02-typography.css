@@ -1,0 +1,65 @@
+/* ==========================================================
+   MYJAT Typography
+========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700;800&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap');
+
+body{
+font-family:'Mukta',var(--myjat-font),sans-serif;
+font-size:16px;
+font-weight:var(--myjat-fw-regular);
+color:var(--myjat-text);
+line-height:1.6;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-family:'Noto Serif Devanagari',serif;
+margin:0;
+font-weight:var(--myjat-fw-bold);
+line-height:1.25;
+color:var(--myjat-text);
+}
+
+h1{font-size:42px;}
+h2{font-size:34px;}
+h3{font-size:28px;}
+h4{font-size:22px;}
+h5{font-size:18px;}
+h6{font-size:16px;}
+
+
+p{
+margin:0 0 var(--myjat-space-4);
+color:var(--myjat-text-light);
+}
+
+small{
+font-size:13px;
+color:var(--myjat-text-muted);
+}
+
+strong{
+font-weight:var(--myjat-fw-bold);
+}
+
+.text-center{text-align:center;}
+.text-left{text-align:left;}
+.text-right{text-align:right;}
+
+.text-muted{color:var(--myjat-text-muted);}
+.text-primary{color:var(--myjat-primary);}
+.text-success{color:var(--myjat-success);}
+.text-warning{color:var(--myjat-warning);}
+.text-danger{color:var(--myjat-danger);}
+
+/* ==========================================================
+   Hindi Display Headings
+========================================================== */
+
+.myjat-display-heading{
+font-family:'Noto Serif Devanagari',serif;
+font-weight:700;
+line-height:1.08;
+letter-spacing:-0.02em;
+}

@@ -1,0 +1,44 @@
+/* ==========================================================
+   MYJAT Pagination
+========================================================== */
+
+.myjat-pagination{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:var(--myjat-space-2);
+margin:32px 0;
+flex-wrap:wrap;
+}
+
+.myjat-page-item{
+display:flex;
+align-items:center;
+justify-content:center;
+min-width:42px;
+height:42px;
+padding:0 14px;
+border:1px solid var(--myjat-border);
+border-radius:var(--myjat-radius-md);
+background:var(--myjat-surface);
+color:var(--myjat-text);
+font-weight:var(--myjat-fw-semibold);
+transition:all var(--myjat-speed) var(--myjat-ease);
+}
+
+.myjat-page-item:hover{
+background:var(--myjat-primary-light);
+border-color:var(--myjat-primary);
+color:var(--myjat-primary);
+}
+
+.myjat-page-item.is-active{
+background:var(--myjat-primary);
+border-color:var(--myjat-primary);
+color:var(--myjat-white);
+}
+
+.myjat-page-item.is-disabled{
+opacity:.45;
+pointer-events:none;
+}

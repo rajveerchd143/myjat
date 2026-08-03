@@ -1,0 +1,60 @@
+/* ==========================================================
+   MYJAT Skeleton
+========================================================== */
+
+.myjat-skeleton{
+position:relative;
+overflow:hidden;
+background:#edf2f7;
+border-radius:var(--myjat-radius-md);
+}
+
+.myjat-skeleton::after{
+content:"";
+position:absolute;
+inset:0;
+transform:translateX(-100%);
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.6),
+transparent
+);
+animation:myjat-skeleton 1.3s infinite;
+}
+
+.myjat-skeleton-text{
+width:100%;
+height:14px;
+margin-bottom:10px;
+}
+
+.myjat-skeleton-title{
+width:60%;
+height:22px;
+margin-bottom:var(--myjat-space-4);
+}
+
+.myjat-skeleton-avatar{
+width:64px;
+height:64px;
+border-radius:50%;
+}
+
+.myjat-skeleton-card{
+width:100%;
+height:180px;
+border-radius:var(--myjat-radius-xl);
+}
+
+.myjat-skeleton-button{
+width:120px;
+height:42px;
+border-radius:var(--myjat-radius-md);
+}
+
+@keyframes myjat-skeleton{
+100%{
+transform:translateX(100%);
+}
+}

@@ -1,0 +1,144 @@
+/* ==========================================================
+   MYJAT Applications
+========================================================== */
+
+.myjat-dashboard{
+max-width:1600px;
+margin:0 auto;
+}
+
+.myjat-quick-actions{
+display:grid;
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:24px;
+margin:0 0 30px;
+}
+
+.myjat-action-card{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:12px;
+padding:28px;
+background:var(--myjat-glass-bg);
+backdrop-filter:blur(var(--myjat-glass-blur));
+-webkit-backdrop-filter:blur(var(--myjat-glass-blur));
+border:1px solid var(--myjat-border);
+border-radius:var(--myjat-radius-xl);
+box-shadow:var(--myjat-shadow-md);
+transition:all var(--myjat-speed) var(--myjat-ease);
+text-align:center;
+}
+
+.myjat-action-card:hover{
+transform:translateY(-4px);
+box-shadow:var(--myjat-shadow-lg);
+border-color:var(--myjat-primary);
+}
+
+.myjat-action-card span{
+font-size:34px;
+}
+
+.myjat-action-card strong{
+font-size:16px;
+font-weight:var(--myjat-fw-bold);
+color:var(--myjat-text);
+}
+
+.myjat-search-card{
+margin-bottom:24px;
+}
+
+.myjat-search-btn{
+min-width:150px;
+}
+
+.myjat-filter-bar{
+display:flex;
+align-items:center;
+gap:16px;
+padding:20px;
+margin-bottom:30px;
+}
+
+.myjat-filter{
+min-width:220px;
+}
+
+.myjat-filter-bar .myjat-btn{
+margin-left:auto;
+}
+
+.myjat-stats{
+margin-bottom:32px;
+}
+
+.myjat-table-wrapper{
+margin-top:10px;
+}
+
+.myjat-table td:nth-child(7),
+.myjat-table td:nth-child(8){
+white-space:nowrap;
+}
+
+.myjat-table td .myjat-btn{
+margin:2px;
+}
+
+.myjat-table td .myjat-badge{
+font-size:12px;
+}
+
+.myjat-table tbody tr{
+transition:all var(--myjat-speed) var(--myjat-ease);
+}
+
+.myjat-table tbody tr:hover{
+transform:translateY(-2px);
+box-shadow:var(--myjat-shadow-sm);
+}
+
+.myjat-table td{
+vertical-align:middle;
+}
+
+@media(max-width:992px){
+
+.myjat-quick-actions{
+grid-template-columns:1fr;
+}
+
+.myjat-filter-bar{
+flex-direction:column;
+align-items:stretch;
+}
+
+.myjat-filter{
+width:100%;
+}
+
+.myjat-filter-bar .myjat-btn{
+margin-left:0;
+width:100%;
+}
+
+.myjat-search-btn{
+width:100%;
+}
+
+}
+
+@media(max-width:768px){
+
+.myjat-dashboard{
+padding:0;
+}
+
+.myjat-action-card{
+padding:22px;
+}
+
+}

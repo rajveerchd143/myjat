@@ -1,0 +1,51 @@
+/* ==========================================================
+   MYJAT Accordion
+========================================================== */
+
+.myjat-accordion{
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+
+.myjat-accordion-item{
+background:var(--myjat-surface);
+border:1px solid var(--myjat-border);
+border-radius:var(--myjat-radius-lg);
+overflow:hidden;
+box-shadow:var(--myjat-shadow-sm);
+}
+
+.myjat-accordion-header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:18px 22px;
+cursor:pointer;
+font-weight:var(--myjat-fw-bold);
+color:var(--myjat-text);
+transition:all var(--myjat-speed) var(--myjat-ease);
+}
+
+.myjat-accordion-header:hover{
+background:var(--myjat-primary-light);
+}
+
+.myjat-accordion-body{
+display:none;
+padding:22px;
+border-top:1px solid var(--myjat-border);
+animation:myjat-fade-in .25s ease;
+}
+
+.myjat-accordion-item.is-open .myjat-accordion-body{
+display:block;
+}
+
+.myjat-accordion-icon{
+transition:transform var(--myjat-speed) var(--myjat-ease);
+}
+
+.myjat-accordion-item.is-open .myjat-accordion-icon{
+transform:rotate(180deg);
+}

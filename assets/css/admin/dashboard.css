@@ -1,0 +1,155 @@
+/* ==========================================================
+   MYJAT Design System
+   File : dashboard.css
+   Purpose : Secretary Dashboard
+==========================================================*/
+
+/* ==========================================================
+   Dashboard Header
+==========================================================*/
+
+.myjat-dashboard-header{
+position:relative;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:30px;
+padding:34px;
+margin-bottom:32px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,.25);
+border-radius:var(--myjat-radius-xl);
+background:linear-gradient(135deg,#f58220 0%,#ea580c 100%);
+box-shadow:0 20px 55px rgba(245,130,32,.28);
+color:#fff;
+}
+
+.myjat-dashboard-header::before{
+content:"";
+position:absolute;
+width:340px;
+height:340px;
+top:-170px;
+right:-110px;
+border-radius:50%;
+background:rgba(255,255,255,.08);
+}
+
+.myjat-dashboard-header::after{
+content:"";
+position:absolute;
+width:220px;
+height:220px;
+bottom:-110px;
+left:-70px;
+border-radius:50%;
+background:rgba(255,255,255,.06);
+}
+
+.myjat-dashboard-title{
+position:relative;
+z-index:2;
+}
+
+.myjat-dashboard-title h1{
+margin:0;
+font-size:36px;
+font-weight:800;
+line-height:1.2;
+color:#fff;
+}
+
+.myjat-dashboard-title p{
+margin:10px 0 0;
+font-size:15px;
+line-height:1.6;
+color:rgba(255,255,255,.90);
+max-width:650px;
+}
+
+.myjat-dashboard-actions{
+position:relative;
+z-index:2;
+display:flex;
+align-items:center;
+gap:14px;
+flex-wrap:wrap;
+}
+
+.myjat-export-btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:13px 24px!important;
+border:none!important;
+border-radius:var(--myjat-radius-md)!important;
+background:#fff!important;
+color:#ea580c!important;
+font-weight:700!important;
+text-decoration:none;
+box-shadow:var(--myjat-shadow-md);
+transition:all var(--myjat-speed) var(--myjat-ease);
+}
+
+.myjat-export-btn:hover{
+transform:translateY(-2px);
+box-shadow:var(--myjat-shadow-lg);
+}
+
+/* ==========================================================
+   Statistics
+==========================================================*/
+
+.myjat-stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:24px;
+margin-bottom:30px;
+}
+
+.myjat-stat-card{
+position:relative;
+overflow:hidden;
+padding:28px;
+background:rgba(255,255,255,.78);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.45);
+border-radius:var(--myjat-radius-xl);
+box-shadow:var(--myjat-shadow-md);
+transition:all var(--myjat-speed) var(--myjat-ease);
+}
+
+.myjat-stat-card:hover{
+transform:translateY(-6px);
+box-shadow:var(--myjat-shadow-lg);
+}
+
+.myjat-stat-icon{
+display:flex;
+align-items:center;
+justify-content:center;
+width:60px;
+height:60px;
+margin-bottom:18px;
+border-radius:18px;
+background:linear-gradient(135deg,#f58220,#ea580c);
+color:#fff;
+font-size:26px;
+box-shadow:0 10px 24px rgba(245,130,32,.25);
+}
+
+.myjat-stat-title{
+margin-bottom:8px;
+font-size:15px;
+font-weight:600;
+color:var(--myjat-text-muted);
+}
+
+.myjat-stat-number{
+margin:0;
+font-size:52px;
+font-weight:800;
+line-height:1;
+color:var(--myjat-primary);
+}
+

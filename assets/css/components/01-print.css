@@ -1,0 +1,48 @@
+/* ==========================================================
+   MYJAT Print System
+========================================================== */
+
+@media print{
+
+@page{
+margin:10mm;
+size:auto;
+}
+
+html,
+body{
+background:var(--myjat-white)!important;
+color:#000!important;
+}
+
+.myjat-no-print{
+display:none!important;
+}
+
+.myjat-print-only{
+display:block!important;
+}
+
+.myjat-page-break{
+page-break-after:always;
+break-after:page;
+}
+
+.myjat-page-break-avoid{
+page-break-inside:avoid;
+break-inside:avoid;
+}
+
+.myjat-card,
+.myjat-table-wrapper,
+.myjat-modal-dialog{
+box-shadow:none!important;
+border:1px solid #ddd!important;
+}
+
+a{
+color:#000!important;
+text-decoration:none!important;
+}
+
+}

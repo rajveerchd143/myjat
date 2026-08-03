@@ -1,0 +1,55 @@
+/*=========================================
+Application View
+=========================================*/
+
+
+.myjat-view-header h1{
+
+margin:0;
+
+font-size:38px;
+
+color:#fff;
+
+}
+
+.myjat-view-page{
+max-width:1400px;
+margin:30px auto;
+padding:0 25px 40px;
+}
+
+.myjat-view-subtitle{
+    display:block;
+    font-size:13px;
+    opacity:.85;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin-bottom:8px;
+}
+
+.myjat-view-header h1{
+    margin:0;
+    color:#fff;
+    font-size:34px;
+    font-weight:700;
+}
+
+
+.myjat-view-content{
+display:flex;
+flex-direction:column;
+gap:30px;
+margin-top:30px;
+}
+
+
+.myjat-view-actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.myjat-view-actions{
+margin-top:20px;
+}

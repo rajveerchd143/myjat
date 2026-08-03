@@ -1,0 +1,74 @@
+/* ==========================================================
+   MYJAT Form System
+========================================================== */
+/*==================================================
+INPUT 
+==================================================*/
+
+.myjat-input{
+width:100%;
+padding:var(--myjat-space-3) var(--myjat-space-4);
+font-family:var(--myjat-font);
+font-size:15px;
+color:var(--myjat-text);
+background:var(--myjat-surface);
+border:1px solid var(--myjat-border);
+border-radius:var(--myjat-radius-md);
+transition:all var(--myjat-speed) var(--myjat-ease);
+box-sizing:border-box;
+}
+
+.myjat-input:focus{
+   outline:none;
+border-color:#F58220;
+box-shadow:0 0 0 4px rgba(245,130,32,.12),0 20px 50px rgba(245,130,32,.12);
+background:#fff;
+}
+
+/*==================================================
+Text Area 
+==================================================*/
+.myjat-textarea{
+width:100%;
+padding:var(--myjat-space-3) var(--myjat-space-4);
+font-family:var(--myjat-font);
+font-size:15px;
+color:var(--myjat-text);
+background:var(--myjat-surface);
+border:1px solid var(--myjat-border);
+border-radius:var(--myjat-radius-md);
+transition:all var(--myjat-speed) var(--myjat-ease);
+box-sizing:border-box;
+}
+
+.myjat-textarea:focus{
+outline:none;
+border-color:#F58220;
+box-shadow:0 0 0 4px rgba(245,130,32,.12),0 20px 50px rgba(245,130,32,.12);
+background:#fff;
+}
+
+.myjat-label{
+display:block;
+margin-bottom:var(--myjat-space-2);
+font-weight:var(--myjat-fw-semibold);
+color:var(--myjat-text);
+}
+
+.myjat-form-group{
+display:flex;
+background-color: white;
+flex-direction:column;
+gap:var(--myjat-space-1);
+}
+
+.myjat-file{
+padding:var(--myjat-space-2);
+}
+
+.myjat-checkbox{
+width:auto;
+margin-right:var(--myjat-space-2);
+accent-color:var(--myjat-primary);
+cursor:pointer;
+}

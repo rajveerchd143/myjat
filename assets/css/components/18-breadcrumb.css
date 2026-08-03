@@ -1,0 +1,31 @@
+/* ==========================================================
+   MYJAT Breadcrumb
+========================================================== */
+
+.myjat-breadcrumb{
+display:flex;
+align-items:center;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:var(--myjat-space-6);
+font-size:14px;
+}
+
+.myjat-breadcrumb a{
+color:var(--myjat-text-muted);
+transition:all var(--myjat-speed) var(--myjat-ease);
+}
+
+.myjat-breadcrumb a:hover{
+color:var(--myjat-primary);
+}
+
+.myjat-breadcrumb-separator{
+color:var(--myjat-text-muted);
+opacity:.6;
+}
+
+.myjat-breadcrumb-current{
+font-weight:var(--myjat-fw-semibold);
+color:var(--myjat-text);
+}

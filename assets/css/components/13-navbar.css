@@ -1,0 +1,106 @@
+/* ==========================================================
+   MYJAT Navbar
+========================================================== */
+
+.myjat-navbar{
+position:sticky;
+top:0;
+z-index:var(--myjat-z-sticky);
+display:flex;
+align-items:center;
+justify-content:space-between;
+height:72px;
+padding:0 var(--myjat-space-6);
+background:var(--myjat-glass-bg);
+backdrop-filter:blur(var(--myjat-glass-blur));
+-webkit-backdrop-filter:blur(var(--myjat-glass-blur));
+border-bottom:1px solid var(--myjat-border);
+box-shadow:var(--myjat-shadow-sm);
+}
+
+.myjat-navbar-brand{
+display:flex;
+align-items:center;
+gap:14px;
+font-weight:var(--myjat-fw-bold);
+font-size:20px;
+color:var(--myjat-text);
+}
+
+.myjat-navbar-nav{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.myjat-navbar-link{
+display:flex;
+align-items:center;
+padding:10px 16px;
+border-radius:var(--myjat-radius-md);
+color:var(--myjat-text);
+transition:all var(--myjat-speed) var(--myjat-ease);
+}
+
+.myjat-navbar-link:hover,
+.myjat-navbar-link.is-active{
+background:var(--myjat-primary-light);
+color:var(--myjat-primary);
+}
+
+.myjat-navbar-actions{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+/*==================================================
+MYJAT NAVBAR
+==================================================*/
+
+.myjat-navbar{
+position:sticky;
+top:0;
+z-index:1000;
+display:flex;
+align-items:center;
+justify-content:space-between;
+height:78px;
+padding:0 32px;
+background:rgba(255,255,255,.72);
+backdrop-filter:blur(24px);
+-webkit-backdrop-filter:blur(24px);
+border-bottom:1px solid rgba(255,255,255,.75);
+box-shadow:0 10px 30px rgba(15,23,42,.05);
+}
+
+.myjat-navbar-logo{
+display:flex;
+align-items:center;
+gap:14px;
+font-size:22px;
+font-weight:800;
+color:#2F2F2F;
+text-decoration:none;
+}
+
+.myjat-navbar-menu{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.myjat-navbar-menu a{
+padding:10px 18px;
+border-radius:14px;
+color:#444;
+font-weight:600;
+text-decoration:none;
+transition:.25s;
+}
+
+.myjat-navbar-menu a:hover,
+.myjat-navbar-menu a.active{
+background:rgba(245,130,32,.10);
+color:#F58220;
+}

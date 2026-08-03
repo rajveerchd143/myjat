@@ -1,0 +1,56 @@
+/* ==========================================================
+   MYJAT Button System
+========================================================== */
+
+.myjat-btn{
+width:200px;
+height:56px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:var(--myjat-space-2);
+padding:12px 22px;
+border:5px;
+border-radius:var(--myjat-radius-md);
+font-family:var(--myjat-font);
+font-size:15px;
+font-weight:var(--myjat-fw-semibold);
+text-decoration:none;
+cursor:pointer;
+transition:all var(--myjat-speed) var(--myjat-ease);
+box-shadow:var(--myjat-shadow-md);
+user-select:none;
+white-space:nowrap;
+}
+
+/*==================================================
+MYJAT PREMIUM BUTTONS
+==================================================*/
+.myjat-primary{
+background:rgba(255,255,255,.72);
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.75);
+color:#2F2F2F;
+box-shadow:0 20px 60px rgba(0,0,0,.35);
+
+}
+
+.myjat-primary:hover{
+transform:translateY(-5px);
+box-shadow:0 20px 45px rgba(15,23,42,.10);
+}
+
+.myjat-secondary{
+background:rgba(255,255,255,.72);
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.75);
+color:#2F2F2F;
+box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+.myjat-secondary:hover{
+transform:translateY(-5px);
+box-shadow:0 20px 45px rgba(15,23,42,.10);
+}

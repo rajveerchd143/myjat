@@ -1,0 +1,95 @@
+/* ==========================================================
+   MYJAT Search System
+========================================================== */
+
+
+.myjat-search-box{
+position:relative;
+flex:1;
+min-width:0;
+}
+
+.myjat-search-icon{
+position:absolute;
+left:18px;
+top:50%;
+transform:translateY(-50%);
+font-size:18px;
+color:var(--myjat-text-muted);
+pointer-events:none;
+}
+
+
+.myjat-search-input{
+width:100%;
+height:52px;
+padding:0 18px 0 52px;
+background:var(--myjat-surface);
+border:1px solid var(--myjat-border);
+border-radius:var(--myjat-radius-md);
+font-size:15px;
+transition:all var(--myjat-speed) var(--myjat-ease);
+box-sizing:border-box;
+display:block;
+}
+.myjat-search-input:focus-visible{
+outline:none;
+border-color:var(--myjat-primary);
+box-shadow:0 0 0 4px var(--myjat-primary-glow);
+}
+
+.myjat-search-form{
+display:flex;
+align-items:center;
+gap:var(--myjat-space-4);
+flex-wrap:nowrap;
+width:100%;
+}
+
+.myjat-search-form > *{
+flex-shrink:0;
+}
+
+.myjat-search-form .myjat-search-box{
+flex:1 1 auto;
+}
+
+/*==================================================
+MYJAT SEARCH
+==================================================*/
+
+.myjat-search{
+position:relative;
+width:100%;
+max-width:420px;
+}
+
+.myjat-search input{
+width:100%;
+height:56px;
+padding:0 20px 0 52px;
+background:rgba(255,255,255,.72);
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.75);
+border-radius:18px;
+box-shadow:0 12px 35px rgba(15,23,42,.05);
+font-size:15px;
+transition:.25s;
+}
+
+.myjat-search input:focus{
+outline:none;
+border-color:#F58220;
+box-shadow:0 0 0 4px rgba(245,130,32,.10),0 20px 45px rgba(245,130,32,.12);
+}
+
+.myjat-search i{
+position:absolute;
+left:18px;
+top:50%;
+transform:translateY(-50%);
+font-size:16px;
+color:#9CA3AF;
+pointer-events:none;
+}

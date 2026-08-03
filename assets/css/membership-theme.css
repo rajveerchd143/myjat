@@ -1,0 +1,95 @@
+/* ==========================================================
+   MYJAT Design System
+   Global Theme Tokens
+========================================================== */
+:root {
+   /*==========================================================
+Brand
+==========================================================*/
+   --myjat-primary: #f58220;
+   --myjat-primary-hover: #e56f00;
+   --myjat-primary-light: #fff7ed;
+   --myjat-primary-border: #fed7aa;
+   --myjat-primary-glow: rgba(245, 130, 32, .25);
+   /*==========================================================
+Neutrals
+==========================================================*/
+   --myjat-white: #ffffff;
+   --myjat-bg: #FFFDF9;
+   --myjat-surface: rgba(255, 255, 255, .72);
+   --myjat-surface-soft: #FFF7ED;
+   --myjat-text: #2F2F2F;
+   --myjat-text-light: #4B5563;
+   --myjat-text-muted: #6B7280;
+   --myjat-border: rgba(255, 255, 255, .75);
+   --myjat-border-light: #FDEBD4;
+   /*==========================================================
+Status
+==========================================================*/
+   --myjat-success: #16a34a;
+   --myjat-warning: #f59e0b;
+   --myjat-danger: #dc2626;
+   --myjat-info: #2563eb;
+   /*==========================================================
+Typography
+==========================================================*/
+   --myjat-font: Inter, system-ui, sans-serif;
+   --myjat-fw-regular: 400;
+   --myjat-fw-medium: 500;
+   --myjat-fw-semibold: 600;
+   --myjat-fw-bold: 700;
+   --myjat-fw-black: 800;
+   /*==========================================================
+Radius
+==========================================================*/
+   --myjat-radius-sm: 10px;
+   --myjat-radius-md: 14px;
+   --myjat-radius-lg: 18px;
+   --myjat-radius-xl: 22px;
+   --myjat-radius-2xl: 28px;
+   --myjat-radius-pill: 9999px;
+   /*==========================================================
+Spacing
+==========================================================*/
+   --myjat-space-1: 4px;
+   --myjat-space-2: 8px;
+   --myjat-space-3: 12px;
+   --myjat-space-4: 16px;
+   --myjat-space-5: 20px;
+   --myjat-space-6: 24px;
+   --myjat-space-7: 30px;
+   --myjat-space-8: 36px;
+   --myjat-space-9: 48px;
+   --myjat-space-10: 64px;
+   /*==========================================================
+Shadow
+==========================================================*/
+   --myjat-shadow-sm: 0 4px 12px rgba(15, 23, 42, .06);
+   --myjat-shadow-md: 0 10px 25px rgba(15, 23, 42, .08);
+   --myjat-shadow-lg: 0 15px 40px rgba(15, 23, 42, .10);
+   --myjat-shadow-xl: 0 25px 60px rgba(15, 23, 42, .12);
+   /*==========================================================
+Glass
+==========================================================*/
+   --myjat-glass-bg: rgba(255, 255, 255, .72);
+   --myjat-glass-border: rgba(255, 255, 255, .80);
+   --myjat-glass-blur: 24px;
+   /*==========================================================
+Animation
+==========================================================*/
+   --myjat-speed-fast: .15s;
+   --myjat-speed: .25s;
+   --myjat-speed-slow: .35s;
+   --myjat-ease: ease;
+   /*==========================================================
+Container
+==========================================================*/
+   --myjat-container: 1600px;
+   /*==========================================================
+Z-index
+==========================================================*/
+   --myjat-z-dropdown: 1000;
+   --myjat-z-sticky: 1020;
+   --myjat-z-fixed: 1030;
+   --myjat-z-modal: 1050;
+}

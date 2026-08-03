@@ -1,0 +1,42 @@
+/* ==========================================================
+   MYJAT Progress
+========================================================== */
+
+.myjat-progress{
+width:100%;
+height:10px;
+overflow:hidden;
+background:var(--myjat-border-light);
+border-radius:var(--myjat-radius-pill);
+}
+
+.myjat-progress-bar{
+height:100%;
+width:0;
+background:linear-gradient(90deg,var(--myjat-primary),var(--myjat-primary-hover));
+border-radius:inherit;
+transition:width .35s ease;
+}
+
+.myjat-progress-sm{
+height:6px;
+}
+
+.myjat-progress-lg{
+height:16px;
+}
+
+.myjat-progress-label{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:10px;
+font-size:14px;
+font-weight:var(--myjat-fw-semibold);
+color:var(--myjat-text);
+}
+
+.myjat-progress-value{
+color:var(--myjat-primary);
+font-weight:var(--myjat-fw-bold);
+}

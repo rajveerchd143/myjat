@@ -1,0 +1,79 @@
+/* ==========================================================
+   MYJAT Modal System
+========================================================== */
+
+.myjat-modal{
+position:fixed;
+inset:0;
+display:none;
+align-items:center;
+justify-content:center;
+padding:var(--myjat-space-7);
+background:rgba(15,23,42,.55);
+backdrop-filter:blur(8px);
+-webkit-backdrop-filter:blur(8px);
+z-index:var(--myjat-z-modal);
+opacity:0;
+transition:opacity var(--myjat-speed) var(--myjat-ease);
+}
+
+.myjat-modal.is-open{
+display:flex;
+opacity:1;
+}
+
+.myjat-modal-dialog{
+position:relative;
+width:100%;
+max-width:700px;
+background:var(--myjat-surface);
+border:1px solid var(--myjat-border);
+border-radius:var(--myjat-radius-xl);
+box-shadow:var(--myjat-shadow-xl);
+overflow:hidden;
+animation:myjat-scale-in .25s ease;
+}
+
+.myjat-modal-header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:22px 26px;
+border-bottom:1px solid var(--myjat-border);
+}
+
+.myjat-modal-title{
+margin:0;
+font-size:22px;
+font-weight:var(--myjat-fw-bold);
+}
+
+.myjat-modal-close{
+width:42px;
+height:42px;
+display:flex;
+align-items:center;
+justify-content:center;
+border:none;
+border-radius:50%;
+background:transparent;
+cursor:pointer;
+transition:all var(--myjat-speed) var(--myjat-ease);
+}
+
+.myjat-modal-close:hover{
+background:var(--myjat-primary-light);
+color:var(--myjat-primary);
+}
+
+.myjat-modal-body{
+padding:26px;
+}
+
+.myjat-modal-footer{
+display:flex;
+justify-content:flex-end;
+gap:var(--myjat-space-3);
+padding:20px 26px;
+border-top:1px solid var(--myjat-border);
+}

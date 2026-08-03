@@ -1,0 +1,45 @@
+/* ==========================================================
+   MYJAT Spinner
+========================================================== */
+
+.myjat-spinner{
+display:inline-block;
+width:40px;
+height:40px;
+border:4px solid rgba(245,130,32,.18);
+border-top-color:var(--myjat-primary);
+border-radius:50%;
+animation:myjat-spin .8s linear infinite;
+}
+
+.myjat-spinner-sm{
+width:20px;
+height:20px;
+border-width:2px;
+}
+
+.myjat-spinner-md{
+width:32px;
+height:32px;
+border-width:3px;
+}
+
+.myjat-spinner-lg{
+width:56px;
+height:56px;
+border-width:5px;
+}
+
+.myjat-spinner-center{
+display:flex;
+align-items:center;
+justify-content:center;
+width:100%;
+padding:var(--myjat-space-6);
+}
+
+@keyframes myjat-spin{
+to{
+transform:rotate(360deg);
+}
+}

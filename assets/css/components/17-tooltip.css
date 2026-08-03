@@ -1,0 +1,50 @@
+/* ==========================================================
+   MYJAT Tooltip
+========================================================== */
+
+.myjat-tooltip{
+position:relative;
+display:inline-flex;
+align-items:center;
+}
+
+.myjat-tooltip::after{
+content:attr(data-tooltip);
+position:absolute;
+left:50%;
+bottom:calc(100% + 10px);
+transform:translateX(-50%);
+padding:var(--myjat-space-2) var(--myjat-space-3);
+background:#111827;
+color:var(--myjat-white);
+font-size:13px;
+font-weight:500;
+white-space:nowrap;
+border-radius:var(--myjat-radius-sm);
+box-shadow:var(--myjat-shadow-md);
+opacity:0;
+visibility:hidden;
+pointer-events:none;
+transition:all var(--myjat-speed) var(--myjat-ease);
+z-index:var(--myjat-z-dropdown);
+}
+
+.myjat-tooltip::before{
+content:"";
+position:absolute;
+left:50%;
+bottom:100%;
+transform:translateX(-50%);
+border:6px solid transparent;
+border-top-color:#111827;
+opacity:0;
+visibility:hidden;
+transition:all var(--myjat-speed) var(--myjat-ease);
+}
+
+.myjat-tooltip:hover::after,
+.myjat-tooltip:hover::before{
+opacity:1;
+visibility:visible;
+}
+
