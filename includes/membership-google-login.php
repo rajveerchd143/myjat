@@ -73,19 +73,6 @@ function myjat_google_verify_state($state){
 
 function myjat_google_login_url(){
 
-    echo '<pre>';
-    echo 'Client ID: ';
-    var_dump(MYJAT_GOOGLE_CLIENT_ID);
-
-    echo '<br><br>Redirect URI: ';
-    var_dump(MYJAT_GOOGLE_REDIRECT_URI);
-
-    exit;
-
-    $params=array(
-
-function myjat_google_login_url(){
-
 	$params=array(
 
 		'client_id'=>MYJAT_GOOGLE_CLIENT_ID,
@@ -268,6 +255,30 @@ function myjat_google_callback(){
 
 }
 
-define('MYJAT_GOOGLE_CLIENT_ID','YOUR_CLIENT_ID_HERE');
+function myjat_google_login_url(){
 
-die(MYJAT_GOOGLE_CLIENT_ID);
+    echo '<pre>';
+
+    echo "Client ID:\n";
+    var_dump(MYJAT_GOOGLE_CLIENT_ID);
+
+    echo "\n\nRedirect URI:\n";
+    var_dump(MYJAT_GOOGLE_REDIRECT_URI);
+
+    echo "\n\nGenerated URL:\n";
+
+    $params = array(
+        'client_id' => MYJAT_GOOGLE_CLIENT_ID,
+        'redirect_uri' => MYJAT_GOOGLE_REDIRECT_URI,
+        'response_type' => 'code',
+        'scope' => 'openid email profile',
+        'access_type' => 'online',
+        'prompt' => 'select_account',
+        'include_granted_scopes' => 'true',
+        'state' => 'test'
+    );
+
+    echo 'https://accounts.google.com/o/oauth2/v2/auth?' . http_build_query($params);
+
+    exit;
+}
