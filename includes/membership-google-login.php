@@ -268,3 +268,6 @@ function myjat_google_callback(){
 
 }
 
+define('MYJAT_GOOGLE_CLIENT_ID','YOUR_CLIENT_ID_HERE');
+
+die(MYJAT_GOOGLE_CLIENT_ID);
