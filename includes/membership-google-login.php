@@ -96,14 +96,6 @@ function myjat_google_login_url(){
 	return 'https://accounts.google.com/o/oauth2/v2/auth?'.http_build_query($params);
 
 }
-//temp
-echo '<pre>';
-$state = myjat_google_create_state();
-echo $state;
-echo '<br>';
-echo get_transient('myjat_google_'.$state);
-echo '</pre>';
-//temp
 
 function myjat_google_login_button($text='Continue with Google'){
 
