@@ -73,6 +73,19 @@ function myjat_google_verify_state($state){
 
 function myjat_google_login_url(){
 
+    echo '<pre>';
+    echo 'Client ID: ';
+    var_dump(MYJAT_GOOGLE_CLIENT_ID);
+
+    echo '<br><br>Redirect URI: ';
+    var_dump(MYJAT_GOOGLE_REDIRECT_URI);
+
+    exit;
+
+    $params=array(
+
+function myjat_google_login_url(){
+
 	$params=array(
 
 		'client_id'=>MYJAT_GOOGLE_CLIENT_ID,
