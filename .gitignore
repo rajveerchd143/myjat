@@ -5,3 +5,4 @@ Thumbs.db
 *.tmp
 *.bak
 *.cache
+includes/membership-config.php

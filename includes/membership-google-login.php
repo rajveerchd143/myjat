@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
 */
 
 
-
+require_once __DIR__ . '/membership-config.php';
 /*
 |--------------------------------------------------------------------------
 | Configuration
