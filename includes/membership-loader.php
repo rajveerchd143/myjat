@@ -20,7 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 // =========================================================
 require_once __DIR__ . '/membership-config.php';
 require_once __DIR__ . '/membership-utils.php';
-require_once __DIR__ . '/membership-settings.php ';
 require_once __DIR__ . '/membership-roles.php';
 require_once __DIR__ . '/membership-database.php';
 require_once __DIR__ . '/membership-number.php';
