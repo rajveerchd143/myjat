@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // =========================================================
 // Core Modules
 // =========================================================
-//require_once __DIR__ . '/membership-config.php';
+require_once __DIR__ . '/membership-config.php';
 require_once __DIR__ . '/membership-utils.php';
 require_once __DIR__ . '/membership-roles.php';
 require_once __DIR__ . '/membership-database.php';
