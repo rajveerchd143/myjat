@@ -94,7 +94,7 @@ function myjat_google_login_url(){
 	);
 
 	return 'https://accounts.google.com/o/oauth2/v2/auth?'.http_build_query($params);
-
+	wp_die($url);
 }
 
 function myjat_google_login_button($text='Continue with Google'){
