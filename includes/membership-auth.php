@@ -199,7 +199,7 @@ add_action('admin_post_nopriv_myjat_logout','myjat_logout');
 | Login Shortcode
 |--------------------------------------------------------------------------
 */
-
+wp_die('AUTH FILE LOADED');
 add_shortcode('myjat_login','myjat_login_shortcode');
 
 function myjat_login_shortcode(){
