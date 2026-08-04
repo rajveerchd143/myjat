@@ -72,12 +72,7 @@ function myjat_google_verify_state($state){
 */
 
 function myjat_google_login_url(){
-wp_die(
-    '<pre>' .
-    'CLIENT ID: ' . MYJAT_GOOGLE_CLIENT_ID . "\n\n" .
-    'REDIRECT: ' . MYJAT_GOOGLE_REDIRECT_URI .
-    '</pre>'
-);
+
 
 	$params=array(
 
