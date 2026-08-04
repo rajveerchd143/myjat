@@ -124,7 +124,6 @@ add_action('wp_ajax_nopriv_myjat_google_callback','myjat_google_callback');
 add_action('wp_ajax_myjat_google_callback','myjat_google_callback');
 
 function myjat_google_callback(){
-wp_die('Callback reached');
 	if(empty($_GET['code'])){
 		wp_die('Missing authorization code.');
 	}
@@ -253,32 +252,4 @@ wp_die('Callback reached');
 
 	exit;
 
-}
-
-function myjat_google_login_url(){
-
-    echo '<pre>';
-
-    echo "Client ID:\n";
-    var_dump(MYJAT_GOOGLE_CLIENT_ID);
-
-    echo "\n\nRedirect URI:\n";
-    var_dump(MYJAT_GOOGLE_REDIRECT_URI);
-
-    echo "\n\nGenerated URL:\n";
-
-    $params = array(
-        'client_id' => MYJAT_GOOGLE_CLIENT_ID,
-        'redirect_uri' => MYJAT_GOOGLE_REDIRECT_URI,
-        'response_type' => 'code',
-        'scope' => 'openid email profile',
-        'access_type' => 'online',
-        'prompt' => 'select_account',
-        'include_granted_scopes' => 'true',
-        'state' => 'test'
-    );
-
-    echo 'https://accounts.google.com/o/oauth2/v2/auth?' . http_build_query($params);
-
-    exit;
 }
