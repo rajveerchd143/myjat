@@ -116,7 +116,7 @@ function myjat_google_login_button($text='Continue with Google'){
 }
 /*
 |--------------------------------------------------------------------------
-| Google Callback
+| Google Callback_Bhai hO gya 
 |--------------------------------------------------------------------------
 */
 
@@ -124,7 +124,7 @@ add_action('wp_ajax_nopriv_myjat_google_callback','myjat_google_callback');
 add_action('wp_ajax_myjat_google_callback','myjat_google_callback');
 
 function myjat_google_callback(){
-
+wp_die('Callback reached');
 	if(empty($_GET['code'])){
 		wp_die('Missing authorization code.');
 	}
