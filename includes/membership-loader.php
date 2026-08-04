@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // =========================================================
 // Core Modules
 // =========================================================
-require_once __DIR__ . '/membership-config.php';
+//require_once __DIR__ . '/membership-config.php';
 require_once __DIR__ . '/membership-utils.php';
 require_once __DIR__ . '/membership-roles.php';
 require_once __DIR__ . '/membership-database.php';
@@ -60,9 +60,9 @@ require_once __DIR__ . '/membership-export.php';
 // Google Login
 // =========================================================
 
-require_once __DIR__ . '/membership-google-login.php';
-require_once __DIR__ . '/membership-auth.php';
-require_once __DIR__ . '/membership-status.php';
+//require_once __DIR__ . '/membership-google-login.php';
+//require_once __DIR__ . '/membership-auth.php';
+//require_once __DIR__ . '/membership-status.php';
 
 require_once __DIR__ . '/membership-member-dashboard.php';
 require_once __DIR__ . '/membership-admin-security.php';
