@@ -1,9 +1,10 @@
 <?php
-
 if (!defined('ABSPATH')) {
     exit;
 }
 
+add_action('admin_post_nopriv_myjat_google_debug', 'myjat_google_debug');
+add_action('admin_post_myjat_google_debug', 'myjat_google_debug');
 
 function myjat_google_debug(){
 
@@ -66,8 +67,4 @@ function myjat_google_debug(){
     }
 
     exit;
-}
-
-if (isset($_GET['myjat_google_debug'])) {
-    myjat_google_debug();
 }
