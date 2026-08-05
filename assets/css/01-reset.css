@@ -5,8 +5,8 @@
 *,
 *::before,
 *::after{
-margin:0;
-padding:0;
+margin: 15px;;
+padding:5px;
 box-sizing:border-box;
 }
 
