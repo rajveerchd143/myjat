@@ -24,7 +24,6 @@ require_once __DIR__ . '/membership-config.php';
 if(!defined('MYJAT_GOOGLE_CLIENT_ID')){
     define('MYJAT_GOOGLE_CLIENT_ID','YOUR_GOOGLE_CLIENT_ID');
 }
-die(MYJAT_GOOGLE_CLIENT_ID);
 if(!defined('MYJAT_GOOGLE_CLIENT_SECRET')){
     define('MYJAT_GOOGLE_CLIENT_SECRET','YOUR_GOOGLE_CLIENT_SECRET');
 }
