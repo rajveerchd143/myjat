@@ -43,6 +43,12 @@ function myjat_google_debug(){
     $url = 'https://accounts.google.com/o/oauth2/v2/auth?' . http_build_query($params);
 
     echo "OAuth URL:\n";
+    echo "\n\n============================\n";
+echo "OPEN THIS URL MANUALLY\n";
+echo "============================\n\n";
+echo $url;
+echo "\n\n";
+exit;
     echo $url;
     echo "\n\n";
 
