@@ -59,8 +59,8 @@ require_once __DIR__ . '/membership-export.php';
 // =========================================================
 // Google Login
 // =========================================================
-require_once __DIR__ . '/membership-google-login.php';
-//require_once __DIR__ . '/membership-auth.php';
+//require_once __DIR__ . '/membership-google-login.php';
+require_once __DIR__ . '/membership-auth.php';
 require_once __DIR__ . '/membership-status.php';
 require_once __DIR__ . '/membership-google-debug.php';
 require_once __DIR__ . '/membership-member-dashboard.php';
