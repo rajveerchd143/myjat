@@ -20,7 +20,7 @@ function myjat_render_member_card($application)
 <div class="myjat-pvc-back-watermark">
 
 <img class="myjat-pvc-back-watermark-logo"
-src="https://myjat.in/wp-content/uploads/2026/06/jat-final-logo-AGAIN-DONE-6-01-01.pngkkkk">
+src="https://myjat.in/wp-content/uploads/2026/08/Logo.png">
 
 </div>
 
@@ -28,7 +28,7 @@ src="https://myjat.in/wp-content/uploads/2026/06/jat-final-logo-AGAIN-DONE-6-01-
     <div class="myjat-pvc-logo-wrap">
     
     <img class="myjat-pvc-logo"
-    src="https://myjat.in/wp-content/uploads/2026/06/jat-final-logo-AGAIN-DONE-6-01-01.png.....">
+    src="https://myjat.in/wp-content/uploads/2026/08/Logo.png">
 
     </div>
     
@@ -169,7 +169,7 @@ src="' . esc_url($application->photo_url) . '">';
     <div class="myjat-pvc-watermark">
     <img
     class="myjat-pvc-back-watermark-logo"
-    src="https://myjat.in/wp-content/uploads/2026/06/jat-final-logo-AGAIN-DONE-6-01-01.png">
+    src="https://myjat.in/wp-content/uploads/2026/08/Logo.png">
     </div>
         
     <div class="myjat-pvc-back-title">
