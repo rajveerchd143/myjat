@@ -14,12 +14,12 @@ if (!defined('ABSPATH')) {
 // =========================================================
 function myjat_enqueue_master_css()
 {
-	$file = get_stylesheet_directory() . '/assets/css/components/membership.css';
+	$file = get_stylesheet_directory() . '/assets/css/membership.css';
 
 	if (file_exists($file)) {
 		wp_enqueue_style(
 			'myjat-membership',
-			get_stylesheet_directory_uri() . '/assets/css/components/membership.css',
+			get_stylesheet_directory_uri() . '/assets/css/membership.css',
 			array(),
 			filemtime($file)
 		);
@@ -137,7 +137,14 @@ function myjat_enqueue_applications_assets()
 // =========================================================
 function myjat_enqueue_pvc_assets()
 {
-	myjat_enqueue_master_css();
+    myjat_enqueue_master_css();
+
+    wp_enqueue_style(
+        'myjat-pvc-debug',
+        get_stylesheet_directory_uri() . '/assets/css/components/00-pvc.css',
+        array(),
+        time()
+    );
 }
 
 // =========================================================
@@ -168,3 +175,5 @@ function myjat_membership_admin_assets($hook)
 	myjat_enqueue_master_css();
 }
 add_action('admin_enqueue_scripts', 'myjat_membership_admin_assets');
+
+
