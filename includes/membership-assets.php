@@ -14,12 +14,12 @@ if (!defined('ABSPATH')) {
 // =========================================================
 function myjat_enqueue_master_css()
 {
-	$file = get_stylesheet_directory() . '/assets/css/membership.css';
+	$file = get_stylesheet_directory() . '/assets/css/components/membership.css';
 
 	if (file_exists($file)) {
 		wp_enqueue_style(
 			'myjat-membership',
-			get_stylesheet_directory_uri() . '/assets/css/membership.css',
+			get_stylesheet_directory_uri() . '/assets/css/components/membership.css',
 			array(),
 			filemtime($file)
 		);
