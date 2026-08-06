@@ -68,8 +68,8 @@ src="' . esc_url($application->photo_url) . '">';
     echo '<strong class="myjat-pvc-name">' . esc_html($application->full_name) . '</strong>
     
     <br>
-    
- <table class="myjat-pvc-table">
+   <div class "myjat-pvc-table">
+ <table>
 <tr>
     <td class="myjat-pvc-cell">
     🏷️ ABJM No<br>
@@ -101,6 +101,7 @@ src="' . esc_url($application->photo_url) . '">';
     </tr>
     
     </table>
+    <div/>
     ';
 
     echo '</div>'; // details div
