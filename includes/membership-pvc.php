@@ -117,7 +117,7 @@ src="' . esc_url($application->photo_url) . '">';
     
     <div class="myjat-pvc-sign myjat-pvc-sign-left">
     <img class="myjat-pvc-sign-image"
-    src="https://myjat.in/wp-content/uploads/2026/06/president-sign.png.png">
+    src="https://myjat.in/wp-content/uploads/2026/08/President_Sign-1.png">
     
 
     <div class="myjat-pvc-sign-line"></div>
