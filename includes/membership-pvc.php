@@ -11,11 +11,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 function myjat_render_member_card( $application ) {
 ob_start();
-// main pvc card block
-echo '</td></tr>';
-    echo '</table>';
-    echo '<br><br>';
-// main pvc card block close
     
     
 // main pvc card front side
@@ -26,7 +21,6 @@ echo '
 <img class="myjat-pvc-back-watermark-logo"
 src="https://myjat.in/wp-content/uploads/2026/06/jat-final-logo-AGAIN-DONE-6-01-01.png">
 
-class="myjat-pvc-watermark-logo">
 </div>
 
     <div class="myjat-pvc-header">
@@ -123,7 +117,7 @@ echo '<strong class="myjat-pvc-name">'. esc_html($application->full_name) . '</s
     
     <div class="myjat-pvc-sign myjat-pvc-sign-left">
     <img class="myjat-pvc-sign-image"
-    src="https://myjat.in/wp-content/uploads/2026/06/president-sign.png.png">
+    src="https://myjat.in/wp-content/uploads/2026/06/president-sign.png">
 
     <div class="myjat-pvc-sign-line"></div>
    
