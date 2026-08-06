@@ -67,35 +67,40 @@ src="' . esc_url($application->photo_url) . '">';
     echo '<div class="myjat-pvc-header-content">';
     echo '<strong class="myjat-pvc-name">' . esc_html($application->full_name) . '</strong>
     
-   <div class "myjat-pvc-table">
-    <table>
-    <tr>
+    <br>
+    
+ <table class="myjat-pvc-table">
+<tr>
     <td class="myjat-pvc-cell">
     🏷️ ABJM No<br>
     <strong>' . esc_html($application->membership_no) . '</strong>
     </td>
     
     <td class="myjat-pvc-cell">
-      👥 Membership Type<br>
+    
+    
+    👥 Membership Type<br>
     <strong>' . esc_html($application->membership_type) . '</strong>
     </td>
+    
     </tr>
     
     <tr>
-    <td class="myjat-pvc-cell">  
+    
+  <td class="myjat-pvc-cell">  
+    
     📍 District<br>
     <strong>' . esc_html($application->district) . '</strong>
     </td>
-    
     <td class="myjat-pvc-cell">
+    
     📅 Member Since<br>
     <strong>' . esc_html($application->member_since) . '</strong>
     </td>
+    
     </tr>
     
     </table>
-    
-    <div/>
     ';
 
     echo '</div>'; // details div
