@@ -4,22 +4,23 @@
 // Description:
 // Renders Member PVC Card.
 // =========================================================
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
     exit;
 }
 
 
-function myjat_render_member_card( $application ) {
-ob_start();
-    
-    
-// main pvc card front side
-echo '
+function myjat_render_member_card($application)
+{
+    ob_start();
+
+
+    // main pvc card front side
+    echo '
 <div class="myjat-pvc myjat-pvc-front">
 <div class="myjat-pvc-back-watermark">
 
 <img class="myjat-pvc-back-watermark-logo"
-src="https://myjat.in/wp-content/uploads/2026/06/jat-final-logo-AGAIN-DONE-6-01-01.png">
+src="https://myjat.in/wp-content/uploads/2026/06/jat-final-logo-AGAIN-DONE-6-01-01.pngkkkk">
 
 </div>
 
@@ -27,7 +28,7 @@ src="https://myjat.in/wp-content/uploads/2026/06/jat-final-logo-AGAIN-DONE-6-01-
     <div class="myjat-pvc-logo-wrap">
     
     <img class="myjat-pvc-logo"
-    src="https://myjat.in/wp-content/uploads/2026/06/jat-final-logo-AGAIN-DONE-6-01-01.png">
+    src="https://myjat.in/wp-content/uploads/2026/06/jat-final-logo-AGAIN-DONE-6-01-01.png.....">
 
     </div>
     
@@ -49,23 +50,22 @@ src="https://myjat.in/wp-content/uploads/2026/06/jat-final-logo-AGAIN-DONE-6-01-
     <div class="myjat-pvc-divider"></div>
     
     ';
-    
-   
-echo '<div class="myjat-pvc-body">';
 
-if ( ! empty( $application->photo_url ) ) {
 
-    echo '<img
+    echo '<div class="myjat-pvc-body">';
+
+    if (! empty($application->photo_url)) {
+
+        echo '<img
 class="myjat-pvc-photo"
 src="' . esc_url($application->photo_url) . '">';
+    } else {
 
-} else {
+        echo '<div class="myjat-pvc-photo-placeholder"></div>';
+    }
 
-  echo '<div class="myjat-pvc-photo-placeholder"></div>';
-}
-
-echo '<div class="myjat-pvc-header-content">';
-echo '<strong class="myjat-pvc-name">'. esc_html($application->full_name) . '</strong>
+    echo '<div class="myjat-pvc-header-content">';
+    echo '<strong class="myjat-pvc-name">' . esc_html($application->full_name) . '</strong>
     
     <br>
     
@@ -102,15 +102,15 @@ echo '<strong class="myjat-pvc-name">'. esc_html($application->full_name) . '</s
     
     </table>
     ';
-    
+
     echo '</div>'; // details div
     echo '</div>'; // photo/details flex div
-    
-    
-    
-    
+
+
+
+
     // Signatures
-    
+
     echo '<div class="myjat-pvc-signatures">
     
     <!-- President -->
@@ -150,14 +150,14 @@ echo '<strong class="myjat-pvc-name">'. esc_html($application->full_name) . '</s
     </div>
     
     ';
-    
-    
-    echo '</div>'; 
+
+
+    echo '</div>';
     // main pvc card front side DIV CLOSE
-    
-    
-    
-    
+
+
+
+
     // main pvc card Back side
     echo '
     
@@ -221,30 +221,29 @@ echo '<strong class="myjat-pvc-name">'. esc_html($application->full_name) . '</s
     </div>
 </div>'; // main pvc card Back side Div Close
 
-return ob_get_clean();
-
+    return ob_get_clean();
 }
 
-add_shortcode( 'jat_member_card', 'myjat_member_card_shortcode' );
-function myjat_member_card_shortcode() {
+add_shortcode('jat_member_card', 'myjat_member_card_shortcode');
+function myjat_member_card_shortcode()
+{
 
-    if ( empty( $_GET['id'] ) ) {
+    if (empty($_GET['id'])) {
         return 'Member not found.';
     }
 
-    $application = myjat_get_membership_application( intval( $_GET['id'] ) );
+    $application = myjat_get_membership_application(intval($_GET['id']));
 
-    if ( ! $application ) {
+    if (! $application) {
         return 'Member not found.';
     }
 
-    return myjat_render_member_card( $application );
+    return myjat_render_member_card($application);
 }
 
-add_action( 'wp', function () {
+add_action('wp', function () {
 
-    if ( is_page( 'member-card' ) ) {
-        show_admin_bar( false );
+    if (is_page('member-card')) {
+        show_admin_bar(false);
     }
-
-} );
+});

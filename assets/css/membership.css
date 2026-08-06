@@ -12,7 +12,7 @@
 @import "layout/03-layout.css";
 
 /* Components  */
-@import "assets/css/components/00-pvc.css";
+@import "components/00-pvc.css";
 @import "components/01-print.css";
 @import "components/02-utilities.css";
 @import "components/03-modal.css";
