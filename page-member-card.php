@@ -1,15 +1,20 @@
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="<?php bloginfo( 'charset' ); ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<?php wp_head(); ?>
+
+</head>
+
+<body <?php body_class(); ?>>
+
 <?php
-/*
-Template Name: Member Card
-*/
+echo do_shortcode('[jat_member_card]');
+?>
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+<?php wp_footer(); ?>
 
-while ( have_posts() ) {
-	the_post();
-	the_content();
-}
-
-echo do_shortcode( '[jat_member_card]' );
+</body>
+</html>
