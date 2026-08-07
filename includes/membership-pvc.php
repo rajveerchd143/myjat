@@ -207,7 +207,7 @@ src="' . esc_url($application->photo_url) . '">';
     Akhil Bharatvarshiya Jat Mahasabha
     </strong>
     
-    <br><br>
+    <br>
     
     If found, please return to the organization.
     
