@@ -67,8 +67,6 @@ src="' . esc_url($application->photo_url) . '">';
     echo '<div class="myjat-pvc-header-content">';
     echo '<strong class="myjat-pvc-name">' . esc_html($application->full_name) . '</strong>
     
-    <br>
-    
  <table class="myjat-pvc-table">
 <tr>
     <td class="myjat-pvc-cell">
