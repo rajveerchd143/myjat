@@ -6,7 +6,6 @@
 display:flex;
 align-items:center;
 gap:10px;
-margin-bottom:var(--myjat-space-6);
 border-bottom:1px solid var(--myjat-border);
 }
 
@@ -86,7 +85,6 @@ box-shadow:0 15px 35px rgba(245,130,32,.22);
 
 .myjat-tab-content{
 display:none;
-margin-top:24px;
 animation:myjatFadeUp .35s ease;
 }
 
