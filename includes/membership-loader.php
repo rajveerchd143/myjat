@@ -73,5 +73,6 @@ require_once __DIR__ . '/membership-admin-security.php';
 // =========================================================
 
 require_once __DIR__ . '/pages/home/home.php';
+require_once __DIR__ . '/pages/home/Estab.php';
 
 
