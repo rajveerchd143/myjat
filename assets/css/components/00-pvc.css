@@ -82,10 +82,8 @@ text-shadow:0 1px 1px rgba(0,0,0,.10);
 }
 
 .myjat-pvc-subtitle{
-margin: top 0Px;
 row-gap: 1Px;
-margin-bottom:.0px;
-font-size:18px;
+font-size:15px;
 text-align:center;
 color:#666;
 }
@@ -231,6 +229,7 @@ display:block;
 margin-top:10px;
 font-size:22px;
 font-weight:700;
+font-family:'Noto Serif Devanagari',serif;
 text-align:center;
 color:#263238;
 position:relative;
