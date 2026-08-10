@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700;800&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap');
 
 body{
-font-family:'Mukta',var(--myjat-font),sans-serif;
+font-family:'Noto Serif Devanagari',serif;
 font-size:16px;
 font-weight:var(--myjat-fw-regular);
 color:var(--myjat-text);
@@ -31,27 +31,12 @@ h6{font-size:16px;}
 
 p{
 margin:0 0 var(--myjat-space-4);
-color:var(--myjat-text-light);
 }
 
-small{
-font-size:13px;
-color:var(--myjat-text-muted);
-}
 
 strong{
 font-weight:var(--myjat-fw-bold);
 }
-
-.text-center{text-align:center;}
-.text-left{text-align:left;}
-.text-right{text-align:right;}
-
-.text-muted{color:var(--myjat-text-muted);}
-.text-primary{color:var(--myjat-primary);}
-.text-success{color:var(--myjat-success);}
-.text-warning{color:var(--myjat-warning);}
-.text-danger{color:var(--myjat-danger);}
 
 /* ==========================================================
    Hindi Display Headings

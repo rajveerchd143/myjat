@@ -11,7 +11,7 @@ function myjat_render_home()
         <div class="myjat-container">
             <div class="myjat-hero">
                 <div class="myjat-hero-left">
-                    <span class="myjat-badge myjat-glass">
+                    <span class="myjat-badge home-para">
                         अखिल भारतवर्षीय जाट महासभा
                     </span>
                     <h1 class="myjat-display-heading">
@@ -20,7 +20,7 @@ function myjat_render_home()
                         स्वाभिमान
                         
                     </h1>
-                    <p>
+                    <p class="home-para">
                         अखिल भारतवर्षीय जाट महासभा का आधिकारिक डिजिटल मंच, सदस्यता, सत्यापन, संगठन,
                         नेतृत्व एवं सामाजिक विकास के लिए समर्पित
                     </p>
@@ -57,22 +57,22 @@ function myjat_render_home()
                 <div class="myjat-feature-card">
                     <div class="myjat-feature-icon"><i class="fa-solid fa-users"></i></div>
                     <h3>डिजिटल सदस्यता</h3>
-                    <p>ऑनलाइन सदस्यता पंजीकरण एवं त्वरित सत्यापन की सुविधा</p>
+                    <p class="home-para">ऑनलाइन सदस्यता पंजीकरण एवं त्वरित सत्यापन की सुविधा</p>
                 </div>
                 <div class="myjat-feature-card">
                     <div class="myjat-feature-icon"><i class="fa-solid fa-id-card"></i></div>
                     <h3>सदस्य निर्देशिका</h3>
-                    <p>देशभर के सत्यापित सदस्यों की खोज एवं जानकारी प्राप्त करें</p>
+                    <p class="home-para">देशभर के सत्यापित सदस्यों की खोज एवं जानकारी प्राप्त करें</p>
                 </div>
                 <div class="myjat-feature-card">
                     <div class="myjat-feature-icon"><i class="fa-solid fa-building-columns"></i></div>
                     <h3>संगठन संरचना</h3>
-                    <p>राष्ट्रीय, राज्य एवं जिला स्तर की संगठनात्मक संरचना</p>
+                    <p class="home-para">राष्ट्रीय, राज्य एवं जिला स्तर की संगठनात्मक संरचना</p>
                 </div>
                 <div class="myjat-feature-card">
                     <div class="myjat-feature-icon"><i class="fa-solid fa-newspaper"></i></div>
                     <h3>समाचार एवं सूचनाएँ</h3>
-                    <p>महासभा की नवीनतम घोषणाएँ, कार्यक्रम एवं सामुदायिक गतिविधियों की जानकारी</p>
+                    <p class="home-para">महासभा की नवीनतम घोषणाएँ, कार्यक्रम एवं सामुदायिक गतिविधियों की जानकारी</p>
                 </div>
             </section>
         <?php

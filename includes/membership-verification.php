@@ -24,7 +24,7 @@ add_shortcode('myjat_member_verify', function () {
         <input
             type="text"
             name="membership_no"
-            placeholder="ABJM-2026-000001"
+            placeholder="ABJM-0000-000000"
             
             class="myjat-input myjat-verification-input"
             >

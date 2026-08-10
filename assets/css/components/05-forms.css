@@ -61,14 +61,3 @@ background-color: white;
 flex-direction:column;
 gap:var(--myjat-space-1);
 }
-
-.myjat-file{
-padding:var(--myjat-space-2);
-}
-
-.myjat-checkbox{
-width:auto;
-margin-right:var(--myjat-space-2);
-accent-color:var(--myjat-primary);
-cursor:pointer;
-}
