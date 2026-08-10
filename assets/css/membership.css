@@ -43,6 +43,7 @@
 
 /* Pages */
 @import "pages/home.css";
+@import "pages/estab.css";
 @import "pages/about.css";
 @import "pages/history.css";
 @import "pages/gallery.css";
