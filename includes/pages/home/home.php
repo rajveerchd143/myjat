@@ -51,12 +51,7 @@ function myjat_render_home()
                         </div>
                     </div>
                 </div>
-                <div class="myjat-hero-right">
-                    <img class="myjat-hero-bg" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/images/background/hero-bg.png" alt="Leaf Decoration">
-                    <img class="myjat-leaf myjat-leaf-1" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/images/background/leaf-1.png" alt="Leaf Decoration">
-                    <img class="myjat-leaf myjat-leaf-2" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/images/background/leaf-2.png" alt="Leaf Decoration">
-                    <img class="myjat-hero-main" src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/assets/images/background/hero.png" alt="MYJAT">
-                </div>
+               
             </div>
             <section class="myjat-features">
                 <div class="myjat-feature-card">
