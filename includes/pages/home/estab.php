@@ -5,8 +5,8 @@ function myjat_Estab_home()
     ob_start(); ?>
     <section class="myjat-home">
 
-    <div class estab-para>
-        <h1>
+    <div class="estab-para">
+            <h1>
             स्थापना
         </h1>
         <h2>
