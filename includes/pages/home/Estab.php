@@ -6,7 +6,6 @@ function myjat_Estab_home()
     <section class="myjat-home">
 
         <div class="myjat-container">
-            <div class="myjat-hero">
 
                 <p>
                     वर्ष 1905 स्थान मुजफ्फरनगर का नुमाइश मैदान जाट आश्रम प्रथम बैठक प्रबंधन व्यवस्था निमृत करने के लिए बुलाई गई यहीं पर चार सभा बनाने का विचार ओपन हुआ।
@@ -25,7 +24,6 @@ function myjat_Estab_home()
 
                 </p>
 
-            </div>
 
         </div>
 
