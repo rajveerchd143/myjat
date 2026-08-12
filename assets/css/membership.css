@@ -8,7 +8,6 @@
 
 /* Foundation */
 @import "02-typography.css";
-@import "layout/03-layout.css";
 
 /* Components  */
 @import "components/00-pvc.css";
@@ -18,10 +17,12 @@
 @import "components/11-search.css";
 
 
-/* Pages */
+/* Menu Pages */
 @import "pages/home.css";
 @import "pages/menu.css";
 
+
+/* Others Pages */
 @import "pages/membership-form.css";
 @import "pages/membership-login.css";
 @import "pages/membership-verification.css";

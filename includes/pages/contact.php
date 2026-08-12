@@ -16,7 +16,6 @@ function myjat_contact_home()
 
             
 
-            <strong>हम आपके सुझाव, सहयोग एवं सहभागिता का सदैव हार्दिक स्वागत करते हैं।</strong>
 
             <hr class="menu-line">
 

@@ -64,56 +64,6 @@ transform:translateY(-2px);
 box-shadow:var(--myjat-shadow-lg);
 }
 /* ==========================================================
-   Statistics
-==========================================================*/
-.myjat-stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:24px;
-margin-bottom:30px;
-}
-.myjat-stat-card{
-position:relative;
-overflow:hidden;
-padding:28px;
-background:rgba(255,255,255,.78);
-backdrop-filter:blur(18px);
-border:1px solid rgba(255,255,255,.45);
-border-radius:var(--myjat-radius-xl);
-box-shadow:var(--myjat-shadow-md);
-transition:all var(--myjat-speed) var(--myjat-ease);
-}
-.myjat-stat-card:hover{
-transform:translateY(-6px);
-box-shadow:var(--myjat-shadow-lg);
-}
-.myjat-stat-icon{
-display:flex;
-align-items:center;
-justify-content:center;
-width:60px;
-height:60px;
-margin-bottom:18px;
-border-radius:18px;
-background:linear-gradient(135deg,#f58220,#ea580c);
-color:#fff;
-font-size:26px;
-box-shadow:0 10px 24px rgba(245,130,32,.25);
-}
-.myjat-stat-title{
-margin-bottom:8px;
-font-size:15px;
-font-weight:600;
-color:var(--myjat-text-muted);
-}
-.myjat-stat-number{
-margin:0;
-font-size:52px;
-font-weight:800;
-line-height:1;
-color:var(--myjat-primary);
-}
-/* ==========================================================
    MYJAT Table System
 ========================================================== */
 .myjat-table-wrapper {

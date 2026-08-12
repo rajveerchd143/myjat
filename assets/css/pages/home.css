@@ -1,6 +1,7 @@
-/*==================================================
-Hero ^\s*\n
-==================================================*/
+/* ==========================================================
+   MYJAT Layout System
+========================================================== */
+
 .myjat-home {
    min-height: 100vh;
    background: rgba(255, 255, 255, .10);
@@ -14,13 +15,14 @@ Hero ^\s*\n
    position: relative;
    overflow: hidden;
 }
-.home-para{
-    text-shadow:
-        1px 1px 0 #ddd,
-        2px 2px 2px rgba(0,0,0,.10);
-    color:black;
 
+.myjat-container {
+   width: min(100%, var(--myjat-container));
+   margin-inline: auto;
+   padding-inline: var(--myjat-space-6);
 }
+
+
 .myjat-hero {
    border-radius: 30px;
    display: grid;
@@ -32,6 +34,7 @@ Hero ^\s*\n
    z-index: 2;
 }
 
+
 .myjat-hero h1 {
    font-size: clamp(56px, 6vw, 84px);
    line-height: 1.20;
@@ -40,65 +43,38 @@ Hero ^\s*\n
    margin: 0 0 28px;
    max-width: 720px;
 }
-.myjat-hero p {
-   max-width: 640px;
-   font-size: 22px;
-   line-height: 1.9;
-   color: #6B7280;
-   margin: 0 0 42px;
-   font-weight: 500;
-}
-.myjat-hero-right {
-   position: relative;
-   background: transparent;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   min-height: 650px;
-}
+
 .myjat-hero-left {
    background: transparent;
    position: relative;
    z-index: 10;
 }
-.myjat-hero-bg {
-   position: absolute;
-   inset: 50% auto auto 50%;
-   transform: translate(-50%, -50%);
-   width: 720px;
-   max-width: none;
-   opacity: .600;
-   z-index: 1;
-   animation: myjatFloat 12s ease-in-out infinite;
-}
 
-/*==================================================
-Badges
-==================================================*/
 .myjat-badge {
    display: inline-flex;
-   align-items: center;
-   gap: 10px;
+   white-space: nowrap;
    border-radius: 20px;
-   font-size: 20px;
+   justify-content: center;
+   align-items:center;
+   font-size: 25px;
    color: black;
-   margin-top: 25px;
-   margin-bottom: 25px;
-   padding:5px 5px;
-   font-weight:700;
-   background:rgba(255,255,255,.72);
-   backdrop-filter:blur(18px);
-   -webkit-backdrop-filter:blur(18px);
-   border:1px solid rgba(255,255,255,.8);
+   margin-top: 20px;
+   margin-bottom: 20px;
+   padding:8px 18px;
+   line-height:1;
+   font-weight: 700;
+   background: rgba(255, 255, 255, .72);
+   backdrop-filter: blur(18px);
+   -webkit-backdrop-filter: blur(18px);
+   border: 1px solid rgba(255, 255, 255, .8);
 }
 
-
-
-@media(max-width:768px){
-.myjat-badge {
-color: black;
-
-}
+.home-para {
+   font-size: 25px;
+   text-shadow:
+      1px 1px 0 #ddd,
+      2px 2px 2px rgba(0, 0, 0, .10);
+   color: black;
 
 }
 
@@ -113,16 +89,29 @@ Buttons
    flex-wrap: wrap;
    margin-top: 30px;
    margin-bottom: 30px;
+   text-shadow:
+      1px 1px 0 #ddd,
+      2px 2px 2px rgba(0, 0, 0, .10);
+   color: black;
+
 }
-/*==================================================
-STATUS CARD
-==================================================*/
-.myjat-hero-stats {
+
+
+/* ==========================================================
+   Statistics
+==========================================================*/
+.myjat-stats {
    display: grid;
-   grid-template-columns: repeat(4, 1fr);
-   gap: 18px;
-   margin-top: 25px;
+   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+   gap: 24px;
+   margin-bottom: 30px;
+   text-shadow:
+      1px 1px 0 #ddd,
+      2px 2px 2px rgba(0, 0, 0, .10);
+   color: black;
+
 }
+
 .myjat-stat {
    background: rgba(255, 255, 255, .55);
    backdrop-filter: blur(18px);
@@ -133,6 +122,8 @@ STATUS CARD
    box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
 }
 
+
+
 /*==========================================
 Features Section
 ==========================================*/
@@ -142,7 +133,13 @@ Features Section
    gap: 30px;
    margin-top: 50px;
    margin-bottom: 50px;
+   text-shadow:
+      1px 1px 0 #ddd,
+      2px 2px 2px rgba(0, 0, 0, .10);
+   color: black;
+
 }
+
 .myjat-feature-card {
    position: relative;
    overflow: hidden;
@@ -155,6 +152,7 @@ Features Section
    box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
    transition: .35s ease;
 }
+
 .myjat-feature-card:hover {
    transform: translateY(-10px);
    box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
@@ -173,16 +171,26 @@ Features Section
    box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
    margin-bottom: 24px;
 }
-.myjat-feature-card h3 {
-   margin: 0 0 16px;
-   font-size: 28px;
-   font-weight: 800;
-   line-height: 1.2;
-   color: #2F2F2F;
+
+
+@media(max-width:768px) {
+   .myjat-features {
+      grid-template-columns: 1fr;
+   }
 }
-.myjat-feature-card p {
-   margin: 0;
-   font-size: 16px;
-   line-height: 1.9;
-   color: #6B7280;
+@media(max-width:991px) {
+   .myjat-hero {
+      grid-template-columns: 1fr;
+      text-align: center;
+      padding: 50px 0;
+      gap: 40px;
+   }
+   .myjat-buttons {
+      justify-content: center;
+   }
+   .myjat-hero-stats {
+      grid-template-columns: 1fr;
+   }
+
+   
 }

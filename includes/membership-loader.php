@@ -69,7 +69,7 @@ require_once __DIR__ . '/membership-admin-security.php';
 
 
 // =========================================================
-// Home Login
+// Menu pages
 // =========================================================
 
 require_once __DIR__ . '/pages/home.php';

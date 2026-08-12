@@ -11,14 +11,8 @@ function myjat_kalamse_home()
         <div class="menu-para">
 
         <h1 class="head-h1">        
-            राष्ट्रीय महासचिव (संगठन)
-        </h1>
-
-            <h2 class="head-h2">
-                चौ० शेर सिंह जी की कलम से
-            </h2>
-
-                <strong>ॐ एक बनो, नेक बनो और संकल्पित रहो। ॐ</strong>
+ॐ एक बनो, नेक बनो और संकल्पित रहो। ॐ        
+</h1>
 
             <hr class="menu-line">
              <h3 class="menu-bullet">हम सब एक हैं, हम नेक हैं</h3>

@@ -41,10 +41,3 @@ font-weight:var(--myjat-fw-bold);
 /* ==========================================================
    Hindi Display Headings
 ========================================================== */
-
-.myjat-display-heading{
-font-family:'Noto Serif Devanagari',serif;
-font-weight:700;
-line-height:1.08;
-letter-spacing:-0.02em;
-}
