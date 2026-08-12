@@ -76,5 +76,6 @@ require_once __DIR__ . '/pages/home.php';
 require_once __DIR__ . '/pages/estab.php';
 require_once __DIR__ . '/pages/kalamse.php';
 require_once __DIR__ . '/pages/about.php';
+require_once __DIR__ . '/pages/contact.php';
 
 
