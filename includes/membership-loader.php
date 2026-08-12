@@ -72,7 +72,9 @@ require_once __DIR__ . '/membership-admin-security.php';
 // Home Login
 // =========================================================
 
-require_once __DIR__ . '/pages/home/home.php';
-require_once __DIR__ . '/pages/home/estab.php';
+require_once __DIR__ . '/pages/home.php';
+require_once __DIR__ . '/pages/estab.php';
+require_once __DIR__ . '/pages/kalamse.php';
+require_once __DIR__ . '/pages/about.php';
 
 

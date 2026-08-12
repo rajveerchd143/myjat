@@ -8,12 +8,12 @@ function myjat_Estab_home()
     <div class="myjat-orb myjat-orb-2"></div>
     <div class="myjat-orb myjat-orb-3"></div>
     
-    <div class="estab-para">
-            <h1 class="head">
+    <div class="menu-para">
+            <h1 class="head-h1">
             स्थापना
         </h1>
-    <hr class="estab-line">
-    <h3 class="estab-year">वर्ष 1905 </h3>
+    <hr class="menu-line">
+    <h3 class="menu-bullet">वर्ष 1905 </h3>
     स्थान <strong>मुजफ्फरनगर</strong> के नुमाइश मैदान स्थित जाट आश्रम में प्रबंधन व्यवस्था के गठन हेतु प्रथम बैठक बुलाई गई। इसी बैठक में चार सदस्यीय सभा के गठन का विचार प्रस्तुत किया गया।<br><br>
     
     <strong>सभा के सदस्य:</strong><br>
@@ -23,8 +23,8 @@ function myjat_Estab_home()
     • श्री मुख्तियार सिंह जी – मेरठ<br>
     • श्री शादी राम वर्मा जी – मेरठ<br>
 
-    <hr class="estab-line">
-    <h3 class="estab-year">वर्ष 1906</h3>
+    <hr class="menu-line">
+    <h3 class="menu-bullet">वर्ष 1906</h3>
 
     दूसरी बैठक देवता समाज, बिजनौर में गंगा स्नान के अवसर पर आयोजित की गई। इस बैठक में समिति का गठन किया गया, जिसमें:<br>
 
@@ -39,13 +39,13 @@ function myjat_Estab_home()
 
     इसी अधिवेशन में पहली मासिक पत्रिका <strong>“जाट हितकारी”</strong> प्रकाशित करने का निर्णय लिया गया।<br>
 
-    <hr class="estab-line">
-    <h3 class="estab-year">वर्ष 1907</h3>
+    <hr class="menu-line">
+    <h3 class="menu-bullet">वर्ष 1907</h3>
 
     प्रथम अधिवेशन राजस्थान के पुष्कर मेला प्रांगण में आयोजित किया गया।<br>
 
-    <hr class="estab-line">
-    <h3 class="estab-year">वर्ष 1908</h3>
+    <hr class="menu-line">
+    <h3 class="menu-bullet">वर्ष 1908</h3>
 
     राजा दत्त प्रसाद जी – मुरमान।
 </h3>

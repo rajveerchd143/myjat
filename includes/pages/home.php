@@ -3,7 +3,7 @@ if (!defined('ABSPATH')) exit;
 function myjat_render_home()
 {
     ob_start(); ?>
-    <section class="myjat-home">
+    <section class="myjat-home myjat-page">
         <div class="myjat-orb myjat-orb-1"></div>
         <div class="myjat-orb myjat-orb-2"></div>
         <div class="myjat-orb myjat-orb-3"></div>
