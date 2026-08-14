@@ -79,3 +79,22 @@ require_once __DIR__ . '/pages/about.php';
 require_once __DIR__ . '/pages/contact.php';
 
 
+// =========================================================
+// mahanubhav pages
+// =========================================================
+
+require_once __DIR__ . '/great/karmabai.php';
+require_once __DIR__ . '/great/charan.php';
+require_once __DIR__ . '/great/devilal.php';
+require_once __DIR__ . '/great/dhanna.php';
+require_once __DIR__ . '/great/ranjit.php';
+require_once __DIR__ . '/great/surjmal.php';
+require_once __DIR__ . '/great/tiket.php';
+require_once __DIR__ . '/great/nahar.php';
+require_once __DIR__ . '/great/mahender.php';
+require_once __DIR__ . '/great/gokula.php';
+require_once __DIR__ . '/great/tejaji.php';
+require_once __DIR__ . '/great/bigaji.php';
+require_once __DIR__ . '/great/bhagat.php';
+require_once __DIR__ . '/great/chhotu.php';
+require_once __DIR__ . '/great/sinhavlocan.php';
