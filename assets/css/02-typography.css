@@ -11,6 +11,8 @@ font-size:16px;
 font-weight:var(--myjat-fw-regular);
 color:var(--myjat-text);
 line-height:1.6;
+
+
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -28,9 +30,9 @@ h4{font-size:22px;}
 h5{font-size:18px;}
 h6{font-size:16px;}
 
-
 p{
 margin:0 0 var(--myjat-space-4);
+font-weight:500;
 }
 
 
@@ -39,5 +41,35 @@ font-weight:var(--myjat-fw-bold);
 }
 
 /* ==========================================================
-   Hindi Display Headings
+   text background glow
 ========================================================== */
+/* ==========================================================
+   Universal Text Clarity
+========================================================== */
+/* ==========================================================
+   Universal Text Clarity
+========================================================== */
+
+body{
+
+   text-shadow:
+      1px 1px 0 #ddd,
+      2px 2px 2px rgba(0, 0, 0, .10);
+   color: black;
+
+
+}
+
+/* ==========================================================
+   Universal Text Clarity
+========================================================== */
+
+h1,h2,h3,h4,h5,h6,p,li,strong,em,a,blockquote{
+color:var(--myjat-text);
+   text-shadow:
+      1px 1px 0 #ddd,
+      2px 2px 2px rgba(0, 0, 0, .10);
+   color: black;
+
+
+}

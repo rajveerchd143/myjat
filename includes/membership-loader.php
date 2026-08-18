@@ -10,7 +10,7 @@
 //
 // =========================================================
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
 	exit;
 }
 
@@ -77,11 +77,13 @@ require_once __DIR__ . '/pages/estab.php';
 require_once __DIR__ . '/pages/kalamse.php';
 require_once __DIR__ . '/pages/about.php';
 require_once __DIR__ . '/pages/contact.php';
+require_once __DIR__ . '/pages/slider.php';
 
 
 // =========================================================
-// mahanubhav pages
+// Great pages
 // =========================================================
+require_once __DIR__ . '/great/great-pages.php';
 
 require_once __DIR__ . '/great/karmabai.php';
 require_once __DIR__ . '/great/charan.php';

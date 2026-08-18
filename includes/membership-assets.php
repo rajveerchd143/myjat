@@ -68,6 +68,14 @@ wp_enqueue_script(
 );
 
 wp_enqueue_script(
+    'myjat-home-slider',
+    get_stylesheet_directory_uri() . '/assets/js/home-slider.js',
+    [],
+    null,
+    true
+);
+
+wp_enqueue_script(
     'myjat-location',
     get_stylesheet_directory_uri() . '/assets/js/location.js',
     array( 'myjat-tom-select' ),

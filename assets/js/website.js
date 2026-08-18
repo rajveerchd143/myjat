@@ -59,3 +59,56 @@ document.body.prepend(rays);
 
 
 });
+
+
+/*==================================================
+   MYJAT Background Slideshow
+==================================================*/
+
+document.addEventListener('DOMContentLoaded',function(){
+
+const section=document.querySelector('section.container-wrap.main-color');
+
+if(!section)return;
+
+const images=[
+'/wp-content/themes/kleo-child/assets/images/background/back-1.png',
+'/wp-content/themes/kleo-child/assets/images/background/back-2.png',
+'/wp-content/themes/kleo-child/assets/images/background/back-3.png',
+'/wp-content/themes/kleo-child/assets/images/background/back-4.png',
+'/wp-content/themes/kleo-child/assets/images/background/back-5.png'
+];
+
+let current=0;
+
+section.style.setProperty('--myjat-bg-current',`url("${images[current]}")`);
+section.style.setProperty('--myjat-bg-next',`url("${images[1]}")`);
+
+images.forEach(function(src){
+const img=new Image();
+img.src=src;
+});
+
+function changeBackground(){
+
+const next=(current+1)%images.length;
+
+section.style.setProperty('--myjat-bg-next',`url("${images[next]}")`);
+
+section.classList.add('myjat-bg-fade');
+
+setTimeout(function(){
+
+section.style.setProperty('--myjat-bg-current',`url("${images[next]}")`);
+
+section.classList.remove('myjat-bg-fade');
+
+current=next;
+
+},3000);
+
+}
+
+setInterval(changeBackground,9000);
+
+});

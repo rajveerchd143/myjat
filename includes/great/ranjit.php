@@ -3,12 +3,12 @@ if (!defined('ABSPATH')) exit;
 function myjat_ranjit_home()
 {
     ob_start(); ?>
-    <section class="myjat-home">
+    <section class="myjat-home myjat-glassborder">
         <div class="myjat-orb myjat-orb-1"></div>
         <div class="myjat-orb myjat-orb-2"></div>
         <div class="myjat-orb myjat-orb-3"></div>
 
-        <div class="menu-para">
+        <div class="menu-para myjat-glass">
 
         <h1 class="head-h1">
     महाराजा रणजीत सिंह
