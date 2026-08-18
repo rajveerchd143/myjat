@@ -279,6 +279,9 @@ text-shadow:none!important;
 /*==================================================
    MYJAT HEADER — DESKTOP CONTAINER
 ==================================================*/
+#undefined-sticky-wrapper{
+height:35px!important;
+}
 
 @media (min-width:992px){
 #undefined-sticky-wrapper{

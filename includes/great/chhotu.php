@@ -3,7 +3,7 @@ if (!defined('ABSPATH')) exit;
 function myjat_chhotu_home()
 {
     ob_start(); ?>
-    <section class="myjat-home myjat-glassborder">
+    <section class="myjat-home">
 
         <div class="myjat-orb myjat-orb-1"></div>
         <div class="myjat-orb myjat-orb-2"></div>
