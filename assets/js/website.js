@@ -72,11 +72,11 @@ const section=document.querySelector('section.container-wrap.main-color');
 if(!section)return;
 
 const images=[
-'/wp-content/themes/kleo-child/assets/images/background/back-1.png',
-'/wp-content/themes/kleo-child/assets/images/background/back-2.png',
-'/wp-content/themes/kleo-child/assets/images/background/back-3.png',
-'/wp-content/themes/kleo-child/assets/images/background/back-4.png',
-'/wp-content/themes/kleo-child/assets/images/background/back-5.png'
+'/wp-content/themes/kleo-child/assets/images/background/back-1.webp',
+'/wp-content/themes/kleo-child/assets/images/background/back-2.webp',
+'/wp-content/themes/kleo-child/assets/images/background/back-3.webp',
+'/wp-content/themes/kleo-child/assets/images/background/back-4.webp',
+'/wp-content/themes/kleo-child/assets/images/background/back-5.webp'
 ];
 
 let current=0;
