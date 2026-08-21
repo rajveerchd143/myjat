@@ -22,8 +22,8 @@ function myjat_render_home()
                     </h1>
                     <p class="home-para">
                         अखिल भारतवर्षीय जाट महासभा का आधिकारिक डिजिटल मंच, सदस्यता, सत्यापन, संगठन,
-                        नेतृत्व एवं सामाजिक विकास के लिए समर्पित
-                    </p>
+                        नेतृत्व एवं सामाजिक विकास के लिए समर्पित है। 
+                       </p>
                     <div class="myjat-buttons-box">
                         <a href="/register/" class="myjat-btn  myjat-glass">
                             सदस्य बनें

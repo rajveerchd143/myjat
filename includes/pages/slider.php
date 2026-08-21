@@ -51,7 +51,7 @@ function myjat_slider_home()
                             <div class="myjat-slider-image">
 
                                 <img
-                                    src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/great/' . $hero['slug'] . '.png'); ?>"
+                                    src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/great/' . $hero['slug'] . '.webp'); ?>"
                                     alt="<?php echo esc_attr($title); ?>"
                                     class="myjat-slider-img">
 
