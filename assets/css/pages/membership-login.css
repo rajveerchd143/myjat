@@ -1,0 +1,171 @@
+/* =========================================================
+   MYJAT Premium Bhagwa Login
+========================================================= */
+
+.myjat-login-wrapper{
+
+max-width:500px;
+padding:48px;
+border-radius:30px;
+box-shadow:0 30px 80px rgba(15,23,42,.08);
+margin:80px auto;
+background:rgba(255,255,255,.72);
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+border:1px solid rgba(255,153,0,.18);
+position:relative;
+overflow:hidden;
+}
+
+.myjat-login-wrapper:before{
+content:"";
+position:absolute;
+top:-120px;
+right:-120px;
+width:240px;
+height:240px;
+background:radial-gradient(circle,#fb923c 0%,transparent 70%);
+opacity:.18;
+pointer-events:none;
+}
+
+.myjat-login-wrapper:after{
+content:"";
+position:absolute;
+bottom:-130px;
+left:-130px;
+width:260px;
+height:260px;
+background:radial-gradient(circle,#fdba74 0%,transparent 70%);
+opacity:.18;
+pointer-events:none;
+}
+
+.myjat-login-wrapper h2{
+margin:0 0 12px;
+text-align:center;
+font-size:38px;
+font-weight:800;
+color:#2F2F2F;
+letter-spacing:-1px;
+}
+.myjat-login-wrapper p{
+margin:16px 0;
+}
+
+.myjat-google-login{
+display:flex!important;
+align-items:center;
+justify-content:center;
+width:100%;
+padding:14px 18px;
+background:#fff!important;
+border:1px solid #fed7aa;
+border-radius:14px;
+font-size:15px;
+font-weight:600;
+color:#444!important;
+text-decoration:none!important;
+transition:.25s;
+box-shadow:0 8px 20px rgba(249,115,22,.08);
+}
+
+.myjat-google-login:hover{
+transform:translateY(-2px);
+border-color:#fb923c;
+box-shadow:0 16px 35px rgba(249,115,22,.22);
+}
+
+.myjat-login-wrapper input[type=text],
+.myjat-login-wrapper input[type=email],
+.myjat-login-wrapper input[type=password]{
+width:100%;
+padding:15px 16px;
+border:1px solid #fed7aa;
+border-radius:14px;
+background:rgba(255,255,255,.85);
+font-size:15px;
+transition:.25s;
+box-sizing:border-box;
+}
+
+.myjat-login-wrapper input:focus{
+outline:none;
+border-color:#f97316;
+box-shadow:0 0 0 4px rgba(249,115,22,.16);
+}
+
+.myjat-login-wrapper label{
+font-size:14px;
+color:#666;
+}
+
+.myjat-login-wrapper button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:14px;
+background:linear-gradient(135deg,#fb923c,#ea580c);
+color:#fff;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+transition:.25s;
+box-shadow:0 15px 35px rgba(234,88,12,.25);
+}
+
+.myjat-login-wrapper button:hover{
+transform:translateY(-2px);
+box-shadow:0 20px 45px rgba(234,88,12,.35);
+}
+
+#myjat-login-message{
+margin-top:18px;
+text-align:center;
+font-weight:600;
+color:#c2410c;
+}
+
+.myjat-login-wrapper hr{
+margin:26px 0;
+border:none;
+height:1px;
+background:#fde7d3;
+}
+
+.myjat-social-login{
+margin-bottom:24px;
+}
+
+.myjat-login-divider{
+display:flex;
+align-items:center;
+margin:24px 0;
+}
+
+.myjat-login-divider:before,
+.myjat-login-divider:after{
+content:"";
+flex:1;
+height:1px;
+background:#f3d3b0;
+}
+
+.myjat-login-divider span{
+padding:0 16px;
+font-size:13px;
+font-weight:700;
+letter-spacing:1px;
+color:#b45309;
+background:rgba(255,255,255,.7);
+}
+
+.myjat-google-login svg{
+margin-right:12px;
+flex-shrink:0;
+}
+
+.myjat-google-login span{
+font-weight:600;
+font-size:15px;
+}

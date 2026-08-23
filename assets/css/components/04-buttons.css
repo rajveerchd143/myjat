@@ -1,0 +1,33 @@
+/* ==========================================================
+   MYJAT Button System
+========================================================== */
+
+.myjat-btn{
+width:200px;
+height:56px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:var(--myjat-space-2);
+padding:12px 22px;
+border:5px;
+border-radius:var(--myjat-radius-md);
+font-family:var(--myjat-font);
+font-size:15px;
+font-weight:var(--myjat-fw-semibold);
+text-decoration:none;
+cursor:pointer;
+transition:all var(--myjat-speed) var(--myjat-ease);
+box-shadow:var(--myjat-shadow-md);
+user-select:none;
+white-space:nowrap;
+}
+
+/*==================================================
+MYJAT PREMIUM BUTTONS
+==================================================*/
+.myjat-btn:hover{
+transform:translateY(-5px);
+box-shadow:0 20px 45px rgba(15,23,42,.10);
+}
+

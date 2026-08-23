@@ -1,0 +1,33 @@
+/* ==========================================================
+   Verification Page
+========================================================== */
+
+.myjat-verification-input{
+max-width:300px;
+}
+
+.myjat-verification-card{
+margin-top:24px;
+padding:20px;
+border-radius:var(--myjat-radius-lg);
+background:var(--myjat-glass-bg);
+backdrop-filter:blur(var(--myjat-glass-blur));
+-webkit-backdrop-filter:blur(var(--myjat-glass-blur));
+}
+
+.myjat-verification-success{
+border:2px solid var(--myjat-success);
+}
+
+.myjat-verification-error{
+border:2px solid var(--myjat-danger);
+}
+
+.myjat-verification-photo{
+display:block;
+max-width:180px;
+height:auto;
+padding:5px;
+border:1px solid var(--myjat-border);
+border-radius:var(--myjat-radius-md);
+}

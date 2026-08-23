@@ -1,0 +1,29 @@
+/* ==========================================================
+   MYJAT Card System
+========================================================== */
+
+.myjat-card{
+background:var(--myjat-surface);
+border:1px solid var(--myjat-border);
+border-radius:var(--myjat-radius-xl);
+box-shadow:var(--myjat-shadow-md);
+padding:var(--myjat-space-6);
+transition:all var(--myjat-speed) var(--myjat-ease);
+}
+
+.myjat-card:hover{
+transform:translateY(-2px);
+box-shadow:var(--myjat-shadow-lg);
+}
+
+.myjat-card-title{
+display:flex;
+align-items:center;
+gap:var(--myjat-space-2);
+margin-bottom:var(--myjat-space-5);
+padding-bottom:14px;
+border-bottom:1px solid var(--myjat-border-light);
+font-size:22px;
+font-weight:var(--myjat-fw-bold);
+color:var(--myjat-text);
+}

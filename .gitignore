@@ -1,0 +1,23 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Database dumps
+*.sql
+*.sql.gz
+
+# Local development
+*.log
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# IDE / editor
+.vscode/
+.idea/
+
+# OS / Laragon
+*.bak
+*.old

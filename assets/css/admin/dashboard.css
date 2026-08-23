@@ -1,0 +1,129 @@
+/* ==========================================================
+   Dashboard Header
+==========================================================*/
+.myjat-dashboard-header{
+position:relative;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:5px;
+padding:25px;
+margin-bottom:32px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,.25);
+border-radius:var(--myjat-radius-xl);
+background:linear-gradient(135deg,#f58220 0%,#ea580c 100%);
+box-shadow:0 20px 55px rgba(245,130,32,.28);
+color:#fff;
+}
+/*Header> MyJat Membership Management*/
+.myjat-dashboard-title{
+position:relative;
+z-index:2;
+}
+.myjat-dashboard-title h1{
+margin:0;
+font-size:36px;
+font-weight:800;
+line-height:1.2;
+color:#fff;
+}
+.myjat-dashboard-title p{
+margin:5px 0 0;
+font-size:25px;
+line-height:1.6;
+color:rgba(255,255,255,.90);
+max-width:650px;
+}
+/*.............*/
+/*Action Card> MyJat Membership Management*/
+.myjat-dashboard-actions{
+position:relative;
+z-index:2;
+display:flex;
+align-items:center;
+gap:14px;
+flex-wrap:wrap;
+}
+.myjat-export-btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:13px 24px!important;
+border:none!important;
+border-radius:var(--myjat-radius-md)!important;
+background:#fff!important;
+color:#ea580c!important;
+font-weight:700!important;
+text-decoration:none;
+box-shadow:var(--myjat-shadow-md);
+transition:all var(--myjat-speed) var(--myjat-ease);
+}
+.myjat-export-btn:hover{
+transform:translateY(-2px);
+box-shadow:var(--myjat-shadow-lg);
+}
+/* ==========================================================
+   MYJAT Table System
+========================================================== */
+.myjat-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background: var(--myjat-surface);
+    border: 1px solid var(--myjat-border);
+    border-radius: var(--myjat-radius-xl);
+    box-shadow: var(--myjat-shadow-md);
+}
+.myjat-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--myjat-surface);
+}
+.myjat-table thead {
+    background: var(--myjat-primary);
+        border-radius: var(--myjat-radius-xl);
+
+}
+.myjat-table thead th {
+    padding: 2px;
+    font-size: 14px;
+    font-weight: var(--myjat-fw-bold);
+    color: white;
+    text-transform: uppercase;
+    white-space: nowrap;
+    letter-spacing: .06em;
+}
+
+.myjat-table tbody td {
+    padding: var(--myjat-space-4);
+    border-bottom: 1px solid var(--myjat-border-light);
+    vertical-align: middle;
+}
+.myjat-table tbody tr {
+    transition: all var(--myjat-speed) var(--myjat-ease);
+}
+.myjat-table tbody tr:hover {
+    background: var(--myjat-primary-light);
+}
+.myjat-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.myjat-view-table th {
+    width: 260px;
+    background: #f6f8fd;
+    padding: 18px;
+    font-weight: 600;
+}
+.myjat-view-table td {
+    padding: 18px;
+    background: var(--myjat-white);
+}
+.myjat-view-table tr:nth-child(even) td {
+    background: #fbfcff;
+}
+/*==================================================
+MYJAT PREMIUM TABLE
+==================================================*/
