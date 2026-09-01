@@ -29,32 +29,32 @@ $myjat_user = $_SESSION['myjat_user'] ?? null;
 
         <div class="myjat-header-right myjat-glass">
 
-            <?php if ($myjat_user): ?>
+    <?php if ($myjat_user): ?>
 
-                <?php if (!empty($myjat_user['picture'])): ?>
-                    <img
-                        src="<?= htmlspecialchars($myjat_user['picture'], ENT_QUOTES, 'UTF-8') ?>"
-                        alt="">
-                <?php endif; ?>
+        <?php if (!empty($myjat_user['picture'])): ?>
+            <img
+                src="<?= htmlspecialchars($myjat_user['picture'], ENT_QUOTES, 'UTF-8') ?>"
+                alt="">
+        <?php endif; ?>
 
-                <span>
-                    आपका हार्दिक स्वागत 🙏 <?= htmlspecialchars($myjat_user['name'] ?? '', ENT_QUOTES, 'UTF-8') ?>
-                </span>
+        <span>
+            <?= htmlspecialchars($myjat_user['name'] ?? '', ENT_QUOTES, 'UTF-8') ?> जी,
+            आपका हार्दिक स्वागत है 🙏
+        </span>
 
-                <a href="/logout/">
-                    Logout
-                </a>
+        <a href="/logout/">
+            Logout
+        </a>
 
-            <?php else: ?>
+    <?php else: ?>
 
-                <a href="/login/">
-                    Login
-                </a>
+        <a href="/login/">
+            Login
+        </a>
 
-            <?php endif; ?>
+    <?php endif; ?>
 
-        </div>
-
+</div>
 
 
     </div>
