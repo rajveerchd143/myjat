@@ -1,22 +1,21 @@
 <?php
 
-function myjat_member_dashboard($pdo, $user_id)
+function myjat_member_dashboard($pdo, $email)
 {
-    if (empty($user_id)) {
-        return '<div class="dashboard-message">Please login first.</div>';
-    }
+    if (empty($email)) {
+    return '<div class="dashboard-message">Please login first.</div>';
+}
 
-    $stmt = $pdo->prepare(
-        "SELECT *
-         FROM membership_applications
-         WHERE user_id = ?
-         LIMIT 1"
-    );
+$stmt = $pdo->prepare(
+    "SELECT *
+     FROM membership_applications
+     WHERE email = ?
+     LIMIT 1"
+);
 
-    $stmt->execute([
-        (int) $user_id
-    ]);
-
+$stmt->execute([
+    $email
+]);
     $app = $stmt->fetch(PDO::FETCH_OBJ);
 
     if (!$app) {
