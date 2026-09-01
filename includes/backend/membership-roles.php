@@ -27,7 +27,7 @@ function myjat_can($capability)
         'myjat_reject_application',
         'myjat_print_pvc',
         'myjat_mark_card_printed',
-
+                    
     ];
 
     return in_array(
