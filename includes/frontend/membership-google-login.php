@@ -13,13 +13,10 @@ if (session_status() === PHP_SESSION_NONE) {
 // Google OAuth Configuration
 // =========================================================
 
-
 define(
     'MYJAT_GOOGLE_REDIRECT_URI',
-    'http://localhost/google-callback.php'
+    getenv('GOOGLE_REDIRECT_URI') ?: ''
 );
-
-
 // =========================================================
 // OAuth State
 // =========================================================
@@ -363,7 +360,6 @@ $user['google_id'] = $google_id;
 $user['name']      = $name;
 $user['picture']   = $picture;
 
-$_SESSION['myjat_user'] = $user;
 
 
 // =====================================================

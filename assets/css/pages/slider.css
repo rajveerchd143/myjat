@@ -83,6 +83,7 @@ padding:30px;
 display:inline-flex;
 align-self:center;
 padding:10px 22px;
+
 border-radius: var(--myjat-radius-1);
 background:#fff3e8;
 color:#c86b00;
