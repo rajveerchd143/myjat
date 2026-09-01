@@ -2,11 +2,11 @@
 function myjat_bigaji_home()
 {
     ob_start(); ?>
-    <section class="myjat-home">
+    
 
-        <div class="myjat-orb myjat-orb-1"></div>
-        <div class="myjat-orb myjat-orb-2"></div>
-        <div class="myjat-orb myjat-orb-3"></div>
+        
+        
+        
 
         <div class="menu-para myjat-glass">
 
@@ -128,7 +128,7 @@ function myjat_bigaji_home()
         </div>
 
 
-    </section>
+    
 <?php
     return ob_get_clean();
 }

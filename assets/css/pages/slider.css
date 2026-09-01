@@ -4,7 +4,7 @@ margin:70px 0 80px;
 padding:0;
 position:relative;
 z-index:5;
-border-radius: 30px;
+border-radius: var(--myjat-radius-1);
 color: black;
 background: none;
 
@@ -14,7 +14,7 @@ background: none;
 .myjat-slider-box{
 width:100%;
 min-height:520px;
-border-radius:30px;
+border-radius: var(--myjat-radius-1);
 overflow:hidden;
 position:relative;
 }
@@ -50,7 +50,7 @@ z-index:2;
 
 .myjat-slider-image{
 margin:40px;
-border-radius:30px;
+border-radius: var(--myjat-radius-1);
 overflow:hidden;
 }
 
@@ -83,7 +83,7 @@ padding:30px;
 display:inline-flex;
 align-self:center;
 padding:10px 22px;
-border-radius:30px;
+border-radius: var(--myjat-radius-1);
 background:#fff3e8;
 color:#c86b00;
 font-size:24px;
@@ -118,7 +118,7 @@ align-self:center;
 justify-content:right;
 padding:10px 24px;
 background:white;
-border-radius:30px;
+border-radius: var(--myjat-radius-1);
 text-decoration:none;
 font-weight:600;
 transition:transform .3s ease,background .3s ease,box-shadow .3s ease;
@@ -136,7 +136,7 @@ transform:translateY(-50%);
 width:56px;
 height:56px;
 border:none;
-border-radius:30px;
+border-radius: var(--myjat-radius-1);
 background:rgba(255,255,255,.95);
 box-shadow:0 10px 25px rgba(0,0,0,.12);
 cursor:pointer;
@@ -184,7 +184,7 @@ z-index:10;
 display:block;
 width:12px;
 height:12px;
-border-radius:30px;
+border-radius: var(--myjat-radius-1);
 background:#d6d6d6;
 cursor:pointer;
 transition:width .3s ease,background .3s ease,transform .3s ease;
@@ -196,7 +196,7 @@ transform:scale(1.15);
 
 .myjat-slider-dots span.active{
 width:34px;
-border-radius:30px;
+border-radius: var(--myjat-radius-1);
 background:#f58220;
 }
 
@@ -215,7 +215,7 @@ outline-offset:3px;
 margin:50px 0 60px;
 }
 .myjat-slider-box{
-border-radius:26px;
+border-radius: var(--myjat-radius-1);
 }
 .myjat-slider-track{
 height:720px;
@@ -229,7 +229,7 @@ margin-top: 20px;
 .myjat-slider-button{
 
 background:white;
-border-radius:30px;
+border-radius: var(--myjat-radius-1);
 text-decoration: aqua;
 font-weight:600;
 transition:transform .3s ease,background .3s ease,box-shadow .3s ease;
@@ -259,7 +259,7 @@ margin:40px 0 50px;
 
 .myjat-slider-image{
 margin:10px 34px 10px;
-border-radius:18px;
+border-radius: var(--myjat-radius-1);
 }
 .myjat-slider-badge{
 font-size:20px;

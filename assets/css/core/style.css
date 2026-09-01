@@ -1,0 +1,27 @@
+
+/* Website */
+@import "../assets/css/components/website.css";
+
+/* Foundation */
+@import "../assets/css/components/02-typography.css";
+
+/* Components */
+@import "../assets/css/components/00-pvc.css";
+@import "../assets/css/components/04-buttons.css";
+@import "../assets/css/components/05-forms.css";
+@import "../assets/css/components/06-cards.css";
+@import "../assets/css/components/11-search.css";
+
+/* Pages */
+@import "../assets/css/pages/home.css";
+@import "../assets/css/pages/menu.css";
+@import "../assets/css/pages/slider.css";
+@import "../assets/css/pages/membership-registration.css";
+@import "../assets/css/pages/membership-google-login.css";
+@import "../assets/css/pages/membership-verification.css";
+
+/* Admin */
+@import "../assets/css/admin/dashboard.css";
+@import "../assets/css/admin/applications.css";
+@import "../assets/css/admin/view.css";
+

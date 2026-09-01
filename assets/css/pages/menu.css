@@ -1,17 +1,11 @@
-
-.menu-para{
-
-    
-    width: calc(100% - 40px);
+.menu-para {
     max-width: 1350px;
-    margin: 0 auto;
-    border-radius: 30px;
-    
-    padding:30px;
-    text-align:justify;
-    line-height:1.8;
+    box-sizing: border-box;
+    border-radius: var(--myjat-radius-1);
+    padding: 15px;
+    text-align: justify;
+    line-height: 1.8;
     font-size: 25px;
-
 }
 .head-h1{
         text-align:center;

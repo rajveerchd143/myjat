@@ -1,12 +1,12 @@
 <?php
-function myjat_Estab_home()
+function myjat_estab_home()
 {
     ob_start(); ?>
-    <section class="myjat-home">
+    
 
-    <div class="myjat-orb myjat-orb-1"></div>
-    <div class="myjat-orb myjat-orb-2"></div>
-    <div class="myjat-orb myjat-orb-3"></div>
+    
+    
+    
     
     <div class="menu-para myjat-glass">
             <h1 class="head-h1">
@@ -55,7 +55,7 @@ function myjat_Estab_home()
     </div>
 
 
-    </section>
+    
 <?php
     return ob_get_clean();
 }

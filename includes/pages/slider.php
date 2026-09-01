@@ -53,7 +53,7 @@ function myjat_slider_home()
                     <i class="fa-solid fa-chevron-left"></i>
                 </button>
 
-                <?php foreach ($heroes as $hero): ?>
+                <?php foreach ($heroes as $index => $hero): ?>
 
                     <?php
 
@@ -90,18 +90,23 @@ function myjat_slider_home()
                  * get_permalink()
                  * completely removed.
                  */
-$hero_url = '/system/great.php?slug=' . urlencode($hero['slug']);
+
+                    $hero_url = '/' . urlencode($hero['slug']) . '/';
                     ?>
 
-                    <div class="myjat-slider-item">
+                    <div class="myjat-slider-item <?= $index === 0 ? 'active' : '' ?>">
 
                         <div class="myjat-slider-image">
 
                             <img
                                 src="<?= htmlspecialchars($image_url, ENT_QUOTES, 'UTF-8') ?>"
                                 alt="<?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?>"
-                                class="myjat-slider-img">
-
+                                class="myjat-slider-img"
+                                width="800"
+                                height="520"
+                                loading="<?= $index === 0 ? 'eager' : 'lazy' ?>"
+                                fetchpriority="<?= $index === 0 ? 'high' : 'low' ?>"
+                                decoding="async">
                         </div>
 
                         <div class="myjat-slider-content">

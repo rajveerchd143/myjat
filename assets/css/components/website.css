@@ -2,40 +2,18 @@
 MYJAT GLOBAL THEME
 ==================================================*/
 :root {
-    --myjat-bg: #FFFDF9;
-    --myjat-bg-soft: #FFF7EE;
-    --myjat-bg-warm: #FFF3E8;
-    --myjat-orange: #F58220;
-    --myjat-orange-light: #FEA855;
-    --myjat-orange-soft: #FDEBD4;
-    --myjat-blue: #EAF4FF;
-    --myjat-glass: rgba(255, 255, 255, .72);
-    --myjat-glass-bg: rgba(255, 255, 255, .10);
-    --myjat-glass-blur: 70px;
-    --myjat-glass-border: rgba(255, 255, 255, .28);
-    --myjat-glass-shadow:
-        0 40px 120px rgba(245, 130, 32, .10),
-        0 0 0 1px rgba(255, 255, 255, .08),
-        inset 0 1px 0 rgba(255, 255, 255, .35),
-        inset 0 -1px 0 rgba(255, 255, 255, .08);
-}
-* {
-    box-sizing: border-box;
-}
-html {
-    scroll-behavior: smooth;
+    --myjat-radius-1: 15px;
 }
 
 
 
-
-
-
+html,
 body {
     position: relative;
-    background: none !important;
-    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
+
 
 body::before,
 body::after {
@@ -49,12 +27,11 @@ body::after {
     background-attachment: fixed;
 
     pointer-events: none;
-
     z-index: -10;
 
     opacity: 0;
 
-    transition: opacity 5s ease-in-out;
+    transition: opacity 10s ease-in-out;
 }
 
 body::before {
@@ -75,69 +52,48 @@ body.myjat-bg-fade::after {
     opacity: 1;
 }
 
-body > * {
+
+
+/*==================================================
+container
+==================================================*/
+header,
+#myjat-main-content,
+.myjat-footer {
     position: relative;
     z-index: 1;
 }
-/*==================================================
-ORBS
-==================================================*/
-.myjat-orb {
+
+.myjat-light-rays,
+.myjat-site-bg {
     position: fixed;
-    border-radius: 50%;
-    filter: blur(120px);
-    pointer-events: none;
-    z-index: -45;
-    mix-blend-mode: screen;
-    will-change: transform;
-    animation: myjatOrbFloat 32s ease-in-out infinite;
+    inset: 0;
+    z-index: -10;
 }
-.myjat-orb-1 {
-    width: 520px;
-    height: 520px;
-    left: -180px;
-    top: -60px;
-    background: #F58220;
-    opacity: .30;
+
+
+#myjat-main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-bottom: 24px;
+    min-height: calc(100vh - 170px);
+
 }
-.myjat-orb-2 {
-    width: 420px;
-    height: 420px;
-    right: -120px;
-    top: 180px;
-    background:  #FFD166;
-    opacity: .25;
-    animation-delay: 8s;
+
+
+.myjat-container {
+    width: calc(100% - 40px);
+    max-width: 1350px;
+    box-sizing: border-box;
+    margin: 24px auto 0;
+    padding: 20px;
+    border-radius: var(--myjat-radius-1);
+    flex: 1;
+
 }
-.myjat-orb-3 {
-    width: 620px;
-    height: 620px;
-    right: -220px;
-    bottom: -220px;
-    background: #FF8A65;
-    opacity: .26;
-    animation-delay: 15s;
-}
-/*==================================================
-ANIMATION for orbs
-==================================================*/
-@keyframes myjatOrbFloat {
-    0% {
-        transform: translate3d(0, 0, 0) scale(1);
-    }
-    25% {
-        transform: translate3d(60px, -40px, 0) scale(1.08);
-    }
-    50% {
-        transform: translate3d(-30px, 60px, 0) scale(.96);
-    }
-    75% {
-        transform: translate3d(50px, 30px, 0) scale(1.05);
-    }
-    100% {
-        transform: translate3d(0, 0, 0) scale(1);
-    }
-}
+
+
 
 
 /*==================================================
@@ -149,7 +105,7 @@ MOUSE GLOW
     top: 0;
     width: 300px;
     height: 300px;
-    border-radius: 50%;
+    border-radius: var(--myjat-radius-1);
     pointer-events: none;
     z-index: 15;
     transform: translate(-50%, -50%);
@@ -159,6 +115,7 @@ MOUSE GLOW
     opacity: 1;
     will-change: transform;
 }
+
 /*==================================================
 FLOATING LEAVES
 ==================================================*/
@@ -169,6 +126,7 @@ FLOATING LEAVES
     pointer-events: none;
     z-index: 1;
 }
+
 .myjat-leaf {
     position: absolute;
     width: 142px;
@@ -180,36 +138,42 @@ FLOATING LEAVES
     animation: myjatLeafFloat linear infinite;
     will-change: transform;
 }
+
 .myjat-leaf:nth-child(1) {
     left: 5%;
     top: -8%;
     animation-duration: 10s;
     animation-delay: -3s;
 }
+
 .myjat-leaf:nth-child(2) {
     left: 18%;
     top: -12%;
     animation-duration: 10s;
     animation-delay: -5s;
 }
+
 .myjat-leaf:nth-child(3) {
     left: 34%;
     top: -10%;
     animation-duration: 10s;
     animation-delay: -8s;
 }
+
 .myjat-leaf:nth-child(4) {
     left: 52%;
     top: -6%;
     animation-duration: 10s;
     animation-delay: -10s;
 }
+
 .myjat-leaf:nth-child(5) {
     left: 68%;
     top: -15%;
     animation-duration: 10s;
     animation-delay: -7s;
 }
+
 .myjat-leaf:nth-child(6) {
     left: 86%;
     top: -8%;
@@ -226,13 +190,16 @@ ANIMATION for leaf
         transform: translate3d(0, -120px, 0) rotate(0deg) scale(.85);
         opacity: 0;
     }
+
     15% {
         opacity: .15;
     }
+
     50% {
         transform: translate3d(40px, 55vh, 0) rotate(180deg) scale(1);
         opacity: .22;
     }
+
     100% {
         transform: translate3d(-50px, 115vh, 0) rotate(360deg) scale(.82);
         opacity: 0;
@@ -248,19 +215,19 @@ ANIMATION for leaf
 GLASS
 ==================================================*/
 
-.myjat-glass{
-background:rgba(255,255,255,.60);
-backdrop-filter:blur(5px);
--webkit-backdrop-filter:blur(24px);
-border:1px solid rgba(255,255,255,.75);
-box-shadow:0 20px 60px rgba(0,0,0,.35);
+.myjat-glass {
+    background: rgba(255, 255, 255, .60);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, .75);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
 }
 
 
 
-.myjat-glassborder{
-backdrop-filter:blur(0px);
--webkit-backdrop-filter:blur(0px);
-border:1px solid rgba(255,255,255,.70);
-box-shadow:0 20px 60px rgba(0,0,0,.35);
+.myjat-glass-clear {
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    border: 1px solid rgba(255, 255, 255, .70);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
 }

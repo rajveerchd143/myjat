@@ -26,7 +26,7 @@ height:38px;
 padding:0 18px 0 52px;
 background:var(--myjat-surface);
 border:1px solid var(--myjat-border);
-border-radius:var(--myjat-radius-md)!important;
+border-radius: var(--myjat-radius-1);
 font-size:15px;
 transition:all var(--myjat-speed) var(--myjat-ease);
 box-sizing:border-box;
@@ -41,7 +41,6 @@ box-shadow:0 0 0 4px var(--myjat-primary-glow);
 .myjat-search-form{
 display:flex;
 align-items:center;
-gap:var(--myjat-space-4);
 flex-wrap:nowrap;
 width:100%;
 }
@@ -72,7 +71,7 @@ background:rgba(255,255,255,.72);
 backdrop-filter:blur(20px);
 -webkit-backdrop-filter:blur(20px);
 border:1px solid rgba(255,255,255,.75);
-border-radius:18px;
+border-radius: var(--myjat-radius-1);
 box-shadow:0 12px 35px rgba(15,23,42,.05);
 font-size:15px;
 transition:.25s;

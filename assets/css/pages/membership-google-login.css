@@ -1,0 +1,174 @@
+.myjat-login-wrapper {
+    width: min(420px, calc(100% - 40px));
+    margin: 40px auto;
+    padding: 25px;
+    box-sizing: border-box;
+
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.myjat-login-wrapper h2 {
+    margin: 0 0 20px;
+    text-align: center;
+    font-size: 24px;
+}
+
+
+/* GOOGLE BUTTON */
+
+.myjat-google-login {
+    width: 100%;
+    min-height: 44px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 10px 14px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    background: #fff;
+    color: #222;
+
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.myjat-google-login:hover {
+    background: #f7f7f7;
+}
+
+
+/* DIVIDER */
+
+.myjat-login-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin: 20px 0;
+    color: #777;
+    font-size: 13px;
+}
+
+.myjat-login-divider::before,
+.myjat-login-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #ddd;
+}
+
+.myjat-login-divider span {
+    flex: 0 0 auto;
+}
+
+
+/* FORM */
+
+#myjat-login-form p {
+    margin: 12px 0;
+}
+
+#myjat-login-form input[type="text"],
+#myjat-login-form input[type="password"] {
+    width: 100%;
+    height: 44px;
+    box-sizing: border-box;
+
+    padding: 10px 14px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    background: #fff;
+    color: #222;
+
+    font-size: 15px;
+}
+
+#myjat-login-form input:focus {
+    outline: none;
+    border-color: #888;
+}
+
+
+/* PASSWORD */
+
+.myjat-password-field {
+    position: relative;
+    width: 100%;
+}
+
+.myjat-password-field input {
+    padding-right: 45px !important;
+}
+
+#myjat-toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+
+    transform: translateY(-50%);
+
+    width: 30px;
+    height: 30px;
+
+    padding: 0;
+    border: 0;
+
+    background: transparent;
+    color: #555;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+}
+
+
+/* REMEMBER */
+
+#myjat-login-form label {
+    font-size: 14px;
+    color: #444;
+}
+
+
+/* LOGIN BUTTON */
+
+#myjat-login-form button[type="submit"] {
+    width: 100%;
+    height: 44px;
+
+    border: 0;
+    border-radius: 6px;
+
+    background: #222;
+    color: #fff;
+
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#myjat-login-form button[type="submit"]:hover {
+    background: #333;
+}
+
+
+/* MESSAGE */
+
+#myjat-login-message {
+    margin-top: 10px;
+    font-size: 14px;
+}

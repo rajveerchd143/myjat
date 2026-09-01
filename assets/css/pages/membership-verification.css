@@ -9,10 +9,10 @@ max-width:300px;
 .myjat-verification-card{
 margin-top:24px;
 padding:20px;
-border-radius:var(--myjat-radius-lg);
+border-radius: var(--myjat-radius-1);
 background:var(--myjat-glass-bg);
-backdrop-filter:blur(var(--myjat-glass-blur));
--webkit-backdrop-filter:blur(var(--myjat-glass-blur));
+backdrop-filter:blur(var(--myjat-glass-clear));
+-webkit-backdrop-filter:blur(var(--myjat-glass-clear));
 }
 
 .myjat-verification-success{
@@ -29,5 +29,5 @@ max-width:180px;
 height:auto;
 padding:5px;
 border:1px solid var(--myjat-border);
-border-radius:var(--myjat-radius-md);
+border-radius: var(--myjat-radius-1);
 }
