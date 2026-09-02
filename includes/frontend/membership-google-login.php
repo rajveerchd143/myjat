@@ -187,7 +187,7 @@ function myjat_google_callback()
             'method' => 'POST',
 
             'header' =>
-                "Content-Type: application/x-www-form-urlencoded\r\n"
+            "Content-Type: application/x-www-form-urlencoded\r\n"
                 . "Content-Length: "
                 . strlen($post_data)
                 . "\r\n",
@@ -234,7 +234,7 @@ function myjat_google_callback()
             'method' => 'GET',
 
             'header' =>
-                "Authorization: Bearer "
+            "Authorization: Bearer "
                 . $token['access_token']
                 . "\r\n",
 
@@ -290,24 +290,24 @@ function myjat_google_callback()
     // Store Google User Session
     // =====================================================
 
-// =====================================================
-// Find Google User In Database
-// =====================================================
+    // =====================================================
+    // Find Google User In Database
+    // =====================================================
 
 
-global $pdo;
+    global $pdo;
 
-if (!$pdo instanceof PDO) {
-    exit('Database connection unavailable.');
-}
+    if (!$pdo instanceof PDO) {
+        exit('Database connection unavailable.');
+    }
 
 
-/* =====================================================
+    /* =====================================================
    Find User By Google Email
    ===================================================== */
 
-$stmt = $pdo->prepare(
-    "SELECT
+    $stmt = $pdo->prepare(
+        "SELECT
         id,
         email,
         name,
@@ -317,64 +317,65 @@ $stmt = $pdo->prepare(
      FROM membership_users
      WHERE LOWER(email) = LOWER(?)
      LIMIT 1"
-);
+    );
 
-$stmt->execute([
-    $email
-]);
+    $stmt->execute([
+        $email
+    ]);
 
-$user = $stmt->fetch(PDO::FETCH_ASSOC);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if (!$user) {
-    exit('Google account is not registered.');
-}
+    if (!$user) {
+        exit('Google account is not registered.');
+    }
 
 
-/* =====================================================
+    /* =====================================================
    Update Google Profile
    ===================================================== */
 
-$update = $pdo->prepare(
-    "UPDATE membership_users
+    $update = $pdo->prepare(
+        "UPDATE membership_users
      SET
         google_id = ?,
         name = ?,
         picture = ?,
         updated_at = NOW()
      WHERE id = ?"
-);
+    );
 
-$update->execute([
-    $google_id,
-    $name,
-    $picture,
-    $user['id']
-]);
+    $update->execute([
+        $google_id,
+        $name,
+        $picture,
+        $user['id']
+    ]);
 
 
-/* =====================================================
+    /* =====================================================
    Refresh Session User
    ===================================================== */
 
-$user['google_id'] = $google_id;
-$user['name']      = $name;
-$user['picture']   = $picture;
+    $user['google_id'] = $google_id;
+    $user['name']      = $name;
+    $user['picture']   = $picture;
 
 
 
-// =====================================================
-// Store User Session
-// =====================================================
+    // =====================================================
+    // Store User Session
+    // =====================================================
 
-$_SESSION['myjat_user'] = $user;
+    $_SESSION['myjat_user'] = $user;
 
     // =====================================================
     // Redirect
     // =====================================================
+    if (($user['role'] ?? '') === 'admin') {
+        header('Location: /membership-admin/');
+        exit;
+    }
 
-    header(
-        'Location: /member-dashboard/'
-    );
-
+    header('Location: /member-dashboard/');
     exit;
 }

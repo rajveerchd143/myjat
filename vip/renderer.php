@@ -115,11 +115,9 @@ if (
 ) {
     $user = myjat_current_user();
 
-    if (
-        empty($user['email']) ||
-        !myjat_is_admin_email($user['email'])
-    ) {
-        http_response_code(403);
+    if (($user['role'] ?? '') !== 'admin') {
+
+    
 
         return '<h1>Access Denied.</h1>';
     }
