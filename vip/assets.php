@@ -50,8 +50,6 @@ $MYJAT_CSS = [
     '/assets/css/admin/dashboard.css',
     '/assets/css/admin/view.css',
 
-    // Vendor
-    '/assets/vendor/tom-select/tom-select.css',
 ];
 
 
@@ -82,14 +80,12 @@ $MYJAT_JS = [
     // Location
     '/assets/script/location.js',
 
-    // Vendor
-    '/assets/vendor/tom-select/tom-select.complete.min.js',
 ];
 
 
 /*
 |--------------------------------------------------------------------------
-| Location
+| Location AJAX
 |--------------------------------------------------------------------------
 */
 
@@ -129,6 +125,33 @@ function myjat_vip_render_css(): void
 function myjat_vip_render_js(): void
 {
     global $MYJAT_JS;
+    global $MYJAT_LOCATION_AJAX_URL;
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Location Configuration
+    |--------------------------------------------------------------------------
+    */
+
+    echo '<script>';
+
+    echo 'window.myjatLocation = {';
+    echo 'ajax_url: '
+        . json_encode(
+            $MYJAT_LOCATION_AJAX_URL,
+            JSON_UNESCAPED_SLASHES
+        );
+    echo '};';
+
+    echo '</script>' . PHP_EOL;
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | JavaScript Files
+    |--------------------------------------------------------------------------
+    */
 
     foreach ($MYJAT_JS as $js) {
 

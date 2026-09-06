@@ -302,12 +302,12 @@ function myjat_google_callback()
     }
 
 
-    /* =====================================================
-   Find User By Google Email
+/* =====================================================
+   Find Existing User
    ===================================================== */
 
-    $stmt = $pdo->prepare(
-        "SELECT
+$stmt = $pdo->prepare(
+    "SELECT
         id,
         email,
         name,
@@ -316,20 +316,115 @@ function myjat_google_callback()
         role
      FROM membership_users
      WHERE LOWER(email) = LOWER(?)
+        OR google_id = ?
      LIMIT 1"
+);
+
+$stmt->execute([
+    $email,
+    $google_id
+]);
+
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+/* =====================================================
+   Create New User Automatically
+   ===================================================== */
+
+if (!$user) {
+
+    $insert = $pdo->prepare(
+        "INSERT INTO membership_users
+        (
+            google_id,
+            email,
+            name,
+            picture,
+            role,
+            created_at,
+            updated_at
+        )
+        VALUES
+        (
+            ?,
+            ?,
+            ?,
+            ?,
+            'member',
+            NOW(),
+            NOW()
+        )"
+    );
+
+    $insert->execute([
+        $google_id,
+        $email,
+        $name,
+        $picture
+    ]);
+
+    $user_id = (int) $pdo->lastInsertId();
+
+
+    /* =================================================
+       Get Newly Created User
+       ================================================= */
+
+    $stmt = $pdo->prepare(
+        "SELECT
+            id,
+            email,
+            name,
+            google_id,
+            picture,
+            role
+         FROM membership_users
+         WHERE id = ?
+         LIMIT 1"
     );
 
     $stmt->execute([
-        $email
+        $user_id
     ]);
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!$user) {
-        exit('Google account is not registered.');
+        exit('Unable to create user account.');
     }
+}
 
 
+/* =====================================================
+   Update Existing Google Profile
+   ===================================================== */
+
+$update = $pdo->prepare(
+    "UPDATE membership_users
+     SET
+        google_id = ?,
+        name = ?,
+        picture = ?,
+        updated_at = NOW()
+     WHERE id = ?"
+);
+
+$update->execute([
+    $google_id,
+    $name,
+    $picture,
+    $user['id']
+]);
+
+
+/* =====================================================
+   Refresh Session User
+   ===================================================== */
+
+$user['google_id'] = $google_id;
+$user['name']      = $name;
+$user['picture']   = $picture;
     /* =====================================================
    Update Google Profile
    ===================================================== */

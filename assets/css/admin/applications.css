@@ -18,7 +18,6 @@
 .admin-heading {
     margin-bottom: 25px;
     padding: 25px 30px;
-    background: #ffffff;
     border: 1px solid #ddd;
     border-radius: var(--myjat-radius-1);
 }
@@ -73,6 +72,7 @@
     align-items: center;
     justify-content: center;
     padding: 0 18px;
+    background: whitesmoke;
     border-radius: var(--myjat-radius-1);
     border: 0;
     text-decoration: none;
@@ -80,6 +80,7 @@
     font-size: 14px;
     white-space: nowrap;
     box-sizing: border-box;
+
 }
 
 .admin-search button {
@@ -90,11 +91,6 @@
 .admin-search a {
     background: #eee;
     color: #222;
-}
-
-.admin-export {
-    background: #222;
-    color: #fff;
 }
 
 
@@ -109,7 +105,6 @@
 
 .admin-stat {
     padding: 22px;
-    background: #fff;
     border: 1px solid #ddd;
     border-radius: var(--myjat-radius-1);
     box-sizing: border-box;
@@ -138,7 +133,6 @@
 
 .admin-table-box {
     width: 100%;
-    background: #fff;
     border: 1px solid #ddd;
     border-radius: var(--myjat-radius-1);
     overflow: hidden;

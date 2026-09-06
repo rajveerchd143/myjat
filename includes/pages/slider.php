@@ -42,7 +42,7 @@ function myjat_slider_home()
 
     <section class="myjat-slider-section">
 
-        <div class="myjat-slider-box myjat-glass">
+        <div class="myjat-slider-box myjat-glassblur">
 
             <div class="myjat-slider-track">
 

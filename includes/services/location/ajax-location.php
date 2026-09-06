@@ -1,51 +1,106 @@
 <?php
 
+declare(strict_types=1);
+
+
+// =========================================================
+// MYJAT LOCATION AJAX
+// =========================================================
+
+require_once dirname(__DIR__, 3) . '/vip/bootstrap.php';
+
 require_once __DIR__ . '/class-location-service.php';
 
-header('Content-Type: application/json; charset=UTF-8');
+
+// =========================================================
+// JSON Response
+// =========================================================
+
+header(
+    'Content-Type: application/json; charset=UTF-8'
+);
 
 
-function myjat_location_ajax_response($success, $data = [])
-{
+function myjat_location_ajax_response(
+    bool $success,
+    $data = []
+): void {
+
     echo json_encode(
         [
             'success' => $success,
             'data'    => $data
         ],
-        JSON_UNESCAPED_UNICODE
+        JSON_UNESCAPED_UNICODE |
+        JSON_UNESCAPED_SLASHES
     );
 
     exit;
 }
 
 
-$type = $_POST['type'] ?? '';
+// =========================================================
+// Database
+// =========================================================
 
-$type = trim($type);
-
-
-$pdo = $GLOBALS['pdo'] ?? null;
+global $pdo;
 
 if (!$pdo instanceof PDO) {
 
     myjat_location_ajax_response(
         false,
         [
-            'message' => 'Database connection unavailable.'
+            'message' =>
+                'Database connection unavailable.'
         ]
     );
 
 }
 
 
-$parent = $_POST['parent'] ?? '';
+// =========================================================
+// Request
+// =========================================================
 
-$parent = trim($parent);
+$type =
+    trim(
+        (string) (
+            $_POST['type']
+            ?? ''
+        )
+    );
 
+
+$parent =
+    trim(
+        (string) (
+            $_POST['parent']
+            ?? ''
+        )
+    );
+
+
+// =========================================================
+// Location
+// =========================================================
 
 switch ($type) {
 
+
+    // -----------------------------------------------------
+    // STATE → DISTRICT
+    // -----------------------------------------------------
+
     case 'district':
+
+        if ($parent === '') {
+
+            myjat_location_ajax_response(
+                false,
+                []
+            );
+
+        }
 
         $data =
             MyJat_Location_Service::get_districts(
@@ -56,7 +111,20 @@ switch ($type) {
         break;
 
 
+    // -----------------------------------------------------
+    // DISTRICT → BLOCK
+    // -----------------------------------------------------
+
     case 'block':
+
+        if ($parent === '') {
+
+            myjat_location_ajax_response(
+                false,
+                []
+            );
+
+        }
 
         $data =
             MyJat_Location_Service::get_blocks(
@@ -67,16 +135,50 @@ switch ($type) {
         break;
 
 
+    // -----------------------------------------------------
+    // BLOCK → VILLAGE
+    // -----------------------------------------------------
+
     case 'village':
 
         $state =
-            trim($_POST['state'] ?? '');
+            trim(
+                (string) (
+                    $_POST['state']
+                    ?? ''
+                )
+            );
 
         $district =
-            trim($_POST['district'] ?? '');
+            trim(
+                (string) (
+                    $_POST['district']
+                    ?? ''
+                )
+            );
 
         $block =
-            trim($_POST['block'] ?? '');
+            trim(
+                (string) (
+                    $_POST['block']
+                    ?? ''
+                )
+            );
+
+
+        if (
+            $state === ''
+            || $district === ''
+            || $block === ''
+        ) {
+
+            myjat_location_ajax_response(
+                false,
+                []
+            );
+
+        }
+
 
         $data =
             MyJat_Location_Service::get_villages(
@@ -89,19 +191,59 @@ switch ($type) {
         break;
 
 
+    // -----------------------------------------------------
+    // VILLAGE → PINCODE
+    // -----------------------------------------------------
+
     case 'pincode':
 
         $state =
-            trim($_POST['state'] ?? '');
+            trim(
+                (string) (
+                    $_POST['state']
+                    ?? ''
+                )
+            );
 
         $district =
-            trim($_POST['district'] ?? '');
+            trim(
+                (string) (
+                    $_POST['district']
+                    ?? ''
+                )
+            );
 
         $block =
-            trim($_POST['block'] ?? '');
+            trim(
+                (string) (
+                    $_POST['block']
+                    ?? ''
+                )
+            );
 
         $village =
-            trim($_POST['village'] ?? '');
+            trim(
+                (string) (
+                    $_POST['village']
+                    ?? ''
+                )
+            );
+
+
+        if (
+            $state === ''
+            || $district === ''
+            || $block === ''
+            || $village === ''
+        ) {
+
+            myjat_location_ajax_response(
+                false,
+                []
+            );
+
+        }
+
 
         $data =
             MyJat_Location_Service::get_pincode(
@@ -115,16 +257,25 @@ switch ($type) {
         break;
 
 
+    // -----------------------------------------------------
+    // INVALID REQUEST
+    // -----------------------------------------------------
+
     default:
 
         myjat_location_ajax_response(
             false,
             [
-                'message' => 'Invalid location request.'
+                'message' =>
+                    'Invalid location request.'
             ]
         );
 }
 
+
+// =========================================================
+// Response
+// =========================================================
 
 myjat_location_ajax_response(
     true,

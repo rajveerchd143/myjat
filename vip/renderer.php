@@ -38,7 +38,7 @@ function myjat_vip_render_page($content): void
 
         ?>
         <main id="myjat-main-content">
-            <div class="myjat-container myjat-glass-clear">
+            <div class="myjat-container myjat-glassclear">
                 <?= $content ?>
             </div>
         </main>

@@ -1,265 +1,440 @@
-
-
 document.addEventListener("DOMContentLoaded", function () {
 
-    if (typeof TomSelect === "undefined") {
+    const state =
+        document.getElementById("myjat-state");
+
+    const district =
+        document.getElementById("myjat-district");
+
+    const block =
+        document.getElementById("myjat-block");
+
+    const village =
+        document.getElementById("myjat-village");
+
+    const pincode =
+        document.getElementById("myjat-pincode");
+
+
+    if (
+        !state ||
+        !district ||
+        !block ||
+        !village
+    ) {
         return;
     }
 
-    /* ==========================
-       STATE
-    ========================== */
 
-const state = new TomSelect("#myjat-state", {
-    create: false,
-    searchField: ["text"],
-    placeholder: "राज्य चुनें",
-    allowEmptyOption: true
-});
-    /* ==========================
-       DISTRICT
-    ========================== */
+    if (
+        !window.myjatLocation ||
+        !window.myjatLocation.ajax_url
+    ) {
+        return;
+    }
 
-const district = new TomSelect("#myjat-district", {
-    create: false,
-    searchField: ["text"],
-    placeholder: "पहले राज्य चुनें",
-    allowEmptyOption: true
-});
-  /* ==========================
-       Block
-    ========================== */
 
-const block = new TomSelect("#myjat-block", {
-    create: false,
-    placeholder: "पहले जिला चुनें",
-    allowEmptyOption: true
-});
-/* ==========================
-       Village
-    ========================== */
+    const ajaxUrl =
+        window.myjatLocation.ajax_url;
 
- const village = new TomSelect("#myjat-village", {
-    create: false,
-    searchField: ["text"],
-    placeholder: "पहले ब्लॉक चुनें",
-    allowEmptyOption: true
-});
-    /* ==========================
-       State Change
-    ========================== */
 
-state.on("change", function (value) {
-        district.clear();
-        district.clearOptions();
-        district.addOption({
-    value: "",
-});
-    
+    // =====================================================
+    // Helper
+    // =====================================================
 
-        district.refreshOptions(false);
+    function resetSelect(select, text) {
 
-        fetch(myjatLocation.ajax_url, {
+        select.innerHTML = "";
 
-            method: "POST",
+        const option =
+            document.createElement("option");
 
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
+        option.value = "";
+        option.textContent = text;
 
-            body:
-                "action=myjat_location&type=district&parent=" +
-                encodeURIComponent(value)
+        select.appendChild(option);
+
+        select.disabled = false;
+    }
+
+
+    function setLoading(select) {
+
+        select.innerHTML = "";
+
+        const option =
+            document.createElement("option");
+
+        option.value = "";
+        option.textContent =
+            "लोड हो रहा है...";
+
+        select.appendChild(option);
+
+        select.disabled = true;
+    }
+
+
+    function loadLocation(
+        type,
+        data,
+        select,
+        placeholder
+    ) {
+
+        setLoading(select);
+
+
+        const body =
+            new URLSearchParams();
+
+        body.append(
+            "action",
+            "myjat_location"
+        );
+
+        body.append(
+            "type",
+            type
+        );
+
+
+        Object.keys(data).forEach(
+            function (key) {
+
+                body.append(
+                    key,
+                    data[key]
+                );
+
+            }
+        );
+
+
+        fetch(
+            ajaxUrl,
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type":
+                        "application/x-www-form-urlencoded"
+                },
+
+                body:
+                    body.toString()
+            }
+        )
+
+        .then(function (response) {
+
+            if (!response.ok) {
+                throw new Error(
+                    "Location request failed"
+                );
+            }
+
+            return response.json();
 
         })
 
-        .then(response => response.json())
+        .then(function (result) {
 
-        .then(result => {
+            resetSelect(
+                select,
+                placeholder
+            );
 
-            district.clearOptions();
 
-            if (!result.success) {
+            if (
+                !result.success ||
+                !Array.isArray(result.data)
+            ) {
                 return;
             }
 
-            result.data.forEach(function (item) {
 
-                district.addOption({
-                    value: item,
-                    text: item
-                });
+            result.data.forEach(
+                function (item) {
 
-            });
+                    const option =
+                        document.createElement(
+                            "option"
+                        );
 
-            district.refreshOptions(false);
+                    option.value = item;
+                    option.textContent = item;
+
+                    select.appendChild(
+                        option
+                    );
+
+                }
+            );
+
+        })
+
+        .catch(function () {
+
+            resetSelect(
+                select,
+                placeholder
+            );
 
         });
 
-    });
+    }
 
-    /* ==========================
-   District Change
-========================== */
 
-district.on("change", function (value) {
+    // =====================================================
+    // STATE → DISTRICT
+    // =====================================================
 
-    block.clear();
-    block.clearOptions();
+    state.addEventListener(
+        "change",
+        function () {
 
-    block.addOption({
-        value: "",
-        text: "लोड हो रहा है..."
-    });
+            const value =
+                this.value.trim();
 
-    block.refreshOptions(false);
 
-    fetch(myjatLocation.ajax_url, {
+            resetSelect(
+                district,
+                "जिला चुनें"
+            );
 
-        method: "POST",
+            resetSelect(
+                block,
+                "पहले जिला चुनें"
+            );
 
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
+            resetSelect(
+                village,
+                "पहले ब्लॉक चुनें"
+            );
 
-        body:
-            "action=myjat_location&type=block&parent=" +
-            encodeURIComponent(value)
 
-    })
+            if (!value) {
+                return;
+            }
 
-    .then(response => response.json())
 
-    .then(result => {
+            loadLocation(
+                "district",
+                {
+                    parent: value
+                },
+                district,
+                "जिला चुनें"
+            );
 
-        block.clearOptions();
-
-        if (!result.success) {
-            return;
         }
-
-        result.data.forEach(function (item) {
-
-            block.addOption({
-                value: item,
-                text: item
-            });
-
-        });
-
-        block.refreshOptions(false);
-
-    });
-
-});
+    );
 
 
-/* ==========================
-   Block Change
-========================== */
+    // =====================================================
+    // DISTRICT → BLOCK
+    // =====================================================
 
-block.on("change", function (value) {
+    district.addEventListener(
+        "change",
+        function () {
 
-    village.clear();
-    village.clearOptions();
+            const value =
+                this.value.trim();
 
-    village.addOption({
-        value: "",
-        text: "लोड हो रहा है..."
-    });
 
-    village.refreshOptions(false);
+            resetSelect(
+                block,
+                "ब्लॉक चुनें"
+            );
 
-    fetch(myjatLocation.ajax_url, {
+            resetSelect(
+                village,
+                "पहले ब्लॉक चुनें"
+            );
 
-        method: "POST",
 
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
+            if (!value) {
+                return;
+            }
 
-        body:
-            "action=myjat_location" +
-            "&type=village" +
-            "&state=" + encodeURIComponent(state.getValue()) +
-            "&district=" + encodeURIComponent(district.getValue()) +
-            "&block=" + encodeURIComponent(value)
 
-    })
+            loadLocation(
+                "block",
+                {
+                    parent: value
+                },
+                block,
+                "ब्लॉक चुनें"
+            );
 
-    .then(response => response.json())
-
-    .then(result => {
-
-        village.clearOptions();
-
-        if (!result.success) {
-            return;
         }
+    );
 
-        result.data.forEach(function (item) {
 
-            village.addOption({
-                value: item,
-                text: item
+    // =====================================================
+    // BLOCK → VILLAGE / PANCHAYAT
+    // =====================================================
+
+    block.addEventListener(
+        "change",
+        function () {
+
+            const value =
+                this.value.trim();
+
+
+            resetSelect(
+                village,
+                "ग्राम / पंचायत चुनें"
+            );
+
+
+            if (!value) {
+                return;
+            }
+
+
+            loadLocation(
+                "village",
+                {
+                    state: state.value,
+                    district: district.value,
+                    block: value
+                },
+                village,
+                "ग्राम / पंचायत चुनें"
+            );
+
+        }
+    );
+
+
+    // =====================================================
+    // VILLAGE → PINCODE
+    // =====================================================
+
+    village.addEventListener(
+        "change",
+        function () {
+
+            const value =
+                this.value.trim();
+
+
+            if (!pincode) {
+                return;
+            }
+
+
+            if (!value) {
+
+                pincode.value = "";
+
+                return;
+            }
+
+
+            pincode.value =
+                "लोड हो रहा है...";
+
+            pincode.readOnly = true;
+
+
+            const body =
+                new URLSearchParams();
+
+
+            body.append(
+                "action",
+                "myjat_location"
+            );
+
+            body.append(
+                "type",
+                "pincode"
+            );
+
+            body.append(
+                "state",
+                state.value
+            );
+
+            body.append(
+                "district",
+                district.value
+            );
+
+            body.append(
+                "block",
+                block.value
+            );
+
+            body.append(
+                "village",
+                value
+            );
+
+
+            fetch(
+                ajaxUrl,
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/x-www-form-urlencoded"
+                    },
+
+                    body:
+                        body.toString()
+                }
+            )
+
+            .then(function (response) {
+
+                if (!response.ok) {
+                    throw new Error(
+                        "PIN request failed"
+                    );
+                }
+
+                return response.json();
+
+            })
+
+            .then(function (result) {
+
+                if (
+                    result.success &&
+                    result.data
+                ) {
+
+                    pincode.value =
+                        result.data;
+
+                } else {
+
+                    pincode.value = "";
+
+                }
+
+            })
+
+            .catch(function () {
+
+                pincode.value = "";
+
+            })
+
+            .finally(function () {
+
+                pincode.readOnly = false;
+
             });
 
-        });
-
-        village.refreshOptions(false);
-
-    });
-
-});
-
-
-/* ==========================
-   Village change 
-========================== */
-village.on("change", function (value) {
-
-fetch(myjatLocation.ajax_url, {
-
-    method: "POST",
-
-    headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-    },
-
-    body:
-        "action=myjat_location" +
-        "&type=pincode" +
-        "&state=" + encodeURIComponent(state.getValue()) +
-        "&district=" + encodeURIComponent(district.getValue()) +
-        "&block=" + encodeURIComponent(block.getValue()) +
-        "&village=" + encodeURIComponent(value)
-
-})
-
-    .then(response => response.json())
-
-    .then(result => {
-
-        const pin = document.querySelector("#myjat-pincode");
-
-        if (!pin) return;
-
-if (result.success && result.data) {
-
-    pin.value = result.data;
-
-} else {
-
-    pin.value = "";
-
-}
-pin.value = result.data || "";
-pin.readOnly = false;
-pin.classList.remove("myjat-readonly");
-
-
-    });
-
-});
+        }
+    );
 
 });

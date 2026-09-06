@@ -8,7 +8,7 @@ function myjat_tiket_home()
         
         
 
-        <div class="menu-para myjat-glass">
+        <div class="menu-para myjat-glassblur">
 
 <h1 class="head-h1">
     चौधरी महेंद्र सिंह टिकैत

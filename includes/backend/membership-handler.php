@@ -13,6 +13,93 @@ function myjat_handle_membership_form_submission($pdo)
 
 
     // =====================================================
+    // Session
+    // =====================================================
+
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+
+    // =====================================================
+    // Logged-in User
+    // =====================================================
+
+    $current_user =
+        $_SESSION['myjat_user'] ?? null;
+
+    if (!$current_user) {
+
+        header('Location: /login/');
+        exit;
+    }
+
+
+    $google_email =
+        trim(
+            (string) (
+                $current_user['email']
+                ?? $current_user['user_email']
+                ?? ''
+            )
+        );
+
+    $google_id =
+        trim(
+            (string) (
+                $current_user['google_id']
+                ?? ''
+            )
+        );
+
+
+    // =====================================================
+    // Email
+    // =====================================================
+
+    $email =
+        filter_var(
+            $_POST['email'] ?? '',
+            FILTER_SANITIZE_EMAIL
+        );
+
+    if ($email === '' && $google_email !== '') {
+        $email = $google_email;
+    }
+
+
+    // =====================================================
+    // Duplicate Application Check
+    // =====================================================
+
+    if ($email !== '') {
+
+        $stmt = $pdo->prepare(
+            "SELECT id
+             FROM membership_applications
+             WHERE LOWER(email) = LOWER(?)
+                OR LOWER(google_email) = LOWER(?)
+             LIMIT 1"
+        );
+
+        $stmt->execute([
+            $email,
+            $email
+        ]);
+
+        if ($stmt->fetchColumn()) {
+
+            $_SESSION['myjat_membership_flash'] = [
+                'type' => 'exists'
+            ];
+
+            header('Location: /register/');
+            exit;
+        }
+    }
+
+
+    // =====================================================
     // Collect Form Data
     // =====================================================
 
@@ -31,17 +118,13 @@ function myjat_handle_membership_form_submission($pdo)
             trim($_POST['phone_no'] ?? ''),
 
         'email' =>
-            filter_var(
-                $_POST['email'] ?? '',
-                FILTER_SANITIZE_EMAIL
-            ),
+            $email,
 
-        'google_email' => '',
-        'google_id' => '',
+        'google_email' =>
+            $google_email,
 
-        'user_id' => (int) (
-            $_SESSION['myjat_user']['id'] ?? 0
-        ),
+        'google_id' =>
+            $google_id,
 
         'dob' =>
             trim($_POST['dob'] ?? ''),
@@ -107,29 +190,6 @@ function myjat_handle_membership_form_submission($pdo)
 
 
     // =====================================================
-    // Duplicate Application Check
-    // =====================================================
-
-    if (!empty($data['user_id'])) {
-
-        $stmt = $pdo->prepare(
-            "SELECT id
-             FROM membership_applications
-             WHERE user_id = ?
-             LIMIT 1"
-        );
-
-        $stmt->execute([
-            (int) $data['user_id']
-        ]);
-
-        if ($stmt->fetchColumn()) {
-
-        }
-    }
-
-
-    // =====================================================
     // Membership Number
     // =====================================================
 
@@ -142,7 +202,7 @@ function myjat_handle_membership_form_submission($pdo)
     // =====================================================
 
     $data['status'] =
-        'pending';
+        'Pending';
 
     $data['application_date'] =
         date('Y-m-d');
@@ -159,22 +219,47 @@ function myjat_handle_membership_form_submission($pdo)
         myjat_upload_member_photo();
 
 
-
     // =====================================================
-    // Redirect To Success
+    // Save Application
     // =====================================================
 
-    $redirect_url =
-        ($_SERVER['HTTP_REFERER'] ?? '/')
-        . '?membership=submitted'
-        . '&member_no='
-        . urlencode(
-            $data['membership_no']
+    $saved =
+        myjat_save_membership_application(
+            $pdo,
+            $data
         );
 
 
+    if (!$saved) {
+
+        http_response_code(500);
+
+        exit(
+            'Membership application could not be saved.'
+        );
+    }
+
+
+    // =====================================================
+    // Success Flash
+    // =====================================================
+
+    $_SESSION['myjat_membership_flash'] = [
+
+        'type' =>
+            'success',
+
+        'member_no' =>
+            $data['membership_no']
+    ];
+
+
+    // =====================================================
+    // Clean Redirect
+    // =====================================================
+
     header(
-        'Location: ' . $redirect_url
+        'Location: /register/'
     );
 
     exit;

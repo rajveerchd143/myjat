@@ -2,28 +2,20 @@
 
 // =========================================================
 // Membership Photo Upload
-// Standalone PHP Version
 // =========================================================
 
 function myjat_upload_member_photo()
 {
     if (
         empty($_FILES['photo']) ||
-        empty($_FILES['photo']['name'])
+        empty($_FILES['photo']['tmp_name'])
     ) {
         return '';
     }
 
-    $allowed_types = [
-        'image/jpeg',
-        'image/jpg',
-        'image/png',
-        'image/webp',
-    ];
-
     $file = $_FILES['photo'];
 
-    if (!empty($file['error']) && $file['error'] !== UPLOAD_ERR_OK) {
+    if ($file['error'] !== UPLOAD_ERR_OK) {
         return '';
     }
 
@@ -31,33 +23,59 @@ function myjat_upload_member_photo()
         return '';
     }
 
-    $file_info = getimagesize($file['tmp_name']);
+    $image = getimagesize($file['tmp_name']);
 
-    if ($file_info === false) {
+    if ($image === false) {
         return '';
     }
 
-    $mime_type = $file_info['mime'];
+    $allowed_types = [
+        'image/jpeg',
+        'image/png',
+        'image/webp'
+    ];
 
-    if (!in_array($mime_type, $allowed_types, true)) {
+    if (!in_array($image['mime'], $allowed_types, true)) {
         return '';
     }
 
-    $upload_dir = __DIR__ . '/../uploads/members';
+    // Actual website root
+    $upload_dir =
+        rtrim($_SERVER['DOCUMENT_ROOT'], '/\\')
+        . DIRECTORY_SEPARATOR
+        . 'uploads'
+        . DIRECTORY_SEPARATOR
+        . 'members';
 
     if (!is_dir($upload_dir)) {
-        mkdir($upload_dir, 0755, true);
+
+        if (!mkdir($upload_dir, 0755, true)) {
+            return '';
+        }
     }
 
     $extension = strtolower(
-        pathinfo($file['name'], PATHINFO_EXTENSION)
+        pathinfo(
+            $file['name'],
+            PATHINFO_EXTENSION
+        )
     );
 
-    $filename = uniqid('member_', true) . '.' . $extension;
+    $filename =
+        'member_'
+        . bin2hex(random_bytes(8))
+        . '.'
+        . $extension;
 
-    $destination = $upload_dir . '/' . $filename;
+    $destination =
+        $upload_dir
+        . DIRECTORY_SEPARATOR
+        . $filename;
 
-    if (!move_uploaded_file($file['tmp_name'], $destination)) {
+    if (!move_uploaded_file(
+        $file['tmp_name'],
+        $destination
+    )) {
         return '';
     }
 

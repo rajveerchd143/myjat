@@ -8,7 +8,7 @@ function myjat_charan_home()
         
         
 
-        <divmyjat-container myjat-glass-clear class="menu-para myjat-glass">
+        <divmyjat-container myjat-glassclear class="menu-para myjat-glassblur">
 
 
 

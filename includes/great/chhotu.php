@@ -8,7 +8,7 @@ function myjat_chhotu_home()
         
         
 
-        <div class="menu-para myjat-glass">
+        <div class="menu-para myjat-glassblur">
 
 
 

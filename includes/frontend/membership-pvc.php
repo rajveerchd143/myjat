@@ -45,11 +45,23 @@ function myjat_render_member_card($application)
         'UTF-8'
     );
 
-    $qr_code = urlencode(
-        $application->qr_code ?? ''
-    );
+    $qr_data =
+        trim(
+            $application->qr_code ?? ''
+        );
 
-    ?>
+    if (!$qr_data && !empty($application->membership_no)) {
+
+        $qr_data =
+            '/member-verification/?id='
+            . urlencode(
+                $application->membership_no
+            );
+    }
+
+    $qr_code =
+        urlencode($qr_data);
+?>
 
     <!-- =====================================================
          PVC Card Front
@@ -62,7 +74,6 @@ function myjat_render_member_card($application)
             <img
                 class="myjat-pvc-back-watermark-logo"
                 src="/assets/images/background/logo.png"
-                
                 alt="Logo">
 
         </div>
@@ -286,12 +297,15 @@ function myjat_render_member_card($application)
 
     </div>
 
-    <?php
+<?php
 
     return ob_get_clean();
 }
 
 
+// =========================================================
+// Member Card Page
+// =========================================================
 // =========================================================
 // Member Card Page
 // =========================================================
@@ -302,11 +316,7 @@ function myjat_member_card_page($pdo)
     // Login Check
     // =====================================================
 
-    $user_id = (int) (
-        $_SESSION['myjat_user']['id'] ?? 0
-    );
-
-    if (!$user_id) {
+    if (empty($_SESSION['myjat_user'])) {
         return '<div class="myjat-warning-message">
             Please login first.
         </div>';
@@ -314,22 +324,33 @@ function myjat_member_card_page($pdo)
 
 
     // =====================================================
-    // Get Logged-in User Application
+    // Get Application ID from URL
+    // Example: /member-card/?id=17
+    // =====================================================
+
+    $id = (int) ($_GET['id'] ?? 0);
+
+    if (!$id) {
+        return '<div class="myjat-warning-message">
+            Member not found.
+        </div>';
+    }
+
+
+    // =====================================================
+    // Get Exact Application
     // =====================================================
 
     $stmt = $pdo->prepare(
         "SELECT *
          FROM membership_applications
-         WHERE user_id = ?
+         WHERE id = ?
          LIMIT 1"
     );
 
-    $stmt->execute([
-        $user_id
-    ]);
+    $stmt->execute([$id]);
 
-    $application =
-        $stmt->fetch(PDO::FETCH_OBJ);
+    $application = $stmt->fetch(PDO::FETCH_OBJ);
 
 
     if (!$application) {
@@ -355,21 +376,23 @@ function myjat_member_card_page($pdo)
 
 
     // =====================================================
-    // Render Card
+    // Render Exact Member Card
     // =====================================================
 
     return myjat_render_member_card(
         $application
     );
 }
-
-
 // =========================================================
 // Admin Member Card Page
 // =========================================================
 
 function myjat_admin_member_card_page($pdo)
 {
+    // =====================================================
+    // Admin Permission Check
+    // =====================================================
+
     if (
         !function_exists('myjat_can')
         || !myjat_can('myjat_view_application')
@@ -380,12 +403,22 @@ function myjat_admin_member_card_page($pdo)
     }
 
 
-    $id = (int) ($_GET['id'] ?? 0);
+    // =====================================================
+    // Application ID
+    // =====================================================
+
+    $id = (int) (
+        $_GET['id'] ?? 0
+    );
 
     if (!$id) {
         return 'Member not found.';
     }
 
+
+    // =====================================================
+    // Get Application
+    // =====================================================
 
     $stmt = $pdo->prepare(
         "SELECT *
@@ -395,17 +428,21 @@ function myjat_admin_member_card_page($pdo)
     );
 
     $stmt->execute([
-        $id
-    ]);
+    $_SESSION['myjat_user']['email'] ?? '',
+    $_SESSION['myjat_user']['email'] ?? ''
+]);
 
-    $application =
-        $stmt->fetch(PDO::FETCH_OBJ);
+    $application = $stmt->fetch(PDO::FETCH_OBJ);
 
 
     if (!$application) {
         return 'Member not found.';
     }
 
+
+    // =====================================================
+    // Approval Check
+    // =====================================================
 
     if (
         strtolower(
@@ -415,6 +452,10 @@ function myjat_admin_member_card_page($pdo)
         return 'PVC card is available after approval.';
     }
 
+
+    // =====================================================
+    // Render Card
+    // =====================================================
 
     return myjat_render_member_card(
         $application

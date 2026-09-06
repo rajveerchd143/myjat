@@ -10,9 +10,6 @@ max-width:300px;
 margin-top:24px;
 padding:20px;
 border-radius: var(--myjat-radius-1);
-background:var(--myjat-glass-bg);
-backdrop-filter:blur(var(--myjat-glass-clear));
--webkit-backdrop-filter:blur(var(--myjat-glass-clear));
 }
 
 .myjat-verification-success{

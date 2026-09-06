@@ -26,7 +26,7 @@ function myjat_render_application_view($application)
     $id = (int) ($application->id ?? 0);
     $card_printed = $application->card_printed ?? '';
 
-    ?>
+?>
 
     <div class="view-page">
 
@@ -52,7 +52,8 @@ function myjat_render_application_view($application)
                 </a>
 
                 <a
-                    href="/admin-member-card/?id=<?= $id ?>"
+
+                    href="/member-card/?id=<?= $id ?>"
                     target="_blank">
 
                     PVC Card
@@ -283,63 +284,13 @@ function myjat_render_application_view($application)
                 </section>
 
 
-                <section class="box">
-
-                    <h2>⚙️ Administration</h2>
-
-                    <div class="data-grid">
-
-                        <div>
-                            <label>कार्ड प्रिंट स्थिति</label>
-
-                            <p>
-
-                                <?php if ($card_printed === 'Yes') : ?>
-
-                                    <span class="view-status status-approved">
-                                        Printed
-                                    </span>
-
-                                <?php else : ?>
-
-                                    <span class="view-status status-pending">
-                                        Not Printed
-                                    </span>
-
-                                <?php endif; ?>
-
-                            </p>
-                        </div>
-
-                        <div>
-                            <label>Application ID</label>
-                            <p><?= $id ?></p>
-                        </div>
-
-                    </div>
-
-
-                    <?php if ($card_printed !== 'Yes') : ?>
-
-                        <div class="admin-button">
-
-                            <a href="?mark_card_printed=<?= $id ?>">
-                                Mark Card Printed
-                            </a>
-
-                        </div>
-
-                    <?php endif; ?>
-
-                </section>
-
             </main>
 
         </div>
 
     </div>
 
-    <?php
+<?php
 
     return ob_get_clean();
 }

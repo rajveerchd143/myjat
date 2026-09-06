@@ -7,7 +7,7 @@ function myjat_ranjit_home()
         
         
 
-        <div class="menu-para myjat-glass">
+        <div class="menu-para myjat-glassblur">
 
         <h1 class="head-h1">
     महाराजा रणजीत सिंह

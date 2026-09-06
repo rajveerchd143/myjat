@@ -56,7 +56,7 @@ function myjat_membership_admin_page($pdo)
 ?>
     <div class="admin-page">
 
-        <section class="admin-heading">
+        <section class="admin-heading myjat-glassblur">
             <h1>MYJAT Membership Management</h1>
             <p>Secure Membership Management Portal</p>
         </section>
@@ -101,25 +101,25 @@ function myjat_membership_admin_page($pdo)
 
         <section class="admin-stats">
 
-            <div class="admin-stat">
+            <div class="admin-stat myjat-glassblur">
                 <span>📄</span>
                 <small>Total Applications</small>
                 <strong><?= (int) $total; ?></strong>
             </div>
 
-            <div class="admin-stat">
+            <div class="admin-stat myjat-glassblur">
                 <span>🟡</span>
                 <small>Pending</small>
                 <strong><?= (int) $pending; ?></strong>
             </div>
 
-            <div class="admin-stat">
+            <div class="admin-stat myjat-glassblur">
                 <span>✅</span>
                 <small>Approved</small>
                 <strong><?= (int) $approved; ?></strong>
             </div>
 
-            <div class="admin-stat">
+            <div class="admin-stat myjat-glassblur">
                 <span>❌</span>
                 <small>Rejected</small>
                 <strong><?= (int) $rejected; ?></strong>
@@ -131,7 +131,7 @@ function myjat_membership_admin_page($pdo)
 
             <div class="admin-table-scroll">
 
-                <table class="admin-table">
+                <table class="admin-table  myjat-glassblur">
 
                     <thead>
 
@@ -172,7 +172,6 @@ function myjat_membership_admin_page($pdo)
                                     (string) ($row->status ?? '')
                                 );
                                 ?>
-
                                 <tr>
 
                                     <td>

@@ -8,7 +8,7 @@ function myjat_estab_home()
     
     
     
-    <div class="menu-para myjat-glass">
+    <div class="menu-para myjat-glassblur">
             <h1 class="head-h1">
             स्थापना
         </h1>

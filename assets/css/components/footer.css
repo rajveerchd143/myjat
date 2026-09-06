@@ -36,8 +36,6 @@
 
 .myjat-footer-brand-name {
     display: block;
-    color: #222;
-    text-decoration: none;
     font-size: 1.35rem;
     font-weight: 700;
 }
@@ -62,9 +60,8 @@
 
 .myjat-footer-developer h6 {
     margin: 0;
-        color: red;
 
-    font-size:15px;
+    font-size:12px;
     font-weight: 700;
 }
 

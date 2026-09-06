@@ -1,4 +1,4 @@
-<footer class="myjat-footer myjat-glass">
+<footer class="myjat-footer myjat-glassblur">
 
 
         <!-- BRAND -->

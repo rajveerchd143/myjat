@@ -8,7 +8,7 @@ function myjat_sinhavlocan_home()
         
         
 
-        <div class="menu-para myjat-glass">
+        <div class="menu-para myjat-glassblur">
     
     <h1 class="head-h1">
     चौधरी शेर सिंह का सिंहावलोकन
