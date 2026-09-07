@@ -29,8 +29,8 @@ function myjat_member_dashboard($pdo, $user_id = 0)
 
     $email = trim(
         $current_user['email']
-        ?? $current_user['user_email']
-        ?? ''
+            ?? $current_user['user_email']
+            ?? ''
     );
 
     if (!$email) {
@@ -72,6 +72,14 @@ function myjat_member_dashboard($pdo, $user_id = 0)
                     अभी आपका सदस्यता आवेदन रिकॉर्ड उपलब्ध नहीं है।
                 </strong>
             </div>
+
+            <div class="dashboard-message">
+
+                <a href="/register/" class="myjat-btn  myjat-glassblur">
+                    सदस्य बनें
+                </a>
+
+            </div>
         ';
     }
 
@@ -82,8 +90,8 @@ function myjat_member_dashboard($pdo, $user_id = 0)
 
     $name = htmlspecialchars(
         $app->full_name
-        ?? $current_user['name']
-        ?? '',
+            ?? $current_user['name']
+            ?? '',
         ENT_QUOTES,
         'UTF-8'
     );
@@ -106,7 +114,6 @@ function myjat_member_dashboard($pdo, $user_id = 0)
 
         $status_class = 'status-approved';
         $status_text = 'स्वीकृत';
-
     } elseif (
         in_array(
             $status_key,
@@ -117,12 +124,10 @@ function myjat_member_dashboard($pdo, $user_id = 0)
 
         $status_class = 'status-rejected';
         $status_text = 'अस्वीकृत';
-
     } else {
 
         $status_class = 'status-pending';
         $status_text = 'लंबित';
-
     }
 
 
@@ -151,7 +156,6 @@ function myjat_member_dashboard($pdo, $user_id = 0)
 
             $application_date =
                 date('d-m-Y', $timestamp);
-
         }
     }
 
@@ -159,7 +163,7 @@ function myjat_member_dashboard($pdo, $user_id = 0)
     $application_id =
         (int) ($app->id ?? 0);
 
-    ?>
+?>
 
     <div class="dashboard">
 
@@ -294,7 +298,7 @@ function myjat_member_dashboard($pdo, $user_id = 0)
 
     </div>
 
-    <?php
+<?php
 
     return ob_get_clean();
 }
