@@ -143,7 +143,16 @@ function myjat_handle_membership_form_submission($pdo)
     }
 
 
+
     // =====================================================
+// Membership Type
+// =====================================================
+
+$membership_type =
+    trim(
+        (string) $membership_plan['name']
+    );
+// =====================================================
 // Ordinary Membership Requirement
 // =====================================================
 
@@ -151,43 +160,80 @@ if (
     (int) $membership_plan['requires_ordinary_membership'] === 1
 ) {
 
-    $stmt = $pdo->prepare(
-        "SELECT ma.id
-         FROM membership_applications ma
-         INNER JOIN membership_plans mp
-             ON mp.id = ma.membership_plan_id
-         WHERE mp.slug = 'ordinary'
-           AND LOWER(ma.status) = 'approved'
-           AND (
-                (
-                    ? <> ''
-                    AND ma.google_id = ?
-                )
-                OR
-                (
-                    ? <> ''
-                    AND LOWER(ma.email) = LOWER(?)
-                )
-                OR
-                (
-                    ? <> ''
-                    AND LOWER(ma.google_email) = LOWER(?)
-                )
-           )
-         LIMIT 1"
-    );
+    $ordinary_conditions = [];
+    $ordinary_params = [];
 
-    $stmt->execute([
-        $google_id,
-        $google_id,
-        $email,
-        $email,
-        $google_email,
-        $google_email
-    ]);
+    /*
+     * Build only the comparisons that actually have a value.
+     * This avoids comparing bound strings with '' and prevents
+     * MySQL collation conflicts on live hosting.
+     */
 
-    $has_ordinary_membership =
-        (bool) $stmt->fetchColumn();
+    if ($google_id !== '') {
+
+        $ordinary_conditions[] =
+            "ma.google_id = ?";
+
+        $ordinary_params[] =
+            $google_id;
+    }
+
+    if ($email !== '') {
+
+        $ordinary_conditions[] =
+            "LOWER(ma.email) = LOWER(?)";
+
+        $ordinary_params[] =
+            $email;
+    }
+
+    if ($google_email !== '') {
+
+        $ordinary_conditions[] =
+            "LOWER(ma.google_email) = LOWER(?)";
+
+        $ordinary_params[] =
+            $google_email;
+    }
+
+
+    $has_ordinary_membership = false;
+
+
+    if (!empty($ordinary_conditions)) {
+
+        $ordinary_sql =
+            "SELECT ma.id
+             FROM membership_applications ma
+             INNER JOIN membership_plans mp
+                 ON mp.id = ma.membership_plan_id
+             WHERE mp.slug = 'ordinary'
+               AND LOWER(ma.status) = 'approved'
+               AND (
+                    " .
+                    implode(
+                        " OR ",
+                        $ordinary_conditions
+                    )
+                    . "
+               )
+             LIMIT 1";
+
+
+        $stmt =
+            $pdo->prepare(
+                $ordinary_sql
+            );
+
+
+        $stmt->execute(
+            $ordinary_params
+        );
+
+
+        $has_ordinary_membership =
+            (bool) $stmt->fetchColumn();
+    }
 
 
     if (!$has_ordinary_membership) {
@@ -204,41 +250,6 @@ if (
         exit;
     }
 }
-
-    $membership_type =
-        trim(
-            (string) $membership_plan['name']
-        );
-
-
-    $amount_inr =
-        (float) $membership_plan['amount'];
-
-
-    $amount_paise =
-        (int) round(
-            $amount_inr * 100
-        );
-
-
-    if (
-        $amount_paise <= 0
-        || strtoupper(
-            (string) $membership_plan['currency']
-        ) !== 'INR'
-    ) {
-
-        $_SESSION['myjat_membership_flash'] = [
-
-            'type' => 'error',
-
-            'message' =>
-            'सदस्यता शुल्क की जानकारी अमान्य है।'
-        ];
-
-        header('Location: /register/');
-        exit;
-    }
     // =====================================================
     // Duplicate Application Check
     //
