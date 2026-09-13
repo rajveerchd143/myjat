@@ -4,9 +4,9 @@ function myjat_home()
 {
     ob_start();
 ?>
-    
-    
-    
+
+
+
 
     <div class="myjat-hero">
         <div class="myjat-hero-left myjat-glassblur">
@@ -63,6 +63,8 @@ function myjat_home()
     <!----slider----->
     <?php echo myjat_slider_home(); ?>
 
+    <!----Gallery----->
+    <?php echo myjat_gallery(); ?>
 
 
 

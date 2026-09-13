@@ -19,3 +19,8 @@ define(
     'MYJAT_RAZORPAY_KEY_SECRET',
     getenv('RAZORPAY_KEY_SECRET') ?: ''
 );
+
+define(
+    'MYJAT_RAZORPAY_WEBHOOK_SECRET',
+    getenv('RAZORPAY_WEBHOOK_SECRET') ?: ''
+);

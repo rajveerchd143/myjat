@@ -6,20 +6,23 @@
     width: 100%;
     max-width: 1500px;
     margin: 0 auto;
-    padding: 0px;
+    padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
     color: #222;
 }
 
 
-/* HEADING */
+/* =========================================================
+   MAIN ADMIN HEADING
+========================================================= */
 
 .admin-heading {
-    margin-bottom: 25px;
+    margin-bottom: 22px;
     padding: 25px 30px;
     border: 1px solid #ddd;
     border-radius: var(--myjat-radius-1);
+    box-sizing: border-box;
 }
 
 .admin-heading h1 {
@@ -35,7 +38,87 @@
 }
 
 
-/* TOOLS */
+/* =========================================================
+   ADMIN TABS
+========================================================= */
+
+.myjat-admin-tabs {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    margin: 0 0;
+    padding: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.myjat-admin-tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0 22px;
+    border: 1px solid rgba(255, 255, 255, .65);
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    box-sizing: border-box;
+    backdrop-filter: blur(8px);
+}
+
+.myjat-admin-tab:hover {
+    background: rgba(255, 255, 255, .78);
+    color: #111;
+}
+
+.myjat-admin-tab.active {
+    min-height: 45px;
+    position: relative;
+    top: 1px;
+    color: #111;
+}
+
+
+/* =========================================================
+   COMMON CONTENT WRAPPER
+========================================================= */
+
+.admin-content-wrapper {
+    width: 100%;
+    padding: 24px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, .65);
+    border-radius: 0 15px 15px 15px;
+}
+
+
+/* =========================================================
+   COMMON SECTION TITLE
+========================================================= */
+
+.admin-section-title {
+    margin: 0 0 22px;
+}
+
+.admin-section-title h2 {
+    margin: 0 0 6px;
+    font-size: 22px;
+    line-height: 1.3;
+}
+
+.admin-section-title p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   TOOLS
+========================================================= */
 
 .admin-tools {
     display: flex;
@@ -80,7 +163,6 @@
     font-size: 14px;
     white-space: nowrap;
     box-sizing: border-box;
-
 }
 
 .admin-search button {
@@ -94,7 +176,9 @@
 }
 
 
-/* STATS */
+/* =========================================================
+   STATS
+========================================================= */
 
 .admin-stats {
     display: grid;
@@ -108,6 +192,7 @@
     border: 1px solid #ddd;
     border-radius: var(--myjat-radius-1);
     box-sizing: border-box;
+    background: rgba(255, 255, 255, .45);
 }
 
 .admin-stat span {
@@ -129,15 +214,22 @@
 }
 
 
-/* TABLE */
+/* =========================================================
+   TABLE
+========================================================= */
 
 .admin-table-box {
     width: 100%;
     border: 1px solid #ddd;
     border-radius: var(--myjat-radius-1);
     overflow: hidden;
+    background: rgba(255, 255, 255, .35);
 }
 
+.admin-table-scroll {
+    width: 100%;
+    overflow-x: auto;
+}
 
 .admin-table {
     width: 100%;
@@ -165,11 +257,13 @@
 }
 
 .admin-table tbody tr:hover {
-    background: #fafafa;
+    background: rgba(250, 250, 250, .75);
 }
 
 
-/* STATUS */
+/* =========================================================
+   STATUS
+========================================================= */
 
 .status {
     display: inline-block;
@@ -196,7 +290,9 @@
 }
 
 
-/* LINKS */
+/* =========================================================
+   LINKS
+========================================================= */
 
 .admin-links,
 .admin-actions {
@@ -235,7 +331,9 @@
 }
 
 
-/* EMPTY */
+/* =========================================================
+   EMPTY
+========================================================= */
 
 .admin-empty {
     padding: 50px !important;
@@ -244,7 +342,224 @@
 }
 
 
-/* MOBILE */
+/* =========================================================
+   GALLERY UPLOAD
+========================================================= */
+
+.admin-gallery-upload {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    flex-wrap: wrap;
+
+    margin-bottom: 25px;
+    padding: 18px;
+
+    background: rgba(255, 255, 255, .55);
+    border: 1px solid #ddd;
+    border-radius: var(--myjat-radius-1);
+}
+
+
+/* ---------- Fields ---------- */
+
+.admin-gallery-field {
+    flex: 1 1 250px;
+}
+
+.admin-gallery-field label {
+    display: block;
+    margin-bottom: 6px;
+
+    font-size: 15px;
+    font-weight: 600;
+    color: #5a1f1f;
+}
+
+
+/* ---------- Photo ---------- */
+
+#gallery_image {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* ---------- Caption ---------- */
+
+#gallery_caption {
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+
+    padding: 8px 10px;
+
+    font-size: 15px;
+    color: #333;
+
+    background: #fff;
+    border: 1px solid #bbb;
+    border-radius: var(--myjat-radius-1);
+
+    outline: none;
+}
+
+#gallery_caption::placeholder {
+    color: #999;
+}
+
+#gallery_caption:focus {
+    border-color: #7b2d2d;
+}
+
+
+/* ---------- Upload Button ---------- */
+
+.admin-gallery-upload button {
+    padding: 10px 18px;
+
+    border: 0;
+    border-radius: var(--myjat-radius-1);
+
+    background: #222;
+    color: #fff;
+
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.admin-gallery-upload button:hover {
+    opacity: .85;
+}
+
+/* =========================================================
+   GALLERY CARDS
+========================================================= */
+
+.myjat-gallery-admin-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.myjat-gallery-admin-card {
+    overflow: hidden;
+    background: rgba(255, 255, 255, .65);
+    border: 1px solid #ddd;
+    border-radius: var(--myjat-radius-1);
+}
+
+.myjat-gallery-admin-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #eee;
+}
+
+.myjat-gallery-admin-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.myjat-gallery-admin-info {
+    padding: 12px;
+}
+
+
+/* =========================================================
+   GALLERY CAPTION EDIT
+========================================================= */
+
+.myjat-gallery-caption-form {
+    display: flex;
+    gap: 7px;
+    margin-bottom: 12px;
+}
+
+.myjat-gallery-caption-form input {
+    min-width: 0;
+    flex: 1;
+    padding: 7px 9px;
+    border-radius: var(--myjat-radius-1);
+
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+.myjat-gallery-caption-form button {
+    padding: 7px 10px;
+    border: 0;
+    border-radius: 7px;
+    background: #222;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.myjat-gallery-caption-form button:hover {
+    opacity: .85;
+}
+
+
+/* =========================================================
+   GALLERY META
+========================================================= */
+
+.myjat-gallery-admin-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-size: 11px;
+    color: #777;
+}
+
+
+/* =========================================================
+   GALLERY ACTIONS
+========================================================= */
+
+.myjat-gallery-admin-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.myjat-gallery-admin-actions a {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 7px;
+    background: #eee;
+    color: #333;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.myjat-gallery-admin-actions a:hover {
+    background: #ddd;
+}
+
+
+/* =========================================================
+   PLACEHOLDER
+========================================================= */
+
+.myjat-admin-placeholder {
+    padding: 25px;
+    border: 1px dashed #ccc;
+    border-radius: var(--myjat-radius-1);
+    background: rgba(255, 255, 255, .35);
+    color: #777;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
 @media (max-width: 900px) {
 
@@ -268,6 +583,11 @@
     .admin-stats {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .myjat-gallery-admin-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
 }
 
 
@@ -283,6 +603,14 @@
 
     .admin-heading h1 {
         font-size: 24px;
+    }
+
+    .admin-content-wrapper {
+        padding: 15px;
+    }
+
+    .admin-section-title h2 {
+        font-size: 20px;
     }
 
     .admin-search {
@@ -302,4 +630,238 @@
     .admin-stats {
         grid-template-columns: 1fr;
     }
+
+    .myjat-admin-tabs {
+        overflow-x: auto;
+        padding: 0 5px;
+    }
+
+    .myjat-admin-tab {
+        min-width: 125px;
+        padding: 0 15px;
+    }
+
+    .admin-gallery-upload {
+        display: block;
+    }
+
+    .admin-gallery-field {
+        margin-bottom: 14px;
+    }
+
+    .admin-gallery-upload button {
+        width: 100%;
+    }
+
+    .myjat-gallery-admin-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   MEMBERSHIP PLANS
+========================================================= */
+
+.admin-plan-form {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, .55);
+    border: 1px solid #ddd;
+    border-radius: var(--myjat-radius-1);
+}
+
+.admin-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.admin-form-field {
+    min-width: 0;
+}
+
+.admin-form-field.full {
+    grid-column: 1 / -1;
+}
+
+.admin-form-field label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #5a1f1f;
+}
+
+.admin-form-field input,
+.admin-form-field select {
+    width: 100%;
+    min-height: 42px;
+    padding: 9px 11px;
+    box-sizing: border-box;
+
+    background: #fff;
+    border: 1px solid #bbb;
+    border-radius: var(--myjat-radius-1);
+
+    color: #333;
+    font-size: 14px;
+    outline: none;
+}
+
+.admin-form-field input:focus,
+.admin-form-field select:focus {
+    border-color: #7b2d2d;
+}
+
+.admin-form-field input[readonly] {
+    background: #f5f5f5;
+    color: #777;
+}
+
+.admin-plan-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin: 5px 0 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, .45);
+    border: 1px solid #ddd;
+    border-radius: var(--myjat-radius-1);
+}
+
+.admin-plan-options label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0;
+
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+    cursor: pointer;
+}
+
+.admin-plan-options input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+}
+
+.admin-plan-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.admin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 42px;
+    padding: 0 18px;
+
+    border: 0;
+    border-radius: var(--myjat-radius-1);
+
+    background: #222;
+    color: #fff;
+
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.admin-btn:hover {
+    opacity: .85;
+}
+
+.admin-btn-secondary {
+    background: #eee;
+    color: #222;
+}
+
+
+/* =========================================================
+   MEMBERSHIP PLANS TABLE
+========================================================= */
+
+.admin-plan-table {
+    min-width: 900px;
+}
+
+.admin-plan-rules {
+    line-height: 1.6;
+    font-size: 13px;
+}
+
+.admin-plan-rules span {
+    display: block;
+}
+
+
+/* =========================================================
+   MEMBERSHIP PLANS RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .admin-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-form-field.full {
+        grid-column: auto;
+    }
+
+    .admin-plan-form {
+        padding: 15px;
+    }
+
+    .admin-plan-options {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .admin-plan-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-btn {
+        width: 100%;
+    }
+
+}
+
+/* =========================================================
+   MEMBERSHIP PLAN FIELD FIX
+========================================================= */
+
+.admin-plan-form .admin-form-grid>div {
+    min-width: 0;
+}
+
+.admin-plan-form .admin-form-grid>div input,
+.admin-plan-form .admin-form-grid>div select {
+    width: 100%;
+    max-width: none;
+    min-height: 42px;
+    padding: 9px 11px;
+    box-sizing: border-box;
+}
+
+.admin-plan-form .admin-form-grid>div label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.admin-plan-form .admin-form-grid {
+    width: 100%;
 }

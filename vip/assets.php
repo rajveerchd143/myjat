@@ -44,6 +44,7 @@ $MYJAT_CSS = [
     '/assets/css/pages/membership-verification.css',
     '/assets/css/pages/menu.css',
     '/assets/css/pages/slider.css',
+    '/assets/css/pages/gallery.css',
 
     // Admin
     '/assets/css/admin/applications.css',
@@ -72,7 +73,8 @@ $MYJAT_JS = [
 
     // Homepage
     '/assets/script/home.js',
-    '/assets/script/home-slider.js',
+    '/assets/script/slider.js',
+    '/assets/script/gallery.js',
 
     // Membership
     '/assets/script/membership-registration.js',

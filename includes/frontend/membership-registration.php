@@ -7,11 +7,32 @@
 
 function myjat_membership_form($pdo)
 {
+
+
+    $membership_plans = $pdo->query(
+        "SELECT
+        id,
+        name,
+        slug,
+        amount,
+        currency,
+        validity_type,
+        validity_value,
+        min_age,
+        max_age,
+        requires_ordinary_membership,
+        requires_sankalp
+     FROM membership_plans
+     WHERE is_active = 1
+     ORDER BY sort_order ASC, id ASC"
+    )->fetchAll(PDO::FETCH_ASSOC);
+
     ob_start();
 
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
+
 
     // =====================================================
     // Current User
@@ -136,6 +157,19 @@ function myjat_membership_form($pdo)
 
 
     <?php else : ?>
+
+
+
+        <?php if (!empty($_SESSION['myjat_membership_payment']['order_id'])) : ?>
+
+            <script>
+                window.MYJAT_RAZORPAY_KEY_ID =
+                    <?= json_encode(MYJAT_RAZORPAY_KEY_ID); ?>;
+            </script>
+
+            <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+        <?php endif; ?>
 
         <form
             method="post"
@@ -603,31 +637,38 @@ function myjat_membership_form($pdo)
 
 
                 <div class="myjat-form-group">
-                    <label for="membership_type">सदस्यता प्रकार *</label>
+                    <label for="membership_plan_id">सदस्यता प्रकार *</label>
 
                     <select
                         class="myjat-select"
-                        id="membership_type"
-                        name="membership_type"
+
+                        name="membership_plan_id"
+                        id="membership_plan_id"
+
                         required>
 
                         <option value="">
                             सदस्यता प्रकार चुनें
                         </option>
 
-                        <option value="साधारण सदस्य">
-                            साधारण सदस्य
-                        </option>
+                        <?php foreach ($membership_plans as $plan): ?>
 
-                        <option value="सक्रिय सदस्य">
-                            सक्रिय सदस्य
-                        </option>
-
-                        <option value="संरक्षक सदस्य">
-                            संरक्षक सदस्य
-                        </option>
-
+                            <option
+                                value="<?= (int) $plan['id']; ?>"
+                                data-amount="<?= htmlspecialchars($plan['amount']); ?>"
+                                data-validity-type="<?= htmlspecialchars($plan['validity_type']); ?>"
+                                data-validity-value="<?= (int) ($plan['validity_value'] ?? 0); ?>"
+                                data-requires-sankalp="<?= (int) $plan['requires_sankalp']; ?>"
+                                data-requires-ordinary="<?= (int) $plan['requires_ordinary_membership']; ?>">
+                                <?= htmlspecialchars($plan['name']); ?>
+                            </option>
+                        <?php endforeach; ?>
                     </select>
+                    <small
+                        id="membership-plan-info"
+                        class="myjat-field-help">
+                        कृपया सदस्यता प्रकार चुनें।
+                    </small>
                 </div>
 
 
@@ -654,7 +695,7 @@ function myjat_membership_form($pdo)
 
                     <div class="myjat-form-group">
                         <label for="recommender_membership_no">
-                            
+
                             अनुशंसक सदस्यता क्रमांक
                         </label>
 
@@ -704,15 +745,21 @@ function myjat_membership_form($pdo)
              STEP 4 - SANKALP & CONFIRMATION
         ================================================== -->
 
-            <section class="myjat-registration-step" data-step="4">
+            <section
+                class="myjat-registration-step"
+                data-step="4"
+                id="membership-sankalp-section">
 
                 <div class="myjat-section-heading">
+
                     <h3>ॐ संकल्प ॐ</h3>
                     <p>कृपया संकल्प के सभी बिंदु ध्यानपूर्वक पढ़ें।</p>
                 </div>
 
 
-                <div class="myjat-sankalp">
+                <div
+                    class="myjat-sankalp"
+                    id="membership-sankalp-content">
 
                     <p>
                         मैं अखिल भारतवर्षीय जाट महासभा (रजि० बी-1254)
@@ -827,7 +874,7 @@ function myjat_membership_form($pdo)
                         alt="Photo Preview">
 
                     <small>
-                        JPG, PNG या WEBP
+                        JPG, PNG या WEBP — अधिकतम 5 MB
                     </small>
 
                 </div>
@@ -842,12 +889,11 @@ function myjat_membership_form($pdo)
                 <div class="myjat-sankalp-agreement">
 
                     <label>
-
                         <input
                             type="checkbox"
-                            name="declaration"
+                            name="sankalp_declaration"
                             value="1"
-                            required>
+                            id="sankalp_declaration">
 
                         मैंने ऊपर दिए गए संकल्प को ध्यानपूर्वक पढ़ा है
                         और उसे स्वीकार करता/करती हूँ।
@@ -879,8 +925,8 @@ function myjat_membership_form($pdo)
                     </p>
 
                     <p>
-                        मैं, संस्था की साधारण/सक्रिय/संरक्षक सदस्यता हेतु शुल्क
-                        ₹250/- / ₹500/- / ₹1100/- जमा कर आजीवन सदस्य बना/बनी हूँ।
+                        मैं, संस्था की साधारण/सक्रिय/संरक्षक सदस्यता हेतु निर्धारित
+                        शुल्क जमा कर सदस्यता प्राप्त करने के लिए सहमत हूँ।
                     </p>
 
 
@@ -891,9 +937,9 @@ function myjat_membership_form($pdo)
                     <label>
                         <input
                             type="checkbox"
-                            name="declaration"
+                            name="pratigya_declaration"
                             value="1"
-                            required>
+                            id="pratigya_declaration">
 
                         मैंने ऊपर दी गई प्रतिज्ञा को ध्यानपूर्वक पढ़ लिया है
                         और अपनी सहमति प्रदान करता/करती हूँ।
@@ -908,21 +954,82 @@ function myjat_membership_form($pdo)
                         ← पीछे
                     </button>
 
+
+
                     <button
                         type="submit"
                         name="myjat_membership_submit"
                         value="1"
                         class="myjat-btn myjat-btn-submit">
 
-                        सदस्यता आवेदन जमा करें
+                        शुल्क जमा करें और आगे बढ़ें →
 
                     </button>
-
                 </div>
 
             </section>
 
         </form>
+
+
+        <?php if (!empty($_SESSION['myjat_membership_payment']['order_id'])) : ?>
+
+            <input
+                type="hidden"
+                id="myjat-payment-order-id"
+                value="<?= htmlspecialchars(
+                            $_SESSION['myjat_membership_payment']['order_id'],
+                            ENT_QUOTES,
+                            'UTF-8'
+                        ); ?>">
+
+            <input
+                type="hidden"
+                id="myjat-payment-amount"
+                value="<?= (int) $_SESSION['myjat_membership_payment']['amount']; ?>">
+
+            <input
+                type="hidden"
+                id="myjat-payment-currency"
+                value="<?= htmlspecialchars(
+                            $_SESSION['myjat_membership_payment']['currency'],
+                            ENT_QUOTES,
+                            'UTF-8'
+                        ); ?>">
+
+        <?php endif; ?>
+
+
+
+
+        <?php if (!empty($_SESSION['myjat_membership_payment'])) : ?>
+
+            <input
+                type="hidden"
+                id="myjat-payment-order-id"
+                value="<?= htmlspecialchars(
+                            $_SESSION['myjat_membership_payment']['order_id'],
+                            ENT_QUOTES,
+                            'UTF-8'
+                        ); ?>">
+
+            <input
+                type="hidden"
+                id="myjat-payment-amount"
+                value="<?= (int) $_SESSION['myjat_membership_payment']['amount']; ?>">
+
+            <input
+                type="hidden"
+                id="myjat-payment-currency"
+                value="<?= htmlspecialchars(
+                            $_SESSION['myjat_membership_payment']['currency'],
+                            ENT_QUOTES,
+                            'UTF-8'
+                        ); ?>">
+
+        <?php endif; ?>
+
+
     <?php endif; ?>
 <?php
 

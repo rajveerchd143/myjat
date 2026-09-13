@@ -154,6 +154,7 @@ $myjat_vip_page_modules = [
     'estab.php',
     'kalamse.php',
     'slider.php',
+    'gallery.php',
 ];
 
 foreach ($myjat_vip_page_modules as $module) {

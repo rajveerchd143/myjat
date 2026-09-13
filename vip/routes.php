@@ -65,6 +65,28 @@ $MYJAT_ROUTES = [
 
 
     // =====================================================
+    // MEMBERSHIP PAYMENT VERIFICATION
+    // =====================================================
+
+    'membership-payment-verify' => [
+        'type' => 'function',
+        'function' => 'myjat_membership_payment_verify',
+    ],
+
+
+    // =====================================================
+    // RAZORPAY PAYMENT WEBHOOK
+    // =====================================================
+
+    'membership-payment-webhook' => [
+        'type' => 'function',
+        'function' => 'myjat_membership_payment_webhook',
+    ],
+
+
+    
+
+    // =====================================================
     // GREAT PAGES
     // =====================================================
 
