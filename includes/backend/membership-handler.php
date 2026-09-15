@@ -145,65 +145,65 @@ function myjat_handle_membership_form_submission($pdo)
 
 
     // =====================================================
-// Membership Type
-// =====================================================
+    // Membership Type
+    // =====================================================
 
-$membership_type =
-    trim(
-        (string) $membership_plan['name']
-    );
-// =====================================================
-// Ordinary Membership Requirement
-// =====================================================
+    $membership_type =
+        trim(
+            (string) $membership_plan['name']
+        );
+    // ===============================================  ======
+    // Ordinary Membership Requirement
+    // =====================================================
 
-if (
-    (int) $membership_plan['requires_ordinary_membership'] === 1
-) {
+    if (
+        (int) $membership_plan['requires_ordinary_membership'] === 1
+    ) {
 
-    $ordinary_conditions = [];
-    $ordinary_params = [];
+        $ordinary_conditions = [];
+        $ordinary_params = [];
 
-    /*
+        /*
      * Build only the comparisons that actually have a value.
      * This avoids comparing bound strings with '' and prevents
      * MySQL collation conflicts on live hosting.
      */
 
-    if ($google_id !== '') {
+        if ($google_id !== '') {
 
-        $ordinary_conditions[] =
-            "ma.google_id = ?";
+            $ordinary_conditions[] =
+                "ma.google_id = ?";
 
-        $ordinary_params[] =
-            $google_id;
-    }
+            $ordinary_params[] =
+                $google_id;
+        }
 
-    if ($email !== '') {
+        if ($email !== '') {
 
-        $ordinary_conditions[] =
-            "LOWER(ma.email) = LOWER(?)";
+            $ordinary_conditions[] =
+                "LOWER(ma.email) = LOWER(?)";
 
-        $ordinary_params[] =
-            $email;
-    }
+            $ordinary_params[] =
+                $email;
+        }
 
-    if ($google_email !== '') {
+        if ($google_email !== '') {
 
-        $ordinary_conditions[] =
-            "LOWER(ma.google_email) = LOWER(?)";
+            $ordinary_conditions[] =
+                "LOWER(ma.google_email) = LOWER(?)";
 
-        $ordinary_params[] =
-            $google_email;
-    }
-
-
-    $has_ordinary_membership = false;
+            $ordinary_params[] =
+                $google_email;
+        }
 
 
-    if (!empty($ordinary_conditions)) {
+        $has_ordinary_membership = false;
 
-        $ordinary_sql =
-            "SELECT ma.id
+
+        if (!empty($ordinary_conditions)) {
+
+            $ordinary_sql =
+                "SELECT ma.id
              FROM membership_applications ma
              INNER JOIN membership_plans mp
                  ON mp.id = ma.membership_plan_id
@@ -211,45 +211,45 @@ if (
                AND LOWER(ma.status) = 'approved'
                AND (
                     " .
-                    implode(
-                        " OR ",
-                        $ordinary_conditions
-                    )
-                    . "
+                implode(
+                    " OR ",
+                    $ordinary_conditions
+                )
+                . "
                )
              LIMIT 1";
 
 
-        $stmt =
-            $pdo->prepare(
-                $ordinary_sql
+            $stmt =
+                $pdo->prepare(
+                    $ordinary_sql
+                );
+
+
+            $stmt->execute(
+                $ordinary_params
             );
 
 
-        $stmt->execute(
-            $ordinary_params
-        );
+            $has_ordinary_membership =
+                (bool) $stmt->fetchColumn();
+        }
 
 
-        $has_ordinary_membership =
-            (bool) $stmt->fetchColumn();
+        if (!$has_ordinary_membership) {
+
+            $_SESSION['myjat_membership_flash'] = [
+
+                'type' => 'error',
+
+                'message' =>
+                'सक्रिय सदस्यता के लिए पहले साधारण सदस्य होना आवश्यक है।'
+            ];
+
+            header('Location: /register/');
+            exit;
+        }
     }
-
-
-    if (!$has_ordinary_membership) {
-
-        $_SESSION['myjat_membership_flash'] = [
-
-            'type' => 'error',
-
-            'message' =>
-            'सक्रिय सदस्यता के लिए पहले साधारण सदस्य होना आवश्यक है।'
-        ];
-
-        header('Location: /register/');
-        exit;
-    }
-}
     // =====================================================
     // Duplicate Application Check
     //
@@ -294,6 +294,46 @@ if (
     // It remains a temporary server-side draft until payment
     // is successfully verified.
     // =====================================================
+
+    // =====================================================
+    // Membership Type & Amount
+    // =====================================================
+
+    $membership_type =
+        trim(
+            (string) $membership_plan['name']
+        );
+
+
+    $amount_inr =
+        (float) $membership_plan['amount'];
+
+
+    $amount_paise =
+        (int) round(
+            $amount_inr * 100
+        );
+
+
+    if (
+        $amount_paise <= 0
+        || strtoupper(
+            (string) $membership_plan['currency']
+        ) !== 'INR'
+    ) {
+
+        $_SESSION['myjat_membership_flash'] = [
+
+            'type' => 'error',
+
+            'message' =>
+            'सदस्यता शुल्क की जानकारी अमान्य है।'
+        ];
+
+        header('Location: /register/');
+        exit;
+    }
+
 
     $draft = [
 
