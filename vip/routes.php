@@ -32,6 +32,11 @@ $MYJAT_ROUTES = [
         'function' => 'myjat_kalamse_home',
     ],
 
+    'sinhavlocan' => [
+        'type' => 'function',
+        'function' => 'myjat_sinhavlocan_home',
+    ],
+
     'register' => [
         'type' => 'function',
         'function' => 'myjat_membership_form',
@@ -145,10 +150,6 @@ $MYJAT_ROUTES = [
         'function' => 'myjat_ranjit_home',
     ],
 
-    'sinhavlocan' => [
-        'type'     => 'function',
-        'function' => 'myjat_sinhavlocan_home',
-    ],
 
     'surjmal' => [
         'type'     => 'function',

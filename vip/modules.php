@@ -125,7 +125,6 @@ $myjat_vip_great_modules = [
     'mahender.php',
     'nahar.php',
     'ranjit.php',
-    'sinhavlocan.php',
     'surjmal.php',
     'tejaji.php',
     'tiket.php',
@@ -166,6 +165,15 @@ foreach ($myjat_vip_page_modules as $module) {
     }
 }
 
+/* =========================================================
+   GREAT / SPECIAL PAGES
+========================================================= */
+
+$sinhavlocan_file = MYJAT_INCLUDES . '/great/sinhavlocan.php';
+
+if (is_file($sinhavlocan_file)) {
+    require_once $sinhavlocan_file;
+}
 
 /*
 |--------------------------------------------------------------------------

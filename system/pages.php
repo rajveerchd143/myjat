@@ -18,6 +18,9 @@ $pages = [
 
     'kalamse' => 'myjat_kalamse_home',
 
+    'sinhavlocan' => 'myjat_sinhavlocan_home',
+
+
     'about' => 'myjat_about_home',
 
     'contact' => 'myjat_contact_home',

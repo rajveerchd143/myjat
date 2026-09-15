@@ -51,6 +51,10 @@ $myjat_user = $_SESSION['myjat_user'] ?? null;
                 कलम से
             </a>
 
+            <a href="/sinhavlocan/">
+                सिंहावलोकन
+            </a>
+
             <a href="/about/">
                 हमारे बारे में
             </a>
