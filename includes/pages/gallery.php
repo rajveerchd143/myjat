@@ -35,7 +35,7 @@ if (!function_exists('myjat_gallery')) {
         ob_start();
 ?>
 
-        <section class="myjat-gallery" aria-label="Photo Gallery">
+        <section class="myjat-gallery myjat-glassblur" aria-label="Photo Gallery">
 
 
             <div class="myjat-gallery-wrap">
