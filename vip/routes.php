@@ -32,6 +32,27 @@ $MYJAT_ROUTES = [
         'function' => 'myjat_kalamse_home',
     ],
 
+    // Jat Research Pages
+    'jat-parichay' => [
+        'type' => 'function',
+        'function' => 'myjat_jat_parichay_home',
+    ],
+
+    'jat-bharat' => [
+        'type' => 'function',
+        'function' => 'myjat_jat_bharat_home',
+    ],
+
+    'jat-sanskriti' => [
+        'type' => 'function',
+        'function' => 'myjat_jat_sanskriti_home',
+    ],
+
+    'jat-yogdan' => [
+        'type' => 'function',
+        'function' => 'myjat_jat_yogdan_home',
+    ],
+
     'sinhavlocan' => [
         'type' => 'function',
         'function' => 'myjat_sinhavlocan_home',
@@ -89,7 +110,7 @@ $MYJAT_ROUTES = [
     ],
 
 
-    
+
 
     // =====================================================
     // GREAT PAGES

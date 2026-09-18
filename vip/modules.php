@@ -154,6 +154,16 @@ $myjat_vip_page_modules = [
     'kalamse.php',
     'slider.php',
     'gallery.php',
+
+        // Jat Research Pages
+    'jat-parichay.php',
+    'jat-bharat.php',
+    'jat-sanskriti.php',
+    'jat-yogdan.php',
+
+
+
+
 ];
 
 foreach ($myjat_vip_page_modules as $module) {

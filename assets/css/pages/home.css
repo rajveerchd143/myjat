@@ -62,7 +62,7 @@
 .home-para {
    font-size: 25px;
    text-align: justify;
-      padding-inline: 15px;
+   padding-inline: 15px;
 
    text-justify: inter-word;
 
@@ -121,14 +121,18 @@ Features Section
    grid-template-columns: repeat(4, 1fr);
    gap: 30px;
    margin-top: 50px;
+
    margin-bottom: 50px;
 }
 
 .myjat-feature-card {
    position: relative;
    overflow: hidden;
+   background-image: -webkit-image-set();
    padding: 42px;
    border-radius: var(--myjat-radius-1);
+
+
 }
 
 .myjat-feature-card:hover {
