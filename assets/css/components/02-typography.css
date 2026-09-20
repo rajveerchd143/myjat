@@ -38,7 +38,7 @@ a{
 h1,h2,h3,h4,h5,h6,span,a,nav,p,i,li,strong,em,a,blockquote{
    text-shadow:
       1px 1px 0 #ddd,
-      2px 2px 2px rgba(0, 0, 0, .20);
+      2px 2px 2px rgba(0, 0, 0, .25);
    color: black;
 
 

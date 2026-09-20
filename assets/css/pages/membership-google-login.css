@@ -6,7 +6,7 @@
 
     background: #fff;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: var(--myjat-radius-1);
 }
 
 .myjat-login-wrapper h2 {
@@ -31,7 +31,7 @@
     padding: 10px 14px;
 
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: var(--myjat-radius-1);
 
     background: #fff;
     color: #222;
@@ -86,7 +86,7 @@
     padding: 10px 14px;
 
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: var(--myjat-radius-1);
 
     background: #fff;
     color: #222;
@@ -152,7 +152,7 @@
     height: 44px;
 
     border: 0;
-    border-radius: 6px;
+    border-radius: var(--myjat-radius-1);
 
     background: #222;
     color: #fff;

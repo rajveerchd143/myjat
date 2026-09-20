@@ -128,24 +128,6 @@
 }
 
 
-/* MOBILE */
-
-@media (max-width: 650px) {
-
-    .dashboard {
-        padding: 15px;
-    }
-
-    .dashboard-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .dashboard-head h1 {
-        font-size: 23px;
-    }
-}
-
-
 
 
 

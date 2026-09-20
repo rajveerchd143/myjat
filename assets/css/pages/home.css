@@ -34,30 +34,24 @@
 }
 
 .myjat-badge {
-   display: inline-flex;
-   white-space: nowrap;
+
+
+   align-self: center;
+   padding: 5px 4px 1px 4px;
+
+
+
    border-radius: var(--myjat-radius-1);
-   justify-content: center;
-   align-items: center;
-   font-size: 25px;
-   color: black;
-   margin-top: 10px;
-   margin-bottom: 10px;
-   padding-inline: 15px;
-   line-height: 1;
-   font-weight: 700;
+   background: whitesmoke;
+
+
+   font-size: 24px;
+   font-weight: 800;
+   margin-top: 25px;
+   margin-bottom: 40px;
 }
 
-@media(max-width:767px) {
-   .myjat-badge {
-      max-width: 100% !important;
-      font-size: 20px !important;
-      box-sizing: border-box !important;
-      white-space: nowrap !important;
-      text-align: center !important;
-      padding: 10px 16px !important;
-   }
-}
+
 
 .home-para {
    font-size: 25px;
@@ -128,7 +122,6 @@ Features Section
 .myjat-feature-card {
    position: relative;
    overflow: hidden;
-   background-image: -webkit-image-set();
    padding: 42px;
    border-radius: var(--myjat-radius-1);
 
@@ -152,60 +145,4 @@ Features Section
    font-size: 28px;
    box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
    margin-bottom: 24px;
-}
-
-@media(max-width:991px) {
-   .myjat-home {
-
-      width: 100%;
-      margin: 0;
-      padding-left: 0;
-      padding-right: 0;
-
-
-
-   }
-
-   .myjat-container {
-
-      padding-top: 15PX;
-
-   }
-}
-
-@media(max-width:768px) {
-   .myjat-features {
-      grid-template-columns: 1fr;
-   }
-}
-
-@media(max-width:991px) {
-   .myjat-hero {
-      grid-template-columns: 1fr;
-      text-align: center;
-      padding: 0;
-      margin-top: 10px;
-      gap: 40px;
-   }
-
-   .myjat-buttons {
-      justify-content: center;
-   }
-
-   .myjat-hero-stats {
-      grid-template-columns: 1fr;
-   }
-
-
-}
-
-@media(max-width:767px) {
-   .myjat-hero-left {
-      position: relative;
-      max-width: 100%;
-      margin-top: 10px;
-      border-radius: var(--myjat-radius-1);
-      box-sizing: border-box;
-      overflow: hidden;
-   }
 }

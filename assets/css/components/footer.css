@@ -3,7 +3,6 @@
    ================================================== */
 
 .myjat-footer {
-    width: min(1200px, 92%);
 
     padding: 25px 20px 0;
     box-sizing: border-box;
@@ -101,34 +100,3 @@
 }
 
 
-@media (max-width: 700px) {
-
-    .myjat-footer {
-        margin-top: 28px;
-        padding: 25px 18px 0;
-    }
-
-    .myjat-footer-main {
-        grid-template-columns: 1fr;
-        gap: 22px;
-    }
-
-    .myjat-footer-developer {
-        justify-self: start;
-        text-align: left;
-    }
-
-    .myjat-footer-bottom {
-        grid-template-columns: 1fr;
-        gap: 7px;
-        text-align: center;
-    }
-
-    .myjat-footer-bottom span:last-child {
-        text-align: center;
-    }
-
-    .myjat-footer-bottom span:nth-child(2) {
-        order: 2;
-    }
-}

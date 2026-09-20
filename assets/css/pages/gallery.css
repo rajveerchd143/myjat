@@ -60,7 +60,7 @@ color: black;
     background: transparent;
     cursor: pointer;
     overflow: hidden;
-    border-radius: var(--myjat-radius-1, 12px);
+    border-radius: var(--myjat-radius-1);
     aspect-ratio: 4 / 3;
 }
 
@@ -96,7 +96,7 @@ color: black;
     width: 40px;
     height: 40px;
     border: 0;
-    border-radius: 50%;
+    border-radius: var(--myjat-radius-1);
     background: rgba(0, 0, 0, .72);
     color: #fff;
     font-size: 28px;
@@ -141,7 +141,7 @@ color: black;
     max-width: 100%;
     max-height: 78vh;
     margin: 0 auto;
-    border-radius: 10px;
+    border-radius: var(--myjat-radius-1);
 }
 
 .myjat-gallery-lightbox-caption {
@@ -157,7 +157,7 @@ color: black;
     width: 42px;
     height: 42px;
     border: 0;
-    border-radius: 50%;
+    border-radius: var(--myjat-radius-1);
     background: rgba(255, 255, 255, .14);
     color: #fff;
     font-size: 30px;
@@ -165,45 +165,6 @@ color: black;
 }
 
 
-/* =========================================================
-   Responsive
-   ========================================================= */
-
-@media (max-width: 900px) {
-
-    .myjat-gallery-item {
-        flex-basis: calc((100% - 16px) / 2);
-    }
-
-}
-
-@media (max-width: 600px) {
-
-    .myjat-gallery {
-        margin-top: 30px;
-        padding: 0 12px 25px;
-    }
-
-    .myjat-gallery-head h2 {
-        font-size: 24px;
-    }
-
-    .myjat-gallery-wrap {
-        gap: 6px;
-    }
-
-    .myjat-gallery-item {
-        flex-basis: 100%;
-    }
-
-    .myjat-gallery-arrow {
-        flex: 0 0 34px;
-        width: 34px;
-        height: 34px;
-        font-size: 24px;
-    }
-
-}
 
 .myjat-gallery-empty {
     width: 100%;
@@ -215,7 +176,7 @@ color: black;
     padding: 30px;
     box-sizing: border-box;
     border: 1px solid rgba(255, 255, 255, .55);
-    border-radius: var(--myjat-radius-1, 12px);
+    border-radius: var(--myjat-radius-1);
     background: rgba(255, 255, 255, .55);
     text-align: center;
 }
@@ -249,7 +210,7 @@ color: black;
     flex: 1;
     padding: 7px 9px;
     border: 1px solid #ddd;
-    border-radius: 7px;
+    border-radius: var(--myjat-radius-1);
     box-sizing: border-box;
     font-size: 12px;
 }
@@ -257,7 +218,7 @@ color: black;
 .myjat-gallery-caption-form button {
     padding: 7px 10px;
     border: 0;
-    border-radius: 7px;
+    border-radius: var(--myjat-radius-1);
     background: #222;
     color: #fff;
     cursor: pointer;

@@ -214,62 +214,8 @@
 
 /* MOBILE */
 
-@media (max-width: 800px) {
 
-    .view-page {
-        padding: 15px;
-    }
-
-    .view-top {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .view-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .data-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .data-grid .full {
-        grid-column: auto;
-    }
-
-    .view-buttons {
-        width: 100%;
-    }
-
-    .view-buttons a,
-    .view-buttons button {
-        flex: 1;
-        text-align: center;
-    }
-}
 
 
 /* PRINT */
 
-@media print {
-
-    .view-buttons,
-    .view-side,
-    .admin-button {
-        display: none;
-    }
-
-    .view-page {
-        max-width: none;
-        padding: 0;
-    }
-
-    .view-layout {
-        display: block;
-    }
-
-    .box {
-        border: 1px solid #ccc;
-        break-inside: avoid;
-    }
-}

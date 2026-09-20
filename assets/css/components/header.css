@@ -11,7 +11,7 @@
     top: 0;
     z-index: 1000;
 
-    border-radius: 15px;
+    border-radius: var(--myjat-radius-1);
 }
 
 
@@ -47,7 +47,7 @@
     width: auto;
     flex: 0 0 auto;
     padding: 0 14px;
-    border-radius: 15px;
+    border-radius: var(--myjat-radius-1);
 }
 
 .myjat-brand {
@@ -99,7 +99,7 @@
     flex: 0 0 auto;
     gap: 24px;
     padding: 0 14px;
-    border-radius: 15px;
+    border-radius: var(--myjat-radius-1);
 
 }
 
@@ -118,7 +118,7 @@
     font-size: 0.98rem;
     font-weight: 600;
 
-    border-radius: 15px;
+    border-radius: var(--myjat-radius-1);
 
     white-space: nowrap;
 
@@ -140,7 +140,7 @@
 
     background: red;
 
-    border-radius: 15px;
+    border-radius: var(--myjat-radius-1);
 
     transform: translateX(-50%);
 
@@ -176,7 +176,7 @@
     flex: 0 0 auto;
     gap: 8px;
     padding: 0 24px;
-    border-radius: 15px;
+    border-radius: var(--myjat-radius-1);
 
     white-space: nowrap;
 }
@@ -185,7 +185,7 @@
     width: 25px;
     height: 25px;
 
-    border-radius: 15px;
+    border-radius: var(--myjat-radius-1);
 
     object-fit: cover;
 
@@ -203,7 +203,7 @@
     font-size: 0.72rem;
     font-weight: 500;
     padding: 4px 8px;
-    border-radius: 10px;
+    border-radius: var(--myjat-radius-1);
     background: rgba(255, 255, 255, 0.55);
     color: red;
     white-space: nowrap;
@@ -256,129 +256,9 @@
    TABLET
    ================================================== */
 
-@media (max-width: 900px) {
-
-    .myjat-header-inner {
-        width: 94%;
-        gap: 10px;
-    }
-
-    .myjat-nav {
-        gap: 8px;
-    }
-
-    .myjat-nav a {
-        padding: 0 5px;
-        font-size: 0.9rem;
-    }
-
-    .myjat-header-right {
-        gap: 5px;
-    }
-
-    .myjat-header-right span {
-        font-size: 0.88rem;
-    }
-}
 
 
-/* ==================================================
-   MOBILE
-   ================================================== */
 
-@media (max-width: 700px) {
-
-    .myjat-header-inner {
-        position: relative;
-
-        width: 94%;
-        min-height: 40px;
-
-        grid-template-columns: 1fr auto 1fr;
-    }
-
-
-    /* BRAND LEFT */
-
-    .myjat-header-left {
-        justify-content: flex-start;
-    }
-
-
-    /* HAMBURGER CENTER */
-
-    .myjat-menu-toggle {
-        display: flex;
-        grid-column: 2;
-        grid-row: 1;
-    }
-
-
-    /* USER RIGHT */
-
-    .myjat-header-right {
-        grid-column: 3;
-        grid-row: 1;
-
-        justify-content: flex-end;
-    }
-
-    .myjat-header-right span {
-        display: none;
-    }
-
-    .myjat-header-right img {
-        width: 28px;
-        height: 28px;
-    }
-
-
-    /* NAV DROPDOWN */
-
-    .myjat-nav {
-        display: none;
-
-        position: absolute;
-
-        top: calc(100% + 8px);
-        left: 0;
-        right: 0;
-
-        padding: 10px;
-
-        flex-direction: column;
-        align-items: stretch;
-
-        gap: 2px;
-
-        border-radius: 15px;
-    }
-
-    .myjat-nav.is-open {
-        display: flex;
-    }
-
-    .myjat-nav a {
-        width: 100%;
-        min-height: 42px;
-
-        padding: 0 12px;
-
-        justify-content: flex-start;
-    }
-
-    .myjat-nav a::after {
-        left: 14px;
-        bottom: 6px;
-
-        transform: none;
-    }
-
-    .myjat-nav a:hover::after,
-    .myjat-nav a.active::after {
-        width: 24px;
-    }
-}
 
 
 /* ==================================================

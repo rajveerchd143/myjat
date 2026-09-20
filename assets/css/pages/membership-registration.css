@@ -44,7 +44,7 @@
     padding: 12px 15px;
     background: #fff8f1;
     border: 1px solid #f4d5bb;
-    border-radius: 6px;
+    border-radius: var(--myjat-radius-1);
     font-size: 14px;
 }
 
@@ -72,7 +72,7 @@
     width: 38px;
     height: 38px;
     border: 1px solid #999;
-    border-radius: 50%;
+    border-radius: var(--myjat-radius-1);
     background: #fff;
     color: #555;
 
@@ -142,33 +142,6 @@
 }
 
 
-/* MOBILE */
-
-@media (max-width: 700px) {
-
-    .myjat-registration-progress {
-        margin: 20px 0 30px;
-    }
-
-    .myjat-progress-step {
-        gap: 4px;
-    }
-
-    .myjat-progress-step span {
-        width: 32px;
-        height: 32px;
-        font-size: 14px;
-    }
-
-    .myjat-progress-step strong {
-        display: none;
-    }
-
-    .myjat-progress-line {
-        margin: 0 6px;
-    }
-
-}
 /* =========================================================
    Steps
 ========================================================= */
@@ -232,7 +205,7 @@
     box-sizing: border-box;
     padding: 11px 12px;
     border: 1px solid #d8d8d8;
-    border-radius: 5px;
+    border-radius: var(--myjat-radius-1);
     background: #fff;
     color: #333;
     font: inherit;
@@ -273,7 +246,7 @@
 
     text-align: center;
 
-    border-radius: 10px;
+    border-radius: var(--myjat-radius-1);
     border: 1px solid #ddd;
 
     box-sizing: border-box;
@@ -320,7 +293,7 @@
     padding: 20px;
     border: 1px solid #ddd;
     background: #fafafa;
-    border-radius: 5px;
+    border-radius: var(--myjat-radius-1);
     line-height: 1.8;
     color: #444;
     font-size: 15px;
@@ -344,7 +317,7 @@
     margin: 25px 0;
     padding: 14px 15px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: var(--myjat-radius-1);
     background: #fff;
 }
 
@@ -372,7 +345,7 @@
     max-height: 180px;
     margin-top: 12px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: var(--myjat-radius-1);
 }
 
 
@@ -389,86 +362,5 @@
     border-top: 1px solid #eee;
 }
 
-.myjat-btn {
-    padding: 11px 20px;
-    border: 1px solid #f58220;
-    border-radius: 5px;
-    background: #fff;
-    color: #f58220;
-    cursor: pointer;
-    font: inherit;
-    font-weight: 600;
-}
-
-.myjat-btn:hover {
-    background: #f58220;
-    color: #fff;
-}
-
-.myjat-btn-submit {
-    background: #f58220;
-    color: #fff;
-}
 
 
-/* =========================================================
-   Mobile
-========================================================= */
-
-@media (max-width: 700px) {
-
-    #myjat-membership-form {
-        margin: 20px 10px;
-        padding: 20px 15px;
-    }
-
-    #myjat-membership-form h1 {
-        font-size: 26px;
-    }
-
-    #myjat-membership-form h2 {
-        font-size: 20px;
-    }
-
-    .myjat-form-meta {
-        flex-direction: column;
-        gap: 7px;
-    }
-
-    .myjat-registration-progress {
-        align-items: flex-start;
-    }
-
-    .myjat-progress-step {
-        flex-direction: column;
-        text-align: center;
-        gap: 4px;
-        font-size: 11px;
-    }
-
-    .myjat-progress-step strong {
-        font-weight: 500;
-    }
-
-    .myjat-progress-line {
-        margin-top: 14px;
-    }
-
-    .myjat-form-grid {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-
-    .myjat-form-actions {
-        justify-content: space-between;
-    }
-
-    .myjat-btn {
-        padding: 10px 14px;
-    }
-
-    .myjat-sankalp {
-        padding: 15px;
-        font-size: 14px;
-    }
-}

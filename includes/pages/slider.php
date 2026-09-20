@@ -111,7 +111,7 @@ function myjat_slider_home()
 
                         <div class="myjat-slider-content">
 
-                            <span class="myjat-slider-badge">
+                            <span class="myjat-badge">
                                 भारत के महान जाट महापुरुष
                             </span>
 

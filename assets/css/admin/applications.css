@@ -485,7 +485,6 @@
     border-radius: var(--myjat-radius-1);
 
     border: 1px solid #ddd;
-    border-radius: 7px;
     box-sizing: border-box;
     font-size: 12px;
 }
@@ -493,7 +492,7 @@
 .myjat-gallery-caption-form button {
     padding: 7px 10px;
     border: 0;
-    border-radius: 7px;
+    border-radius: var(--myjat-radius-1);
     background: #222;
     color: #fff;
     cursor: pointer;
@@ -532,7 +531,7 @@
 .myjat-gallery-admin-actions a {
     display: inline-block;
     padding: 6px 10px;
-    border-radius: 7px;
+    border-radius: var(--myjat-radius-1);
     background: #eee;
     color: #333;
     text-decoration: none;
@@ -557,107 +556,6 @@
 }
 
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media (max-width: 900px) {
-
-    .admin-page {
-        padding: 18px;
-    }
-
-    .admin-tools {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .admin-search {
-        width: 100%;
-    }
-
-    .admin-export {
-        width: 100%;
-    }
-
-    .admin-stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .myjat-gallery-admin-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-}
-
-
-@media (max-width: 600px) {
-
-    .admin-page {
-        padding: 12px;
-    }
-
-    .admin-heading {
-        padding: 20px;
-    }
-
-    .admin-heading h1 {
-        font-size: 24px;
-    }
-
-    .admin-content-wrapper {
-        padding: 15px;
-    }
-
-    .admin-section-title h2 {
-        font-size: 20px;
-    }
-
-    .admin-search {
-        flex-wrap: wrap;
-    }
-
-    .admin-search input {
-        max-width: none;
-        width: 100%;
-    }
-
-    .admin-search button,
-    .admin-search a {
-        flex: 1;
-    }
-
-    .admin-stats {
-        grid-template-columns: 1fr;
-    }
-
-    .myjat-admin-tabs {
-        overflow-x: auto;
-        padding: 0 5px;
-    }
-
-    .myjat-admin-tab {
-        min-width: 125px;
-        padding: 0 15px;
-    }
-
-    .admin-gallery-upload {
-        display: block;
-    }
-
-    .admin-gallery-field {
-        margin-bottom: 14px;
-    }
-
-    .admin-gallery-upload button {
-        width: 100%;
-    }
-
-    .myjat-gallery-admin-grid {
-        grid-template-columns: 1fr;
-    }
-
-}
 
 
 /* =========================================================
@@ -804,39 +702,6 @@
 }
 
 
-/* =========================================================
-   MEMBERSHIP PLANS RESPONSIVE
-========================================================= */
-
-@media (max-width: 700px) {
-
-    .admin-form-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .admin-form-field.full {
-        grid-column: auto;
-    }
-
-    .admin-plan-form {
-        padding: 15px;
-    }
-
-    .admin-plan-options {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .admin-plan-actions {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .admin-btn {
-        width: 100%;
-    }
-
-}
 
 /* =========================================================
    MEMBERSHIP PLAN FIELD FIX
