@@ -25,3 +25,6 @@ Thumbs.db
 # User-uploaded gallery images
 /uploads/gallery/*
 !/uploads/gallery/.gitkeep
+
+/uploads/members/*
+!/uploads/members/.gitkeep
