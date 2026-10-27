@@ -24,6 +24,8 @@ Thumbs.db
 
 # User-uploaded gallery images
 /uploads/gallery/*
+
+.env.example
 !/uploads/gallery/.gitkeep
 
 /uploads/members/*
