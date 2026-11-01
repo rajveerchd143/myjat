@@ -20,7 +20,7 @@
    ================================================== */
 
 .myjat-header-inner {
-    width: min(1200px, 92%);
+    width: auto;
     min-height: 40px;
     margin: 0 auto;
 
@@ -28,7 +28,7 @@
     align-items: center;
     justify-content: space-between;
 
-    gap: 20px;
+    gap: 12px;
 }
 
 
@@ -96,7 +96,7 @@
     justify-content: center;
     min-height: 35px;
     width: auto;
-    flex: 0 0 auto;
+    flex: 0 1 auto;
     gap: 24px;
     padding: 0 14px;
     border-radius: var(--myjat-radius-1);
@@ -171,7 +171,7 @@
     align-items: center;
     justify-content: flex-end;
     min-height: 35px;
-    flex: 0 0 auto;
+    flex: 0 1 auto;
     width: auto;
     flex: 0 0 auto;
     gap: 8px;
@@ -260,7 +260,6 @@
 
 
 
-
 /* ==================================================
    MENU TOGGLE ANIMATION
    ================================================== */
@@ -275,4 +274,136 @@
 
 .myjat-menu-toggle.is-active span:nth-child(3) {
     transform: translateY(-5px) rotate(-45deg);
+}
+
+.myjat-header-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+
+
+
+/* ==================================================
+   TABLET
+   ================================================== */
+
+@media (max-width: 900px) {
+
+    .myjat-header-inner {
+        width: auto;
+        gap: 10px;
+    }
+
+    .myjat-nav {
+        gap: 8px;
+    }
+
+    .myjat-nav a {
+        padding: 0 5px;
+        font-size: 0.9rem;
+    }
+
+    .myjat-header-right {
+        gap: 5px;
+    }
+
+    .myjat-header-right span {
+        font-size: 0.88rem;
+    }
+}
+
+
+/* ==================================================
+   MOBILE
+   ================================================== */
+
+@media (max-width: 700px) {
+
+
+
+    /* BRAND LEFT */
+
+    .myjat-header-left {
+        justify-content: flex-start;
+    }
+
+
+    /* HAMBURGER CENTER */
+
+    .myjat-menu-toggle {
+        display: flex;
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+
+    /* USER RIGHT */
+
+    .myjat-header-right {
+        grid-column: 3;
+        grid-row: 1;
+
+        justify-content: flex-end;
+    }
+
+    .myjat-header-right span {
+        display: none;
+    }
+
+    .myjat-header-right img {
+        width: 28px;
+        height: 28px;
+    }
+
+
+    /* NAV DROPDOWN */
+
+    .myjat-nav {
+        display: none;
+
+        position: absolute;
+
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+
+        padding: 10px;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 2px;
+
+        border-radius: 15px;
+    }
+
+    .myjat-nav.is-open {
+        display: flex;
+    }
+
+    .myjat-nav a {
+        width: 100%;
+        min-height: 42px;
+
+        padding: 0 12px;
+
+        justify-content: flex-start;
+    }
+
+    .myjat-nav a::after {
+        left: 14px;
+        bottom: 6px;
+
+        transform: none;
+    }
+
+    .myjat-nav a:hover::after,
+    .myjat-nav a.active::after {
+        width: 24px;
+    }
 }

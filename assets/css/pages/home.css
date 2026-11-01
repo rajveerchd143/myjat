@@ -14,6 +14,20 @@
    z-index: 2;
 }
 
+.myjat-badge {
+
+   align-self: center;
+   border-radius: var(--myjat-radius-1);
+   background: whitesmoke;
+   font-size: 25px;
+   font-weight: 800;
+   padding: 10px;
+   padding-top: 15px;
+
+   margin-top: 25px;
+   margin-bottom: 40px;
+   white-space: nowrap;
+}
 
 .myjat-hero h1 {
    font-size: clamp(56px, 6vw, 84px);
@@ -31,24 +45,6 @@
    padding: 40px 20px 50px;
    border-radius: var(--myjat-radius-1);
    box-sizing: border-box;
-}
-
-.myjat-badge {
-
-
-   align-self: center;
-   padding: 5px 4px 1px 4px;
-
-
-
-   border-radius: var(--myjat-radius-1);
-   background: whitesmoke;
-
-
-   font-size: 24px;
-   font-weight: 800;
-   margin-top: 25px;
-   margin-bottom: 40px;
 }
 
 
@@ -115,7 +111,6 @@ Features Section
    grid-template-columns: repeat(4, 1fr);
    gap: 30px;
    margin-top: 50px;
-
    margin-bottom: 50px;
 }
 
@@ -145,4 +140,230 @@ Features Section
    font-size: 28px;
    box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
    margin-bottom: 24px;
+}
+
+
+
+@media(max-width:991px) {
+   .myjat-home {
+
+      width: 100%;
+      margin: 0;
+      padding-left: 0;
+      padding-right: 0;
+  }
+
+  .myjat-badge {
+
+   align-self: center;
+   border-radius: var(--myjat-radius-1);
+   background: whitesmoke;
+   font-size: 20px;
+   font-weight: 800;
+   margin-top: 25px;
+   margin-bottom: 40px;
+   white-space: nowrap;
+}
+
+   .myjat-container {
+
+      padding-top: 15PX;
+
+   }
+}
+
+@media(max-width:768px) {
+   .myjat-features {
+      grid-template-columns: 1fr;
+   }
+}
+
+@media(max-width:991px) {
+   .myjat-hero {
+      grid-template-columns: 1fr;
+      text-align: center;
+      padding: 0;
+      margin-top: 10px;
+      gap: 40px;
+   }
+
+   .myjat-buttons {
+      justify-content: center;
+   }
+
+   .myjat-hero-stats {
+      grid-template-columns: 1fr;
+   }
+
+
+}
+
+@media(max-width:767px) {
+   .myjat-hero-left {
+      position: relative;
+      max-width: 100%;
+      margin-top: 10px;
+      border-radius: var(--myjat-radius-1);
+      box-sizing: border-box;
+      overflow: hidden;
+   }
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+   /* HEADER — COMPACT ROW */
+   .myjat-header {
+      position: sticky;
+      top: 0;
+   }
+
+   .myjat-header-inner {
+      position: relative;
+      width: auto;
+      gap: 10px;
+      padding: 6px;
+      box-sizing: border-box;
+   }
+
+   .myjat-header-left {
+      order: 1;
+   }
+
+   .myjat-menu-toggle {
+      display: flex !important;
+      flex: 0 0 35px;
+      width: 35px;
+      height: 35px;
+      position: relative;
+      z-index: 1002;
+      order: 2;
+      cursor: pointer;
+   }
+
+
+   /* HEADER — SLIDE-IN MENU */
+   .myjat-header-menu {
+      display: flex;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(62%, 180px);
+      height: 100dvh;
+      padding: 80px 18px 24px;
+      box-sizing: border-box;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 6px !important;
+      justify-content: flex-start;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-left: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 18px 0 0 18px;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.16);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+      z-index: 1000;
+      transform: translateX(105%);
+      visibility: hidden;
+      pointer-events: none;
+      transition: transform 0.3s ease, visibility 0.3s ease;
+   }
+
+   .myjat-header-menu.is-open {
+      transform: translateX(0);
+      visibility: visible;
+      pointer-events: auto;
+   }
+
+   .myjat-nav {
+      position: static;
+      order: 1;
+
+      flex: 0 0 auto;
+      flex-shrink: 0;
+      justify-content: flex-start;
+
+      border-top: 1px solid rgba(0, 0, 0, 0.15);
+      margin-top: 8px;
+      padding: 16px 8px 8px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+      width: 100%;
+      box-sizing: border-box;
+   }
+
+   .myjat-nav a {
+      justify-content: flex-start !important;
+      white-space: normal;
+      min-height: 44px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      text-align: left;
+
+
+   }
+
+
+   /* HEADER — PROFILE AND ACCOUNT ACTIONS */
+   .myjat-header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      width: 100%;
+      gap: 8px;
+      padding: 12px;
+      box-sizing: border-box;
+      white-space: normal;
+      border-radius: var(--myjat-radius-1);
+      order: 0;
+
+   }
+
+   .myjat-header-right img {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+      border-radius: 50%;
+      align-self: center;
+   }
+
+   .myjat-header-right span {
+      width: 100%;
+      text-align: center;
+      white-space: normal;
+      line-height: 1.6;
+   }
+
+   .myjat-header-right a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 40px;
+      padding: 10px 12px;
+      box-sizing: border-box;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.85);
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      white-space: normal;
+
+   }
+
 }

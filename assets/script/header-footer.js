@@ -1,57 +1,63 @@
-// ==================================================
-// MY JAT — Header & Footer
-// ==================================================
+/* ==================================================
+   MY JAT — Header & Footer
+   ================================================== */
 
 (() => {
+  // --------------------------------------------------
+  // Mobile Header Menu
+  // --------------------------------------------------
 
-    // --------------------------------------------------
-    // Mobile Header Menu
-    // --------------------------------------------------
+  const toggle = document.querySelector(".myjat-menu-toggle");
+  const menu = document.querySelector(".myjat-header-menu");
 
-    const toggle = document.querySelector(".myjat-menu-toggle");
-    const nav = document.querySelector(".myjat-nav");
+  let touchStartX = 0;
 
-    if (toggle && nav) {
+  menu?.addEventListener(
+    "touchstart",
+    (event) => {
+      touchStartX = event.changedTouches[0].screenX;
+    },
+    { passive: true },
+  );
 
-        toggle.addEventListener("click", () => {
+  menu?.addEventListener(
+    "touchend",
+    (event) => {
+      const touchEndX = event.changedTouches[0].screenX;
+      const swipeDistance = touchEndX - touchStartX;
 
-            const isOpen = nav.classList.toggle("is-open");
+      // Right swipe closes the menu
+      if (swipeDistance > 70) {
+        menu.classList.remove("is-open");
+        toggle?.classList.remove("is-active");
+        toggle?.setAttribute("aria-expanded", "false");
+      }
+    },
+    { passive: true },
+  );
 
-            toggle.setAttribute(
-                "aria-expanded",
-                isOpen ? "true" : "false"
-            );
+  if (toggle && menu) {
+    toggle.addEventListener("click", () => {
+      const isOpen = menu.classList.toggle("is-open");
 
-        });
+      toggle.classList.toggle("is-active", isOpen);
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
 
-        nav.querySelectorAll("a").forEach(link => {
-
-            link.addEventListener("click", () => {
-
-                nav.classList.remove("is-open");
-
-                toggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-            });
-
-        });
-
-        document.addEventListener("click", (event) => {
-
-         if (!nav.contains(event.target) && !toggle.contains(event.target)) {
-
-        nav.classList.remove("is-open");
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menu.classList.remove("is-open");
         toggle.classList.remove("is-active");
-
         toggle.setAttribute("aria-expanded", "false");
+      });
+    });
 
-         }
-
-        });
-
-    }
-
+    document.addEventListener("click", (event) => {
+      if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+        menu.classList.remove("is-open");
+        toggle.classList.remove("is-active");
+        toggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
 })();

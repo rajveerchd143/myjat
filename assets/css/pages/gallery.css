@@ -4,13 +4,14 @@
 
 .myjat-gallery {
 
-width:100%;
-margin:70px 0 80px;
-padding:15 0 15 0;
-position:relative;
-z-index:5;
-border-radius: var(--myjat-radius-1);
-color: black;
+    width: auto;
+    margin: 5px;
+    padding: 5px;
+    position: relative;
+    z-index: 5;
+    border-radius: var(--myjat-radius-1);
+    justify-content: center;
+    color: black;
 
 
 
@@ -83,10 +84,8 @@ color: black;
     bottom: 0;
     padding: 28px 12px 11px;
     color: #fff;
-    background: linear-gradient(
-        transparent,
-        rgba(0, 0, 0, .72)
-    );
+    background: linear-gradient(transparent,
+            rgba(0, 0, 0, .72));
     text-align: left;
     font-size: 14px;
 }
@@ -227,4 +226,51 @@ color: black;
 
 .myjat-gallery-caption-form button:hover {
     opacity: .85;
+}
+
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .myjat-gallery-item {
+        flex-basis: calc((100% - 16px) / 2);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .myjat-gallery {
+        width: auto;
+        margin: 5px;
+        padding: 5px;
+    }
+
+    .myjat-gallery-head h2 {
+        font-size: 14px;
+    }
+
+
+    .myjat-gallery-caption {
+        font-size: 14px;
+    }
+
+    .myjat-gallery-wrap {
+        gap: 6px;
+    }
+
+    .myjat-gallery-item {
+        flex-basis: 100%;
+    }
+
+    .myjat-gallery-arrow {
+        flex: 0 0 34px;
+        width: 34px;
+        height: 34px;
+        font-size: 24px;
+    }
+
 }

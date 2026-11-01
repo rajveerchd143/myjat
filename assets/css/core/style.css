@@ -24,6 +24,7 @@
 @import "../admin/dashboard.css";
 @import "../admin/applications.css";
 
-@import "../admin/view.css";
 
+@import "../admin/view.css";
+/*@import "./responsive.css";
 

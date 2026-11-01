@@ -1,0 +1,141 @@
+@media (max-width: 768px) {
+
+    /* HEADER — COMPACT ROW */
+    .myjat-header {
+        position: sticky;
+        top: 0;
+    }
+
+    .myjat-header-inner {
+        position: relative;
+        width: auto;
+        gap: 10px;
+        padding: 6px 12px;
+        box-sizing: border-box;
+    }
+
+    .myjat-header-left {
+        order: 1;
+    }
+
+    .myjat-menu-toggle {
+        display: flex !important;
+        flex: 0 0 35px;
+        width: 35px;
+        height: 35px;
+        position: relative;
+        z-index: 1002;
+        order: 2;
+        cursor: pointer;
+    }
+
+
+    /* HEADER — SLIDE-IN MENU */
+    .myjat-header-menu {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: min(62%, 180px);
+        height: 100dvh;
+        padding: 80px 18px 24px;
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border-left: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 18px 0 0 18px;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.16);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        z-index: 1000;
+        transform: translateX(105%);
+        visibility: hidden;
+        pointer-events: none;
+        transition: transform 0.3s ease, visibility 0.3s ease;
+    }
+
+    .myjat-header-menu.is-open {
+        transform: translateX(0);
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .myjat-nav {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        padding: 8px;
+        background: transparent;
+        box-sizing: border-box;
+
+    }
+
+    .myjat-nav a {
+        justify-content: flex-start;
+        white-space: normal;
+        min-height: 44px;
+        padding: 10px 14px;
+        border-radius: 12px;
+        text-align: left;
+    }
+
+    .myjat-nav a::after {
+        display: none;
+    }
+
+    /* HEADER — PROFILE AND ACCOUNT ACTIONS */
+    .myjat-header-right {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        width: 100%;
+        gap: 8px;
+        padding: 12px;
+        box-sizing: border-box;
+        white-space: normal;
+        border-radius: var(--myjat-radius-1);
+    }
+
+    .myjat-header-right img {
+        width: 72px;
+        height: 72px;
+        object-fit: cover;
+        border-radius: 50%;
+        align-self: center;
+    }
+
+    .myjat-header-right span {
+        width: 100%;
+        text-align: center;
+        white-space: normal;
+        line-height: 1.6;
+    }
+
+    .myjat-header-right a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 40px;
+        padding: 10px 12px;
+        box-sizing: border-box;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.85);
+        color: #d9650d;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        text-decoration: none;
+        white-space: normal;
+
+    }
+
+}

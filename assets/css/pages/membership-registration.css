@@ -364,3 +364,92 @@
 
 
 
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .myjat-registration-progress {
+        margin: 20px 0 30px;
+    }
+
+    .myjat-progress-step {
+        gap: 4px;
+    }
+
+    .myjat-progress-step span {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .myjat-progress-step strong {
+        display: none;
+    }
+
+    .myjat-progress-line {
+        margin: 0 6px;
+    }
+
+}
+
+/* =========================================================
+   Mobile
+========================================================= */
+
+@media (max-width: 700px) {
+
+    #myjat-membership-form {
+        margin: 20px 10px;
+        padding: 20px 15px;
+    }
+
+    #myjat-membership-form h1 {
+        font-size: 26px;
+    }
+
+    #myjat-membership-form h2 {
+        font-size: 20px;
+    }
+
+    .myjat-form-meta {
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    .myjat-registration-progress {
+        align-items: flex-start;
+    }
+
+    .myjat-progress-step {
+        flex-direction: column;
+        text-align: center;
+        gap: 4px;
+        font-size: 11px;
+    }
+
+    .myjat-progress-step strong {
+        font-weight: 500;
+    }
+
+    .myjat-progress-line {
+        margin-top: 14px;
+    }
+
+    .myjat-form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .myjat-form-actions {
+        justify-content: space-between;
+    }
+
+    .myjat-btn {
+        padding: 10px 14px;
+    }
+
+    .myjat-sankalp {
+        padding: 15px;
+        font-size: 14px;
+    }
+}
