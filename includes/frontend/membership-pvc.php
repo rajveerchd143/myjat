@@ -340,6 +340,15 @@ function myjat_render_member_card($application)
                     })
                 );
 
+                // Mobile browser ke liye ensure karo ki card ka size valid ho
+                const rect = card.getBoundingClientRect();
+
+                if (rect.width === 0 || rect.height === 0) {
+                    throw new Error(
+                        `Card size invalid: ${rect.width} x ${rect.height}`
+                    );
+                }
+
                 const source = await html2canvas(card, {
                     scale: 3,
                     backgroundColor: '#ffffff',
