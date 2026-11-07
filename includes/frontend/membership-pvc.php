@@ -422,8 +422,13 @@ function myjat_render_member_card($application)
                     link.remove();
 
                 } catch (error) {
-                    console.error(error);
-                    alert('PNG export failed. Browser console check karein.');
+                    console.error("PNG EXPORT ERROR:", error);
+
+                    alert(
+                        "PNG export failed:\n\n" +
+                        error.name + "\n" +
+                        error.message
+                    );
                 } finally {
                     button.disabled = false;
                     button.textContent = 'Download PVC Card';
