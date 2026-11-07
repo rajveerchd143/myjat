@@ -341,14 +341,18 @@ function myjat_render_member_card($application)
                 );
 
                 // Mobile browser ke liye ensure karo ki card ka size valid ho
-                const rect = card.getBoundingClientRect();
+                const canvases = [...card.querySelectorAll('canvas')];
 
-                if (rect.width === 0 || rect.height === 0) {
-                    throw new Error(
-                        `Card size invalid: ${rect.width} x ${rect.height}`
-                    );
-                }
-
+                console.log(
+                    'PVC CANVASES:',
+                    canvases.map((c, i) => ({
+                        index: i,
+                        width: c.width,
+                        height: c.height,
+                        cssWidth: getComputedStyle(c).width,
+                        cssHeight: getComputedStyle(c).height
+                    }))
+                );
                 const source = await html2canvas(card, {
                     scale: 3,
                     backgroundColor: '#ffffff',
