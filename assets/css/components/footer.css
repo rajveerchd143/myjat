@@ -106,16 +106,28 @@
     .myjat-footer {
         margin-top: 28px;
         padding: 25px 18px 0;
-    }
 
-    .myjat-footer-main {
+        /* Mobile: single column */
         grid-template-columns: 1fr;
         gap: 22px;
     }
 
+    .myjat-footer-brand {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .myjat-footer-brand-text {
+        min-width: 0;
+    }
+
+    .myjat-footer-org {
+        max-width: 220px;
+    }
+
     .myjat-footer-developer {
-        justify-self: start;
-        text-align: left;
+        justify-self: center;
+        text-align: center;
     }
 
     .myjat-footer-bottom {

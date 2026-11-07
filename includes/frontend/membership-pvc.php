@@ -63,6 +63,16 @@ function myjat_render_member_card($application)
         urlencode($qr_data);
 ?>
 
+    <!-- PVC card image download controls -->
+    <div class="myjat-pvc-download-controls">
+
+        <button type="button"
+            class="myjat-pvc-download-btn"
+            id="myjat-pvc-download-both">
+            Download PVC Card
+        </button>
+    </div>
+
     <!-- =====================================================
          PVC Card Front
     ====================================================== -->
@@ -297,15 +307,165 @@ function myjat_render_member_card($application)
 
     </div>
 
+    <script>
+        (function() {
+            const button = document.getElementById('myjat-pvc-download-both');
+
+            if (!button || button.dataset.bound === '1') return;
+            button.dataset.bound = '1';
+
+            async function loadLibrary() {
+                if (window.html2canvas) return window.html2canvas;
+
+                await new Promise((resolve, reject) => {
+                    const script = document.createElement('script');
+                    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+                    script.onload = resolve;
+                    script.onerror = reject;
+                    document.head.appendChild(script);
+                });
+
+                return window.html2canvas;
+            }
+
+            async function renderCard(card, html2canvas) {
+                await Promise.all(
+                    [...card.querySelectorAll('img')].map(img => {
+                        if (img.complete && img.naturalWidth) return Promise.resolve();
+
+                        return new Promise(resolve => {
+                            img.onload = resolve;
+                            img.onerror = resolve;
+                        });
+                    })
+                );
+
+                const source = await html2canvas(card, {
+                    scale: 3,
+                    backgroundColor: '#ffffff',
+                    useCORS: true,
+                    allowTaint: false,
+                    logging: false
+                });
+
+                // Standard ATM card: 85.60 x 53.98 mm at 300 DPI
+                const width = 1011;
+                const height = 638;
+
+                const output = document.createElement('canvas');
+                output.width = width;
+                output.height = height;
+
+                const ctx = output.getContext('2d');
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(0, 0, width, height);
+
+                const scale = Math.min(
+                    width / source.width,
+                    height / source.height
+                );
+
+                const w = source.width * scale;
+                const h = source.height * scale;
+
+                ctx.drawImage(
+                    source,
+                    (width - w) / 2,
+                    (height - h) / 2,
+                    w,
+                    h
+                );
+
+                return output;
+            }
+
+            button.addEventListener('click', async function() {
+                const cards = document.querySelectorAll('.myjat-pvc');
+
+                if (cards.length < 2) {
+                    alert('Front aur Back PVC card nahi mile.');
+                    return;
+                }
+
+                button.disabled = true;
+
+                try {
+                    button.textContent = 'Preparing PNG...';
+
+                    const html2canvas = await loadLibrary();
+
+                    const front = await renderCard(cards[0], html2canvas);
+                    const back = await renderCard(cards[1], html2canvas);
+
+                    // One combined PNG with 36px gap
+                    const gap = 36;
+                    const topGap = 30;
+
+                    const combined = document.createElement('canvas');
+
+                    combined.width = 1011;
+                    combined.height = topGap + 638 + gap + 638 + gap;
+
+                    const ctx = combined.getContext('2d');
+
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillRect(0, 0, combined.width, combined.height);
+
+                    ctx.drawImage(front, 0, topGap);
+                    ctx.drawImage(back, 0, topGap + 638 + gap);
+                    const link = document.createElement('a');
+                    link.download = 'MYJAT-PVC-Front-Back.png';
+                    link.href = combined.toDataURL('image/png');
+
+                    document.body.appendChild(link);
+                    link.click();
+                    link.remove();
+
+                } catch (error) {
+                    console.error(error);
+                    alert('PNG export failed. Browser console check karein.');
+                } finally {
+                    button.disabled = false;
+                    button.textContent = 'Download PVC Card';
+                }
+            });
+        })();
+    </script>
+    <script>
+        (function() {
+
+            function fitPVC() {
+
+                document.querySelectorAll(".myjat-pvc").forEach(card => {
+
+                    const parent = card.parentElement;
+
+                    if (!parent) return;
+
+                    const availableWidth = parent.clientWidth;
+
+                    const scale = Math.min(1, (availableWidth / 530) * 0.90);
+                    card.style.zoom = scale;
+
+                });
+
+            }
+
+            window.addEventListener("load", fitPVC);
+            window.addEventListener("resize", fitPVC);
+
+            fitPVC();
+
+        })();
+    </script>
 <?php
+
+
 
     return ob_get_clean();
 }
 
 
-// =========================================================
-// Member Card Page
-// =========================================================
 // =========================================================
 // Member Card Page
 // =========================================================
@@ -428,9 +588,9 @@ function myjat_admin_member_card_page($pdo)
     );
 
     $stmt->execute([
-    $_SESSION['myjat_user']['email'] ?? '',
-    $_SESSION['myjat_user']['email'] ?? ''
-]);
+        $_SESSION['myjat_user']['email'] ?? '',
+        $_SESSION['myjat_user']['email'] ?? ''
+    ]);
 
     $application = $stmt->fetch(PDO::FETCH_OBJ);
 

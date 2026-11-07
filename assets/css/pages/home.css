@@ -151,19 +151,19 @@ Features Section
       margin: 0;
       padding-left: 0;
       padding-right: 0;
-  }
+   }
 
-  .myjat-badge {
+   .myjat-badge {
 
-   align-self: center;
-   border-radius: var(--myjat-radius-1);
-   background: whitesmoke;
-   font-size: 20px;
-   font-weight: 800;
-   margin-top: 25px;
-   margin-bottom: 40px;
-   white-space: nowrap;
-}
+      align-self: center;
+      border-radius: var(--myjat-radius-1);
+      background: whitesmoke;
+      font-size: 20px;
+      font-weight: 800;
+      margin-top: 25px;
+      margin-bottom: 40px;
+      white-space: nowrap;
+   }
 
    .myjat-container {
 
@@ -273,14 +273,14 @@ Features Section
       overscroll-behavior: contain;
       -webkit-overflow-scrolling: touch;
       z-index: 1000;
-      transform: translateX(105%);
+      clip-path: inset(0 0 0 100%);
       visibility: hidden;
       pointer-events: none;
-      transition: transform 0.3s ease, visibility 0.3s ease;
+      transition: clip-path 0.3s ease, visibility 0.3s ease;
    }
 
    .myjat-header-menu.is-open {
-      transform: translateX(0);
+      clip-path: inset(0);
       visibility: visible;
       pointer-events: auto;
    }

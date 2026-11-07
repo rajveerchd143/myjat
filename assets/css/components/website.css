@@ -233,3 +233,33 @@ GLASS
     border: 1px solid rgba(255, 255, 255, .75);
     box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
 }
+
+/* =========================================
+   MYJAT — MOBILE BACKGROUND FIX
+========================================= */
+
+@media (max-width: 768px) {
+
+    body::before,
+    body::after {
+        position: fixed;
+
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        width: auto;
+        height: auto;
+
+        box-sizing: border-box;
+
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+
+        pointer-events: none;
+    }
+
+}

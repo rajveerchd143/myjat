@@ -50,7 +50,7 @@ function myjat_contact_home()
 
             <p>
                 <strong>ई-मेल :</strong><br>
-                <a href="mailto:shersingh37499@gmail.com">
+                <a href="mailto:shersingh37499@gmail.com" class="menu-a">
                     shersingh37499@gmail.com
                 </a>
             </p>

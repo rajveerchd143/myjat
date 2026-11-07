@@ -7,30 +7,31 @@
     line-height: 1.8;
     font-size: 25px;
 }
-.head-h1{
-        text-align:center;
-        font-size: 50px;
-        margin-top: 10px;
+
+.head-h1 {
+    text-align: center;
+    font-size: 50px;
+    margin-top: 10px;
 
 }
 
-.head-h2{
-        text-align:center;
-        font-size: 30px;
-        margin-top: 5px;
+.head-h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 5px;
 
 }
 
-.menu-line{
-    border:0;
-    border-top:2px solid #d8b16a;
-    margin:30px 0;
+.menu-line {
+    border: 0;
+    border-top: 2px solid #d8b16a;
+    margin: 30px 0;
 }
 
-.menu-bullet{
-    border-left:5px solid #c0392b;
-    padding-left:15px;
-    margin:35px 0 20px;
+.menu-bullet {
+    border-left: 5px solid #c0392b;
+    padding-left: 15px;
+    margin: 35px 0 20px;
 }
 
 /*----add on kalamse*/
@@ -38,9 +39,18 @@
 /*==========================================================
 KALMASE PAGE
 ==========================================================*/
-.kalmse-sign{
-    margin-top:50px;
-    text-align:right;
-    padding-top:25px;
-    border-top:2px solid rgba(201,162,39,.5);
+.kalmse-sign {
+    margin-top: 50px;
+    text-align: right;
+    padding-top: 25px;
+    border-top: 2px solid rgba(201, 162, 39, .5);
+}
+
+
+
+@media (max-width: 600px) {
+    .menu-a {
+        font-size: 20px;
+
+    }
 }
