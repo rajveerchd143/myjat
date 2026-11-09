@@ -86,16 +86,12 @@ text-align:center;
 color:#666;
 }
 
-.myjat-pvc-divider{
-height:1px;
-margin:10px 0 12px;
-background:linear-gradient(
-90deg,
-transparent,
-#d8d8d8,
-transparent
-);
+
+.myjat-pvc-divider {
+    background-image: none;
+    border-top: 1px solid #d8d8d8;
 }
+
 
 .myjat-pvc-body{
 display:flex;
